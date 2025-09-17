@@ -27,7 +27,7 @@ jobs:
               with:
                   context: ./
                   push: true
-                  tags: thegobc/jaitoutperdu:latest
+                  tags: thegobc/champdavoine:latest
 
             - name: Copy docker-compose files to server
               uses: appleboy/scp-action@v0.1.7
@@ -36,7 +36,7 @@ jobs:
                   username: 'root'
                   key: ${{ secrets.SSH_PRIVATE_KEY_NOPW }}
                   source: './docker-compose.yml,./docker-compose.swarm.yml'
-                  target: './jaitoutperdu'
+                  target: './champdavoine'
 
             - name: SSH and update Docker Swarm service
               uses: appleboy/ssh-action@v0.1.6
@@ -45,13 +45,13 @@ jobs:
                   username: 'root'
                   key: ${{ secrets.SSH_PRIVATE_KEY_NOPW }}
                   script: |
-                      cd jaitoutperdu
+                      cd champdavoine
                       
                       # Deploy or update the stack (use only swarm config for production)
-                      docker stack deploy -c docker-compose.swarm.yml jaitoutperdu-stack
+                      docker stack deploy -c docker-compose.swarm.yml champdavoine-stack
                       
                       # Wait a moment for deployment to process
                       sleep 5
                       
                       # Force update to pull the new image
-                      docker service update --image thegobc/jaitoutperdu:latest --force jaitoutperdu-stack_jaitoutperdu
+                      docker service update --image thegobc/champdavoine:latest --force champdavoine-stack_champdavoine

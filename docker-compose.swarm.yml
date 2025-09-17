@@ -1,18 +1,18 @@
 # Production Swarm configuration
 services:
-    jaitoutperdu:
+    champdavoine:
         build:
             target: production
-        image: thegobc/jaitoutperdu
+        image: thegobc/champdavoine
         deploy:
             replicas: 1
             restart_policy:
                 condition: on-failure
         labels:
             - 'traefik.enable=true'
-            - 'traefik.http.routers.jaitoutperdu.rule=Host(`jaitoutperdu.com`)'
-            - 'traefik.http.routers.jaitoutperdu.entrypoints=websecure'
-            - 'traefik.http.routers.jaitoutperdu.tls.certresolver=myresolver'
+            - 'traefik.http.routers.champdavoine.rule=Host(`champdavoine.com`)'
+            - 'traefik.http.routers.champdavoine.entrypoints=websecure'
+            - 'traefik.http.routers.champdavoine.tls.certresolver=myresolver'
         environment:
             NODE_ENV: production
         networks:
