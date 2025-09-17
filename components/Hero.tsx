@@ -15,7 +15,7 @@ interface LayerProps {
   reverse?: boolean
 }
 
-const Layer: React.FC<LayerProps> = ({ speed, image, zIndex, reverse = false }) => {
+const Layer: React.FC<LayerProps> = ({ speed, image, zIndex, reverse = true }) => {
   const { scrollYProgress } = useScroll()
   const y = useTransform(scrollYProgress, [0, 1], [0, reverse ? 30 * speed : -30 * speed])
 
@@ -33,7 +33,7 @@ const Layer: React.FC<LayerProps> = ({ speed, image, zIndex, reverse = false }) 
 
 const LayerFront: React.FC<LayerProps> = ({ speed, image, zIndex }) => {
   const { scrollYProgress } = useScroll()
-  const y = useTransform(scrollYProgress, [0, 1], [0, -60 * speed])
+  const y = useTransform(scrollYProgress, [0, 1], [0, 60 * speed])
 
   return (
     <motion.div
@@ -49,7 +49,7 @@ const LayerFront: React.FC<LayerProps> = ({ speed, image, zIndex }) => {
 
 const BackgroundLayer: React.FC<{ speed: number }> = ({ speed }) => {
   const { scrollYProgress } = useScroll()
-  const y = useTransform(scrollYProgress, [0, 1], [0, -10 * speed])
+  const y = useTransform(scrollYProgress, [0, 1], [0, 10 * speed])
 
   return (
     <motion.div
@@ -71,9 +71,9 @@ const Hero: React.FC = () => {
 
   return (
     <div ref={ref} className="w-full h-screen overflow-hidden bg-black relative">
-      <Layer speed={30} image={backImage} zIndex={2} />
-      <Layer speed={50} image={middleImage} zIndex={5} />
-      <LayerFront speed={70} image={frontImage} zIndex={7} />
+      <Layer speed={90} image={backImage} zIndex={2} />
+      <Layer speed={70} image={middleImage} zIndex={5} />
+      <LayerFront speed={0} image={frontImage} zIndex={7} />
 
       <div className="absolute inset-0 grid md:grid-cols-2 md:grid-rows-1 grid-rows-2 z-[4] h-screen">
         <div className="col-start-2 row-start-1 flex items-end md:items-center justify-center">
