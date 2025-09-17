@@ -2,6 +2,7 @@
 
 import { Github, Instagram, Music, Mail, Phone, MapPin, ChevronDown, Code, Palette, Calendar, ExternalLink, Star } from 'lucide-react'
 import { useEffect, useState } from 'react'
+import Hero from '../components/Hero'
 
 export default function Home() {
   const [scrollY, setScrollY] = useState(0)
@@ -153,9 +154,9 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-black min-w-screen">
       {/* Floating Navigation */}
-      <nav
+      {/* <nav
         className="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300"
         style={{
           background: scrollY > 100 ? 'rgba(17, 24, 39, 0.9)' : 'rgba(17, 24, 39, 0.8)',
@@ -187,103 +188,13 @@ export default function Home() {
             </a>
           ))}
         </div>
-      </nav>
+      </nav> */}
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen overflow-hidden flex items-center">
-        {/* Animated Background */}
-        <div className="absolute inset-0">
-          {/* Grid Pattern */}
-          <div
-            className="absolute inset-0 opacity-20"
-            style={{
-              backgroundImage: `
-                linear-gradient(rgba(147, 51, 234, 0.1) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(147, 51, 234, 0.1) 1px, transparent 1px)
-              `,
-              backgroundSize: '50px 50px',
-              transform: `translate(${scrollY * 0.1}px, ${scrollY * 0.1}px)`
-            }}
-          />
-
-          {/* Floating Orbs */}
-          <div className="absolute top-1/4 left-1/6 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute top-3/4 right-1/4 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-pink-500/15 rounded-full blur-3xl animate-pulse delay-2000"></div>
-
-          {/* Gradient Overlays */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/20 via-transparent to-blue-900/20"></div>
-          <div className="absolute inset-0 bg-gradient-to-bl from-pink-900/10 via-transparent to-purple-900/10"></div>
-        </div>
-
-        <div className="relative z-10 container mx-auto px-6">
-          <div className="text-center">
-            {/* Animated Name */}
-            <div className="mb-8">
-              <h1 className="text-6xl lg:text-8xl font-black mb-4 tracking-tight">
-                <span className="inline-block bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent animate-pulse">
-                  Colin
-                </span>
-              </h1>
-              <h1 className="text-6xl lg:text-8xl font-black mb-6 tracking-tight">
-                <span className="inline-block bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-pulse delay-200">
-                  Champdavoine
-                </span>
-              </h1>
-            </div>
-
-            {/* Animated Title */}
-            <div className="mb-8 relative">
-              <div className="flex items-center justify-center gap-4 text-xl lg:text-3xl font-light text-gray-300">
-                <Code className="w-8 h-8 text-purple-400 animate-bounce" />
-                <span className="typing-animation">Développeur full-stack créatif</span>
-                <span className="text-purple-400">&</span>
-                <Palette className="w-8 h-8 text-pink-400 animate-bounce delay-300" />
-                <span className="typing-animation delay-1000">rappeur</span>
-              </div>
-            </div>
-
-            {/* Enhanced Qualities */}
-            <div className="flex flex-wrap justify-center gap-3 mb-16 max-w-4xl mx-auto">
-              {resumeData.profile.qualities.map((quality, index) => (
-                <span
-                  key={index}
-                  className="group px-6 py-3 bg-gradient-to-r from-gray-800/60 to-gray-900/60 border border-gray-700/50 rounded-full text-sm text-gray-300 backdrop-blur-md hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <span className="group-hover:text-white transition-colors">{quality}</span>
-                </span>
-              ))}
-            </div>
-
-            {/* Enhanced Social Links */}
-            <div className="flex justify-center space-x-6 mb-16">
-              {[
-                { href: `mailto:${resumeData.contact.email}`, icon: Mail, color: 'hover:bg-purple-500/20 hover:border-purple-400' },
-                { href: resumeData.contact.socials.github, icon: Github, color: 'hover:bg-gray-500/20 hover:border-gray-400' },
-                { href: resumeData.contact.socials.instagram, icon: Instagram, color: 'hover:bg-pink-500/20 hover:border-pink-400' },
-                { href: resumeData.contact.socials.soundcloud, icon: Music, color: 'hover:bg-orange-500/20 hover:border-orange-400' }
-              ].map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  className={`group p-4 bg-gray-800/40 border border-gray-700/50 rounded-2xl transition-all duration-300 hover:scale-110 hover:shadow-xl backdrop-blur-md ${social.color}`}
-                >
-                  <social.icon className="w-7 h-7 text-gray-300 group-hover:text-white transition-colors" />
-                </a>
-              ))}
-            </div>
-
-            {/* Scroll Indicator */}
-            <div className="animate-bounce">
-              <ChevronDown className="w-8 h-8 text-gray-400 mx-auto" />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Hero Section with Parallax Effect */}
+      <Hero resumeData={resumeData} />
 
       {/* Profile Summary Section */}
-      <section id="about" className="py-32 px-6 relative">
+      <section id="about" className="pb-24 px-6 relative">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900/50 to-black"></div>
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-20">
