@@ -1,11 +1,11 @@
 'use client'
 
-import { Github, Instagram, Music, Mail, Phone, MapPin, ChevronDown, Code, Palette, Calendar, ExternalLink, Star } from 'lucide-react'
+import { Github, Instagram, Music, Mail, Phone, MapPin, Code, Palette, Calendar, ExternalLink, Star } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import Hero from '../components/Hero'
 
 export default function Home() {
-  const [scrollY, setScrollY] = useState(0)
+  const [, setScrollY] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY)
@@ -191,7 +191,7 @@ export default function Home() {
       </nav> */}
 
       {/* Hero Section with Parallax Effect */}
-      <Hero resumeData={resumeData} />
+      <Hero />
 
       {/* Profile Summary Section */}
       <section id="about" className="pb-24 px-6 relative">

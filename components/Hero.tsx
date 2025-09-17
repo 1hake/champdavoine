@@ -2,15 +2,15 @@
 
 import { motion, useScroll, useTransform } from 'framer-motion'
 import React, { useRef } from 'react'
-import { Github, Instagram, Music, Mail, Code, Palette, ChevronDown } from 'lucide-react'
 
 import backImage from '../public/images/back.png'
 import frontImage from '../public/images/front.png'
 import middleImage from '../public/images/middle.png'
+import { StaticImageData } from 'next/dist/shared/lib/image-external'
 
 interface LayerProps {
   speed: number
-  image: any
+  image: StaticImageData
   zIndex: number
   reverse?: boolean
 }
@@ -63,11 +63,9 @@ const BackgroundLayer: React.FC<{ speed: number }> = ({ speed }) => {
   )
 }
 
-interface HeroProps {
-  resumeData: any
-}
 
-const Hero: React.FC<HeroProps> = ({ resumeData }) => {
+
+const Hero: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll()
 
