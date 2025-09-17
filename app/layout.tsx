@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "j'ai tout perdu",
-  description: "Récupération de données informatiques",
+  title: "Colin Champdavoine - Développeur Fullstack & Artiste",
+  description: "Portfolio de Colin Champdavoine, développeur fullstack spécialisé en React et Node.js, et artiste polyvalent. Découvrez mes projets tech et créatifs.",
 };
 
 export default function RootLayout({
