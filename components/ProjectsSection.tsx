@@ -6,7 +6,7 @@ interface ProjectsSectionProps {
     };
 }
 
-const ProjectsSection: React.FC<ProjectsSectionProps> = ({ resumeData }) => {
+const ProjectsSection: React.FC<ProjectsSectionProps> = ({ }) => {
     const projects = [
         {
             title: "RapText",

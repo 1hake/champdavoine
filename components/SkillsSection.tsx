@@ -9,7 +9,7 @@ interface SkillsSectionProps {
     };
 }
 
-const SkillsSection: React.FC<SkillsSectionProps> = ({ resumeData }) => {
+const SkillsSection: React.FC<SkillsSectionProps> = ({ }) => {
     return (
         <section id="skills" className="py-32 px-6 relative">
             <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/10 to-black"></div>
