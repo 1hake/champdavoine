@@ -21,7 +21,7 @@ const Layer: React.FC<LayerProps> = ({ speed, image, zIndex, reverse = true }) =
 
   return (
     <motion.div
-      className="absolute inset-0 h-[200vh] bg-cover bg-center"
+      className="absolute inset-0 h-[100vh] bg-cover bg-center"
       style={{
         y,
         backgroundImage: `url(${image.src})`,
@@ -37,12 +37,13 @@ const LayerFront: React.FC<LayerProps> = ({ speed, image, zIndex }) => {
 
   return (
     <motion.div
-      className="absolute inset-0 h-[200vh] bg-cover bg-center shadow-xl"
+      className="absolute inset-0 h-[100vh] bg-cover bg-center shadow-xl "
       style={{
         y,
         backgroundImage: `url(${image.src})`,
         zIndex
-      }}
+      }
+      }
     />
   )
 }
@@ -73,21 +74,21 @@ const Hero: React.FC = () => {
     <div ref={ref} className="w-full h-screen overflow-hidden bg-black relative">
       <Layer speed={90} image={backImage} zIndex={2} />
       <Layer speed={70} image={middleImage} zIndex={5} />
-      <LayerFront speed={0} image={frontImage} zIndex={7} />
+      <LayerFront speed={0} image={frontImage} zIndex={9} />
 
-      <div className="absolute inset-0 grid md:grid-cols-2 md:grid-rows-1 grid-rows-2 z-[4] h-screen">
-        <div className="col-start-2 row-start-1 flex items-end md:items-center justify-center">
+      <div className="absolute inset-0 z-[4] mt-56 h-screen">
+        <div className="flex items-end md:items-center justify-center">
           <motion.div
-            className="p-14 font-bold text-white text-8xl md:text-9xl"
-            style={{ translateY: useTransform(scrollYProgress, [0, 1], [0, 50]) }}
+            className="font-bold text-white text-8xl md:text-9xl"
+            style={{ translateY: useTransform(scrollYProgress, [0, 1], [20, -90]) }}
           >
             COLIN
           </motion.div>
         </div>
-        <div className="mt-40 col-start-2 row-start-1 flex items-end md:items-center justify-center">
+        <div className="flex items-end md:items-center justify-center">
           <motion.div
-            className="md:p-14 font-bold text-white text-4xl"
-            style={{ translateY: useTransform(scrollYProgress, [0, 1], [0, 80]) }}
+            className="font-bold text-white text-4xl"
+            style={{ translateY: useTransform(scrollYProgress, [0, 1], [40, -100]) }}
           >
             CHAMPDAVOINE
           </motion.div>
