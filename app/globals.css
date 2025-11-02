@@ -37,8 +37,8 @@ html {
 }
 
 body {
-  color: var(--color-ink-inverse);
-  background: black;
+  color: var(--color-ink);
+  background: var(--color-surface-light);
   font-family: var(--font-body);
   overflow-x: hidden;
   transition: background 0.4s ease, color 0.4s ease;
@@ -59,8 +59,8 @@ body::after {
   position: fixed;
   inset: -10%;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
-  mix-blend-mode: soft-light;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
   animation: grain-shift 14s steps(12) infinite;
   z-index: 1;
 }
@@ -96,8 +96,8 @@ body::after {
   position: absolute;
   inset: 0;
   border-radius: 28px;
-  border: 3px solid var(--color-border-strong);
-  opacity: 0.08;
+  border: 3px solid var(--color-border-light);
+  opacity: 0.12;
   pointer-events: none;
 }
 
@@ -201,24 +201,6 @@ body::after {
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-bg-dark);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-blue);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-neon);
 }
 
 @keyframes grain-shift {

@@ -2,7 +2,7 @@
 export const heroData = {
     firstName: 'COLIN',
     lastName: 'CHAMPDAVOINE',
-    title: 'Développeur React',
+    title: '',
     images: {
         back: '/images/back.png',
         middle: '/images/middle.png',
@@ -12,14 +12,14 @@ export const heroData = {
 
 // About Section Data
 export const aboutData = {
-    eyebrow: 'Manifesto',
+    eyebrow: 'À propos',
     badge: 'Tech Créative / Culture Audacieuse',
     title: {
-        line1: 'Code pour les audacieux.',
-        line2: 'Design pour les visionnaires.'
+        line1: 'Dev front-end.',
+        line2: 'Bedroom artist.'
     },
     profile: {
-        summary: "Développeur front-end spécialisé React & Next.js. Expertise en workflows full-stack et architecture produit. Fondateur du collectif trenteseptcinq (création, événementiel, musique). Track record éprouvé en freelance et startup.",
+        summary: "Développeur front-end React & Next.js. Je fais de la musique à mes heures perdues.",
         qualities: [
             'Performance',
             'UX Exigeante',
@@ -38,8 +38,8 @@ export const aboutData = {
 // Experience Section Data
 export const experienceData = {
     eyebrow: 'Parcours',
-    title: 'Expérience & impact produit',
-    description: 'Missions front-end à fort impact, culture produit exigeante et exécution rapide.',
+    title: 'Expérience',
+    description: 'Développement front-end en startup et entreprise.',
     experience: [
         {
             employer: 'IZI Solutions',
@@ -48,7 +48,7 @@ export const experienceData = {
             end: 'Présent',
             duration: '5 ans 11 mois',
             location: 'Paris, France',
-            logo: '/images/companies/izi-solutions.png',
+            logo: '/images/companies/izi-solutions.jpg',
             description: [
                 "Développement admin et migration Redux vers React Context.",
                 "Refonte application mobile Réseau IZI by EDF : migration React Native 0.63, RGPD, tests E2E, nouveau design, déploiement stores iOS/Android.",
@@ -62,7 +62,7 @@ export const experienceData = {
             end: 'septembre 2019',
             duration: '11 mois',
             location: 'Station F',
-            logo: '/images/companies/connecting-food.png',
+            logo: '/images/companies/connecting-food.jpg',
             description: [
                 "Landing page et blog de présentation.",
                 "PWA React mobile-first pour traçabilité alimentaire via QR code.",
@@ -77,7 +77,7 @@ export const experienceData = {
             end: 'novembre 2018',
             duration: '3 mois',
             location: 'Station F',
-            logo: '/images/companies/freelance.png',
+            logo: '/images/companies/connecting-food.jpg',
             description: [
                 "PWA mobiles de la conception au déploiement.",
                 "CMS React/Redux pour création no-code d'applications mobiles."
@@ -89,7 +89,7 @@ export const experienceData = {
             start: 'janvier 2018',
             end: 'septembre 2018',
             duration: '9 mois',
-            logo: '/images/companies/nokia.png',
+            logo: '/images/companies/nokia.jpg',
             description: [
                 "Outil interne de recherche produits connectés avec visualisation de données optimisée (UX/UI).",
                 "Migration d'outils existants vers React/Redux."
@@ -102,7 +102,7 @@ export const experienceData = {
             end: 'décembre 2017',
             duration: '6 mois',
             location: 'Paris',
-            logo: '/images/companies/withings.png',
+            logo: '/images/companies/withings.jpg',
             description: [
                 "Script de génération de données de test conformes au modèle officiel.",
                 "Intégration API interne et stockage Cassandra/PostgreSQL.",
@@ -122,110 +122,275 @@ export const experienceData = {
     ]
 };
 
-// Projects Section Data
-export const projectsData = {
-    eyebrow: 'Projets',
-    title: 'Expérimentations & réalisations',
-    description: 'Produits hybrides, marques culturelles et side-projects à fort impact.',
+// Code Section Data
+export const codeData = {
+    eyebrow: 'Code',
+    title: 'Développement',
+    description: 'Projets techniques et applications.',
     projects: [
         {
-            title: 'RapText',
-            description: 'API de punchlines & plateforme mobile pour rappeurs.',
-            tech: ['Next.js', 'GraphQL', 'Prisma', 'SQLite'],
-            icon: '🎤',
-            image: '/images/projects/raptext.png',
-            accent: '#F9FF00',
-            tone: 'dark'
-        },
-        {
-            title: 'Music of the Day',
-            description: 'Sélection musicale quotidienne curée.',
-            tech: ['React', 'Capacitor', 'Spotify API'],
+            slug: 'diggerz',
+            title: 'Diggerz',
+            description: 'Application sociale de partage musical quotidien.',
+            fullDescription:
+                "Application mobile où chacun partage chaque jour la musique qu'il écoute, découvre celle de ses amis et construit une bibliothèque collective. Une seule recommandation par jour, centrée sur l'authenticité plutôt que l'algorithme.",
+            tech: ['React', 'Capacitor', 'Tailwind', 'Prisma', 'SQLite', 'Node.js', 'Spotify API'],
+            features: [
+                '1 recommandation par jour',
+                'Feed musical des amis',
+                'Player Spotify intégré',
+                'Notifications quotidiennes',
+                'Historique des partages',
+                'Backend Prisma + SQLite'
+            ],
+            challenge:
+                "Créer une expérience sociale musicale authentique en limitant le partage, tout en intégrant Spotify et des notifications natives.",
+            solution:
+                "Appli React + Capacitor, backend Prisma, notifications natives, UX ultra minimaliste.",
+            results: [
+                'Prototype fonctionnel mobile',
+                'Notifications opérationnelles',
+                'First users tests'
+            ],
+            role: 'Founder & Full-Stack Developer',
+            timeline: '2023 – Présent',
+            status: 'Beta privée',
+            team: 'Solo',
+            gallery: [],
+            videos: [],
+            year: '2024',
+            link: null,
+            github: null,
             icon: '🎵',
-            image: '/images/projects/music-of-the-day.png',
+            image: '/images/projects/diggerz.png',
             accent: '#87C9F9',
             tone: 'light'
         },
         {
+            slug: 'jai-tout-perdu',
             title: "J'ai tout perdu",
-            description: 'Service de récupération de données avec UX empathique.',
-            tech: ['React', 'Stripe', 'Logistique'],
+            description: 'Micro-service perso de récupération de données.',
+            fullDescription:
+                "Petit service personnel pour aider des particuliers à récupérer des données perdues (disques durs, USB, cartes SD). Site simple pour expliquer le besoin, me contacter et recevoir une estimation. Un service humain et artisanal.",
+            tech: ['Next.js', 'React', 'Tailwind CSS'],
+            features: [
+                'Mini-site de contact',
+                'Formulaire simple',
+                'Diagnostic de base gratuit',
+                'Récupération sur supports courants'
+            ],
+            challenge:
+                "Créer une manière simple, humaine et locale d'aider des gens à récupérer leurs fichiers sans passer par des services opaques.",
+            solution:
+                "Site minimal + prise de contact directe + bonnes pratiques de récupération de base.",
+            results: [
+                'Plusieurs récupérations réussies',
+                'Bouche-à-oreille local positif'
+            ],
+            role: 'Créateur & opérateur',
+            timeline: '2024 – Présent',
+            status: 'Actif',
+            team: 'Solo',
+            gallery: [],
+            videos: [],
+            year: '2024',
+            link: null,
+            github: null,
             icon: '💾',
             image: '/images/projects/jai-tout-perdu.png',
             accent: '#FF9B4B',
             tone: 'dark'
         },
         {
-            title: 'trenteseptcinq',
-            description: 'Direction artistique, merchandising et événements live du collectif.',
-            tech: ['Branding', 'Événementiel', 'Production Musicale'],
-            icon: '🎨',
-            image: '/images/projects/trenteseptcinq.png',
-            accent: '#F4F0A2',
-            tone: 'light'
-        },
-        {
-            title: 'ENCORE Project',
-            description: 'Prototype rapide pour validation de concept startup culturelle.',
-            tech: ['React', 'Airtable', 'Prototypage'],
-            icon: '🚀',
-            image: '/images/projects/encore.png',
-            accent: '#87C9F9',
+            slug: 'fuzdi',
+            title: 'FUZDi',
+            description: 'Plateforme GPU + interface pour génération d’images IA.',
+            fullDescription:
+                "Plateforme permettant de lancer et gérer des serveurs GPU à la demande pour la création d'images avec IA (ComfyUI / Stable Diffusion). Dashboard pour lancer des jobs, suivre les rendus, optimiser les coûts et contrôler le cycle de vie des GPU.",
+            tech: ['Next.js', 'React', 'Tailwind CSS', 'Node.js', 'Docker', 'Traefik', 'GPU compute', 'ComfyUI API'],
+            features: [
+                'Gestion serveurs GPU à la demande',
+                'Lancement de jobs IA + monitoring',
+                'Aperçu en direct des rendus',
+                'Auto-shutdown pour éviter les coûts',
+                'Déploiement sur serveurs GPU cloud/self-host'
+            ],
+            challenge:
+                "Rendre accessible la puissance GPU à la demande pour la création d’images IA, sans complexité serveur.",
+            solution:
+                "Dashboard Next.js + API ComfyUI + orchestration Docker & shutdown auto.",
+            results: [
+                'Interface prête pour utilisateurs test',
+                'Pipeline de génération d’images opérationnel'
+            ],
+            role: 'Founder & Full-Stack Developer',
+            timeline: '2024 – Présent',
+            status: 'Beta privée',
+            team: 'Solo',
+            gallery: [],
+            videos: [],
+            year: '2024',
+            link: null,
+            github: null,
+            icon: '⚙️',
+            image: '/images/projects/fuzdi.png',
+            accent: '#A87BFF',
             tone: 'dark'
         },
         {
-            title: 'Événementiel',
-            description: 'Festivals, scénographie et événements nocturnes.',
-            tech: ['Organisation', 'Communication', 'Logistique'],
-            icon: '🎪',
-            image: '/images/projects/evenementiel.png',
-            accent: '#FF9B4B',
+            slug: 'stripe-shop-boilerplate',
+            title: 'Boilerplate Shop Stripe',
+            description: 'Template e-commerce perso pour créateurs.',
+            fullDescription:
+                "Boilerplate e-commerce utilisé pour créer rapidement des boutiques pour des amis artistes et designers, sans Shopify. Panier, checkout Stripe, pages produit simples et design épuré.",
+            tech: ['Next.js', 'React', 'Tailwind CSS', 'Stripe', 'Node.js'],
+            features: [
+                'Catalogue & fiches produit',
+                'Panier + checkout Stripe',
+                'Emails de confirmation',
+                'Déploiement rapide (Vercel ou serveur)'
+            ],
+            challenge:
+                "Offrir une alternative simple et indépendante à Shopify pour des petits créateurs.",
+            solution:
+                "Template Next.js + Stripe avec structure ultra simple à cloner et personnaliser.",
+            results: [
+                '2 boutiques en production',
+                'Mise en place en quelques heures'
+            ],
+            role: 'Full-Stack Developer',
+            timeline: '2024 – Présent',
+            status: 'Utilisé en production',
+            team: 'Solo',
+            gallery: [],
+            videos: [],
+            year: '2024',
+            link: null,
+            github: null,
+            icon: '🛒',
+            image: '/images/projects/shop-stripe.png',
+            accent: '#00D4FF',
+            tone: 'light'
+        },
+        {
+            slug: 'savoir-et-rire',
+            title: 'Partage du savoir & du rire',
+            description: 'Bibliothèque YouTube entre amis + extension navigateur.',
+            fullDescription:
+                "Mini-plateforme privée pour créer une bibliothèque de vidéos YouTube entre amis — culture, humour et découvertes. Extension Chrome pour ajouter une vidéo en un clic.",
+            tech: ['Next.js', 'React', 'Tailwind CSS', 'Firebase', 'Browser Extension', 'YouTube API'],
+            features: [
+                'Ajout en un clic via extension Chrome',
+                'Bibliothèque commune',
+                'Tags & catégories',
+                'Réactions / emojis',
+                'Espace social privé'
+            ],
+            challenge:
+                "Créer un endroit simple et fun pour partager des vidéos entre amis sans algorithmes.",
+            solution:
+                "Web app + extension YouTube custom + stockage Firebase.",
+            results: [
+                'Usage privé régulier',
+                'Renforce culture + humour dans le groupe'
+            ],
+            role: 'Creator & Developer',
+            timeline: '2024 – Présent',
+            status: 'Actif privé',
+            team: 'Solo',
+            gallery: [],
+            videos: [],
+            year: '2024',
+            link: null,
+            github: null,
+            icon: '📺',
+            image: '/images/projects/savoir-et-rire.png',
+            accent: '#FFDD4A',
             tone: 'light'
         }
     ]
 };
 
-// Skills Section Data
+// Music Section Data
+export const musicData = {
+    eyebrow: 'Musique',
+    title: 'Créations sonores',
+    description: 'Bedroom pop, électronique expérimentale et production.',
+    tracks: [
+        {
+            title: 'Midnight Vibe',
+            artist: '1HAKE',
+            description: 'Ambiance nocturne avec synthés analogiques et rythmiques lo-fi.',
+            genre: 'Bedroom Pop',
+            duration: '3:42',
+            year: '2024',
+            cover: '/images/music/midnight-vibe.jpg',
+            accent: '#9B59B6',
+            tone: 'dark',
+            soundcloud: 'https://soundcloud.com/1hake/midnight-vibe',
+            spotify: null,
+            tags: ['Lo-Fi', 'Synthwave', 'Chill']
+        },
+        {
+            title: 'EP en preparation',
+            artist: '1HAKE',
+            description: 'Nouveaux morceaux à venir bientôt.',
+            genre: 'À définir',
+            duration: '',
+            year: '2024',
+            cover: null,
+            accent: '#34495E',
+            tone: 'light',
+            soundcloud: null,
+            spotify: null,
+            tags: []
+        }
+
+    ]
+};
+
 export const skillsData = {
     eyebrow: 'Compétences',
-    title: 'Stack & expertise',
-    description: 'Front-end haute performance, workflows optimisés, livraison rapide et code propre.',
+    title: 'Stack technique',
+    description: 'Technologies front-end, IA, infrastructure et outils créatifs.',
     skillsRows: {
         row1: [
-            { name: 'Socket.io', logo: 'https://socket.io/images/logo.svg' },
-            { name: 'Angular', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg' },
             { name: 'Next.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
-            { name: 'Bootstrap', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' },
-            { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-            { name: 'Jest', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg' }
-        ],
-        row2: [
             { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
             { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
             { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
-            { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
-            { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
-            { name: 'PHP', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg' }
-        ],
-        row3: [
-            { name: 'GraphQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg' },
+            { name: 'Tailwind CSS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg' },
             { name: 'Vite', logo: 'https://vitejs.dev/logo.svg' },
-            { name: 'Prisma', logo: 'https://avatars.githubusercontent.com/u/17219288?s=200&v=4' },
-            { name: 'Tailwind', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg' },
-            { name: 'MongoDB', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
-            { name: 'PostgreSQL', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' }
+        ],
+
+        row2: [
+            { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+            { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+            { name: 'Docker Compose', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+            { name: 'Traefik', logo: 'https://avatars.githubusercontent.com/u/6203628?s=200&v=4' },
+            { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+            { name: 'Firebase', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
+        ],
+
+        row3: [
+            { name: 'OpenAI API', logo: 'https://avatars.githubusercontent.com/u/14957082?s=200&v=4' },
+            { name: 'Gemini API', logo: 'https://avatars.githubusercontent.com/u/1342004?s=200&v=4' },
+            { name: 'n8n', logo: 'https://avatars.githubusercontent.com/u/45487711?s=200&v=4' },
+            { name: 'ComfyUI', logo: 'https://avatars.githubusercontent.com/u/137696620?s=200&v=4' },
+            { name: 'Capacitor', logo: 'https://raw.githubusercontent.com/ionic-team/ionicons/master/src/svg/ios-phone-portrait.svg' },
+            { name: 'Figma', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg' },
+            { name: 'Photoshop', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg' },
         ]
     }
 };
-
 // Contact Section Data
 export const contactData = {
     eyebrow: 'Contact',
     title: {
-        line1: 'Construisons quelque chose',
-        line2: 'de neuf'
+        line1: 'Travaillons ensemble',
+        line2: ''
     },
-    description: 'Prêt à lancer un projet ambitieux ? Contactez-moi pour en discuter.',
+    description: 'Disponible pour des missions freelance.',
     contact: {
         email: 'colin.champdavoine@gmail.com',
         phone: '+33 6 95 41 17 96',
@@ -246,7 +411,7 @@ export const resumeData = {
     profile: aboutData.profile,
     experience: experienceData.experience,
     education: experienceData.education,
-    projects_highlight: projectsData.projects.map(p => p.title),
+    projects_highlight: codeData.projects.map(p => p.title),
     skills: {
         techniques: [
             ...skillsData.skillsRows.row1.map(s => s.name),

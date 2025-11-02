@@ -1,10 +1,11 @@
 import { ExternalLink, ArrowUpRight } from 'lucide-react';
 import { codeData } from '@/data/data';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const CodeSection: React.FC = () => {
     return (
-        <section id="projects" className="relative px-4 py-[var(--section-padding)] sm:px-6 lg:px-8">
+        <section id="code" className="relative px-4 py-[var(--section-padding)] sm:px-6 lg:px-8">
             <div className="container mx-auto max-w-6xl">
                 <div className="flex flex-col items-center text-center">
                     <span className="eyebrow inline-flex items-center gap-3 text-[var(--color-neon)]">
@@ -38,10 +39,21 @@ const CodeSection: React.FC = () => {
 
                                     <div className="relative -mx-6 -mt-6 mb-6 h-48 overflow-hidden sm:-mx-8 sm:-mt-8">
                                         <div
-                                            className="h-full w-full flex items-center justify-center text-6xl transition-transform duration-300 group-hover:scale-105"
+                                            className="relative h-full w-full transition-transform duration-300 group-hover:scale-105"
                                             style={{ background: `linear-gradient(135deg, ${project.accent}40, ${project.accent}20)` }}
                                         >
-                                            {project.icon}
+                                            {project.image ? (
+                                                <Image
+                                                    src={project.image}
+                                                    alt={`${project.title} preview`}
+                                                    fill
+                                                    className="object-cover"
+                                                />
+                                            ) : (
+                                                <div className="flex h-full w-full items-center justify-center text-6xl">
+                                                    {project.icon}
+                                                </div>
+                                            )}
                                         </div>
                                     </div>
 
