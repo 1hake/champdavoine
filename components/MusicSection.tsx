@@ -1,6 +1,7 @@
 import { Play, Pause, ExternalLink } from 'lucide-react';
 import { musicData } from '@/data/data';
 import { useState } from 'react';
+import Image from 'next/image';
 
 const MusicSection: React.FC = () => {
     const [playingTrack, setPlayingTrack] = useState<string | null>(null);
@@ -54,10 +55,11 @@ const MusicSection: React.FC = () => {
                                         style={{ background: `linear-gradient(135deg, ${track.accent}40, ${track.accent}20)` }}
                                     >
                                         {track.cover ? (
-                                            <img
+                                            <Image
                                                 src={track.cover}
                                                 alt={`${track.title} cover`}
-                                                className="h-full w-full object-cover"
+                                                fill
+                                                className="object-cover"
                                             />
                                         ) : (
                                             <div className="text-6xl">🎵</div>

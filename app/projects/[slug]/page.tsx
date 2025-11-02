@@ -10,8 +10,9 @@ export function generateStaticParams() {
     }))
 }
 
-export default function ProjectDetail({ params }: { params: { slug: string } }) {
-    const project = codeData.projects.find(p => p.slug === params.slug)
+export default async function ProjectDetail({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params
+    const project = codeData.projects.find(p => p.slug === slug)
 
     if (!project) {
         notFound()

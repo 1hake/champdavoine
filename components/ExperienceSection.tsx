@@ -1,5 +1,6 @@
 import { MapPin, GraduationCap } from 'lucide-react';
 import { experienceData } from '@/data/data';
+import Image from 'next/image';
 
 interface ExperienceItem {
     employer: string;
@@ -81,10 +82,11 @@ const ExperienceSection: React.FC = () => {
                                                     {exp.type === 'Formation' ? (
                                                         <GraduationCap className="h-12 w-12 text-[var(--color-neon)] sm:h-16 sm:w-16 lg:h-18 lg:w-18" />
                                                     ) : exp.logo ? (
-                                                        <img
+                                                        <Image
                                                             src={exp.logo}
                                                             alt={`${exp.employer} logo`}
-                                                            className="h-full w-full object-cover"
+                                                            fill
+                                                            className="object-cover"
                                                         />
                                                     ) : (
                                                         <div className="h-full w-full rounded-lg bg-gray-100 flex items-center justify-center text-base font-bold text-gray-500 sm:text-xl lg:text-2xl">

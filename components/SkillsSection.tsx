@@ -1,4 +1,5 @@
 import { skillsData } from '@/data/data';
+import Image from 'next/image';
 
 const SkillsSection: React.FC = () => {
     return (
@@ -28,7 +29,9 @@ const SkillsSection: React.FC = () => {
                                     className="group relative flex-shrink-0 overflow-hidden rounded-full border-[3px] border-[var(--color-ink)] bg-white px-6 py-3 neo-chip-shadow transition-transform duration-200 hover:-translate-y-1"
                                 >
                                     <div className="flex items-center gap-3">
-                                        <img src={skill.logo} alt={skill.name} className="h-6 w-6 object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                                        <div className="relative h-6 w-6">
+                                            <Image src={skill.logo} alt={skill.name} fill className="object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                                        </div>
                                         <span className="whitespace-nowrap text-sm font-semibold text-[var(--color-ink)]">{skill.name}</span>
                                     </div>
                                 </div>
@@ -46,7 +49,9 @@ const SkillsSection: React.FC = () => {
                                     className="group relative flex-shrink-0 overflow-hidden rounded-full border-[3px] border-[var(--color-ink)] bg-white px-6 py-3 neo-chip-shadow transition-transform duration-200 hover:-translate-y-1"
                                 >
                                     <div className="flex items-center gap-3">
-                                        <img src={skill.logo} alt={skill.name} className="h-6 w-6 object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                                        <div className="relative h-6 w-6">
+                                            <Image src={skill.logo} alt={skill.name} fill className="object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                                        </div>
                                         <span className="whitespace-nowrap text-sm font-semibold text-[var(--color-ink)]">{skill.name}</span>
                                     </div>
                                 </div>
@@ -64,7 +69,9 @@ const SkillsSection: React.FC = () => {
                                     className="group relative flex-shrink-0 overflow-hidden rounded-full border-[3px] border-[var(--color-ink)] bg-white px-6 py-3 neo-chip-shadow transition-transform duration-200 hover:-translate-y-1"
                                 >
                                     <div className="flex items-center gap-3">
-                                        <img src={skill.logo} alt={skill.name} className="h-6 w-6 object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                                        <div className="relative h-6 w-6">
+                                            <Image src={skill.logo} alt={skill.name} fill className="object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                                        </div>
                                         <span className="whitespace-nowrap text-sm font-semibold text-[var(--color-ink)]">{skill.name}</span>
                                     </div>
                                 </div>

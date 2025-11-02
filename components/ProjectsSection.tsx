@@ -1,4 +1,4 @@
-import { ExternalLink, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { codeData } from '@/data/data';
 import Link from 'next/link';
 
