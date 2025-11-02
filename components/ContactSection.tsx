@@ -9,7 +9,7 @@ const ContactSection: React.FC = () => {
     ];
 
     return (
-        <section id="contact" className="relative px-4 py-[var(--section-padding)] sm:px-6 lg:px-8">
+        <section id="contact" className="relative px-4 py-[var(--section-padding)] sm:px-6 lg:px-8 bg-gradient-to-b from-black via-black to-gray-950">
             <div className="container relative mx-auto max-w-4xl">
                 <div className="relative overflow-hidden rounded-[36px] border-[3px] border-[#F4F0A2] bg-gradient-to-br from-[var(--color-blue)] via-[var(--color-purple)] to-[var(--color-orange)] p-[3px]">
                     <div className="relative rounded-[33px] bg-[var(--color-surface-dark)] px-8 py-16 sm:px-12 sm:py-20">

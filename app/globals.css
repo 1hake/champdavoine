@@ -20,7 +20,7 @@
   --card-shadow-strong: none;
   --card-shadow-soft: none;
   --card-shadow-dark: none;
-  --section-padding: clamp(4rem, 12vw, 10rem);
+  --section-padding: clamp(2rem, 6vw, 4rem);
   --font-heading: 'Anton', 'Bebas Neue', Impact, sans-serif;
   --font-body: 'Space Grotesk', 'Geist', 'Inter', sans-serif;
 }
@@ -38,7 +38,7 @@ html {
 
 body {
   color: var(--color-ink-inverse);
-  background: radial-gradient(circle at top left, rgba(255, 107, 0, 0.16), transparent 45%), radial-gradient(circle at bottom right, rgba(135, 201, 249, 0.12), transparent 55%), var(--color-bg-darker);
+  background: black;
   font-family: var(--font-body);
   overflow-x: hidden;
   transition: background 0.4s ease, color 0.4s ease;

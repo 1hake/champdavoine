@@ -7,6 +7,7 @@ import ExperienceSection from '../components/ExperienceSection'
 import ProjectsSection from '../components/ProjectsSection'
 import ContactSection from '../components/ContactSection'
 import Footer from '../components/Footer'
+import AboutSection from '@/components/AboutSection'
 
 export default function Home() {
   const [, setScrollY] = useState(0)
@@ -80,12 +81,12 @@ export default function Home() {
 
       {/* Hero Section with Parallax Effect */}
       <Hero />
-
+      <AboutSection />
 
       {/* Skills Section */}
-      <SkillsSection />
 
       {/* Experience Section */}
+      <SkillsSection />
       <ExperienceSection />
 
       {/* Projects Section */}

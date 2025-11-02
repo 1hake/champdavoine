@@ -2,15 +2,14 @@ import { skillsData } from '@/data/data';
 
 const SkillsSection: React.FC = () => {
     return (
-        <section id="skills" className="relative w-full  py-[var(--section-padding)]">
-            <div className="absolute left-8 top-16 hidden h-48 w-48 rounded-full bg-[var(--color-blue)] opacity-40 blur-[140px] sm:block"></div>
+        <section id="skills" className="relative w-full py-[var(--section-padding)] px-4 sm:px-6">
             <div className="container relative z-10 mx-auto max-w-7xl">
-                <div className="px-6 flex flex-col items-center text-center">
+                <div className="flex flex-col items-center text-center">
                     <span className="eyebrow inline-flex items-center gap-3 text-[#F4F0A2]">
                         <span className="h-[3px] w-10 bg-[#F4F0A2]"></span>
                         {skillsData.eyebrow}
                     </span>
-                    <h2 className="mt-8 font-heading text-4xl leading-[0.9] text-[var(--color-ink-inverse)] sm:text-6xl lg:text-[4.5rem]">
+                    <h2 className="mt-8 font-heading text-3xl leading-[0.9] text-[var(--color-ink-inverse)] sm:text-5xl lg:text-6xl">
                         {skillsData.title}
                     </h2>
                     <p className="mt-6 max-w-2xl text-sm leading-relaxed text-[var(--color-muted)] sm:text-base">
@@ -20,9 +19,6 @@ const SkillsSection: React.FC = () => {
             </div>
 
             <div className="relative z-10 mt-16 overflow-hidden">
-                <div className="pointer-events-none absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-[var(--color-bg-darker)] via-[var(--color-bg-darker)]/40 to-transparent sm:w-32"></div>
-                <div className="pointer-events-none absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-[var(--color-bg-darker)] via-[var(--color-bg-darker)]/40 to-transparent sm:w-32"></div>
-
                 <div className="mb-6 flex animate-scroll-right">
                     {Array.from({ length: 3 }).map((_, groupIndex) => (
                         <div key={`row1-${groupIndex}`} className="mr-4 flex min-w-max gap-4">

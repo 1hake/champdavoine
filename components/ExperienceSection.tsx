@@ -76,56 +76,71 @@ const ExperienceSection: React.FC = () => {
                                             }`}
                                     ></div>
 
-                                    <header className="flex flex-col gap-4">
-                                        <div className="flex flex-wrap items-center gap-3">
-                                            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-blue)]">
-                                                {exp.employer}
-                                            </span>
-                                            {exp.type && (
-                                                <span className={`rounded-full border-[3px] px-3 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.28em] ${exp.type === 'Formation'
-                                                    ? 'border-[#F4F0A2] text-[#F4F0A2]'
-                                                    : 'border-[var(--color-blue)] text-[var(--color-blue)]'
-                                                    }`}>
-                                                    {exp.type === 'Formation' ? (
-                                                        <span className="inline-flex items-center gap-2">
-                                                            <GraduationCap className="h-3 w-3" />
-                                                            {exp.type}
-                                                        </span>
-                                                    ) : (
-                                                        exp.type
-                                                    )}
-                                                </span>
-                                            )}
-                                        </div>
-                                        <h3 className="font-heading text-2xl leading-tight text-[var(--color-ink-inverse)] sm:text-3xl">
-                                            {exp.title}
-                                        </h3>
-                                        <div className="flex flex-wrap items-center gap-4">
-                                            {exp.location && (
-                                                <p className="flex items-center gap-2 text-sm font-medium text-[var(--color-muted)]">
-                                                    <MapPin className="h-4 w-4 text-[var(--color-orange)]" />
-                                                    {exp.location}
-                                                </p>
-                                            )}
-                                            <div className="flex flex-wrap items-center gap-2">
-                                                <span className="rounded-full border-[3px] border-[#F4F0A2] bg-[#F4F0A2] px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-[var(--color-ink)]">
-                                                    {exp.start} • {exp.end}
-                                                </span>
-                                                {exp.duration && (
-                                                    <span className="text-xs font-medium text-[var(--color-muted)]">{exp.duration}</span>
+                                    <div className="flex flex-col gap-6 sm:flex-row">
+                                        {/* Company Logo Placeholder */}
+                                        <div className="flex-shrink-0 self-start">
+                                            <div className="flex h-14 w-14 items-center justify-center rounded-2xl border-[3px] border-[var(--color-ink-inverse)] bg-[var(--color-surface-dark)] p-2.5 transition-transform duration-300 hover:scale-110 sm:h-16 sm:w-16 sm:p-3">
+                                                {exp.type === 'Formation' ? (
+                                                    <GraduationCap className="h-7 w-7 text-[#F4F0A2] sm:h-8 sm:w-8" />
+                                                ) : (
+                                                    <div className="h-full w-full rounded-lg bg-[var(--color-muted)]/20 flex items-center justify-center text-[0.6rem] font-bold text-[var(--color-muted)] sm:text-xs">
+                                                        LOGO
+                                                    </div>
                                                 )}
                                             </div>
                                         </div>
-                                    </header>
 
-                                    <ul className="mt-6 space-y-3 text-sm leading-relaxed text-[var(--color-muted)] sm:text-base">
-                                        {exp.description.map((desc, descIndex) => (
-                                            <li key={descIndex} className="flex gap-3">
-                                                <span className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-[var(--color-orange)]"></span>
-                                                <span>{desc}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                        <header className="flex flex-1 flex-col gap-4">
+                                            <div className="flex flex-wrap items-center gap-3">
+                                                <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-blue)]">
+                                                    {exp.employer}
+                                                </span>
+                                                {exp.type && (
+                                                    <span className={`rounded-full border-[3px] px-3 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.28em] ${exp.type === 'Formation'
+                                                        ? 'border-[#F4F0A2] text-[#F4F0A2]'
+                                                        : 'border-[var(--color-blue)] text-[var(--color-blue)]'
+                                                        }`}>
+                                                        {exp.type === 'Formation' ? (
+                                                            <span className="inline-flex items-center gap-2">
+                                                                <GraduationCap className="h-3 w-3" />
+                                                                {exp.type}
+                                                            </span>
+                                                        ) : (
+                                                            exp.type
+                                                        )}
+                                                    </span>
+                                                )}
+                                            </div>
+                                            <h3 className="font-heading text-xl leading-tight text-[var(--color-ink-inverse)] sm:text-2xl lg:text-3xl">
+                                                {exp.title}
+                                            </h3>
+                                            <div className="flex flex-wrap items-center gap-4">
+                                                {exp.location && (
+                                                    <p className="flex items-center gap-2 text-xs font-medium text-[var(--color-muted)] sm:text-sm">
+                                                        <MapPin className="h-3 w-3 text-[var(--color-orange)] sm:h-4 sm:w-4" />
+                                                        {exp.location}
+                                                    </p>
+                                                )}
+                                                <div className="flex flex-wrap items-center gap-2">
+                                                    <span className="rounded-full border-[2px] border-[#F4F0A2] bg-[#F4F0A2] px-3 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-[var(--color-ink)] sm:border-[3px] sm:px-4 sm:text-xs sm:tracking-[0.25em]">
+                                                        {exp.start} • {exp.end}
+                                                    </span>
+                                                    {exp.duration && (
+                                                        <span className="text-xs font-medium text-[var(--color-muted)]">{exp.duration}</span>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </header>
+
+                                        <ul className="mt-6 space-y-3 text-xs leading-relaxed text-[var(--color-muted)] sm:text-sm lg:text-base">
+                                            {exp.description.map((desc, descIndex) => (
+                                                <li key={descIndex} className="flex gap-3">
+                                                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--color-orange)] sm:mt-2 sm:h-2 sm:w-2"></span>
+                                                    <span>{desc}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
                                 </article>
                             </div>
                         ))}

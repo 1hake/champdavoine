@@ -2,7 +2,7 @@
 export const heroData = {
     firstName: 'COLIN',
     lastName: 'CHAMPDAVOINE',
-    title: 'React Developer',
+    title: 'Développeur React',
     images: {
         back: '/images/back.png',
         middle: '/images/middle.png',
@@ -13,95 +13,100 @@ export const heroData = {
 // About Section Data
 export const aboutData = {
     eyebrow: 'Manifesto',
-    badge: 'Creative Tech / Bold Culture',
+    badge: 'Tech Créative / Culture Audacieuse',
     title: {
-        line1: 'Code for the daring.',
-        line2: 'Design for the loud.'
+        line1: 'Code pour les audacieux.',
+        line2: 'Design pour les visionnaires.'
     },
     profile: {
-        summary: "Je conçois des produits front-end modernes, avec une rigueur technique et une sensibilité visuelle pensées pour l'impact. Spécialisé dans l'écosystème React, Next.js, et les workflows produit full-stack. Fondateur du collectif trenteseptcinq (création, évènementiel, musique), avec un track record freelance et startup qui parle de lui-même.",
+        summary: "Développeur front-end spécialisé React & Next.js. Expertise en workflows full-stack et architecture produit. Fondateur du collectif trenteseptcinq (création, événementiel, musique). Track record éprouvé en freelance et startup.",
         qualities: [
             'Performance',
-            'UX Exigeant',
-            'Produit Orienté',
+            'UX Exigeante',
+            'Vision Produit',
             'Culture Tech',
             'Agilité'
         ]
     },
     stats: [
-        { value: '5+', label: "Années d'expérience" },
-        { value: '20+', label: 'Projets réalisés' },
+        { value: '5+', label: "Ans d'expérience" },
+        { value: '20+', label: 'Projets livrés' },
         { value: '∞', label: 'Créativité' }
     ]
 };
 
 // Experience Section Data
 export const experienceData = {
-    eyebrow: 'Track Record',
-    title: 'Parcours de terrain & impact produit',
-    description: 'Des missions front-end haute voltige, portées par une culture produit exigeante et une exécution rapide.',
+    eyebrow: 'Parcours',
+    title: 'Expérience & impact produit',
+    description: 'Missions front-end à fort impact, culture produit exigeante et exécution rapide.',
     experience: [
         {
             employer: 'IZI Solutions',
-            title: 'ReactJS/React Native Front End Developer',
+            title: 'Développeur Front-End React/React Native',
             start: 'janvier 2020',
-            end: 'Present',
+            end: 'Présent',
             duration: '5 ans 11 mois',
             location: 'Paris, France',
+            logo: '/images/companies/izi-solutions.png',
             description: [
-                "Développement de features pour la partie admin du site. Migration de Redux vers les React Context.",
-                "Reprise en main de l'application mobile Réseau IZI by EDF pour la mise en relation des professionnels avec les conducteurs de travaux. Migration vers React Native 0.63, implémentation des normes RGPD, mise en place de Tests E2E, implémentation d'un nouveau design, mise en production sur le Play Store et l'App Store, implémentation de features.",
-                "Développement d'un portail partenaire B2B2C, création d'un CMS maison pour intégrer de nouveaux partenaires."
+                "Développement admin et migration Redux vers React Context.",
+                "Refonte application mobile Réseau IZI by EDF : migration React Native 0.63, RGPD, tests E2E, nouveau design, déploiement stores iOS/Android.",
+                "Portail B2B2C et CMS sur mesure pour intégration partenaires."
             ]
         },
         {
             employer: 'Connecting Food',
-            title: 'Front End Developer',
+            title: 'Développeur Front-End',
             start: 'novembre 2018',
             end: 'septembre 2019',
             duration: '11 mois',
             location: 'Station F',
+            logo: '/images/companies/connecting-food.png',
             description: [
-                "Création d'une landing page de présentation de la société (scrollable) avec blog.",
-                "Conception de Progressive-web-app en ReactJS, avec un UX/UI orienté Mobile-first afin d'afficher la traçabilité complète d'un produit alimentaire scanné via un QRCODE.",
-                "Création d'outils internes : Content-Manager-System pour permettre au business de produire des webapp React et opérer des changements sur des applications en production.",
-                "Gestion et administration de nombreuses versions de cette webapp pour des démos client ou application en production sur un serveur Ubuntu (Nginx) et gestion de domaine OVH (SSL)."
+                "Landing page et blog de présentation.",
+                "PWA React mobile-first pour traçabilité alimentaire via QR code.",
+                "CMS interne pour génération et gestion de webapps React en production.",
+                "Administration multi-versions sur serveur Ubuntu (Nginx), gestion domaines OVH (SSL)."
             ]
         },
         {
             employer: 'Freelance',
-            title: 'Développeur Front-End Freelance',
+            title: 'Développeur Front-End',
             start: 'septembre 2018',
             end: 'novembre 2018',
             duration: '3 mois',
             location: 'Station F',
+            logo: '/images/companies/freelance.png',
             description: [
-                "Création d'applications mobiles (progressive web app) depuis la conception jusqu'à la mise en production sur serveur.",
-                "Conception d'un CMS en React/Redux pour création d'app mobile sans code sur une interface graphique."
+                "PWA mobiles de la conception au déploiement.",
+                "CMS React/Redux pour création no-code d'applications mobiles."
             ]
         },
         {
             employer: 'Nokia',
-            title: 'Full-stack Developer',
+            title: 'Développeur Full-Stack',
             start: 'janvier 2018',
             end: 'septembre 2018',
             duration: '9 mois',
+            logo: '/images/companies/nokia.png',
             description: [
-                "Création d'un outil interne de recherche d'utilisateurs ou de produits (montre, balance connectées) et d'affichage exhaustif et compréhensible des données (recherche de visualisation appropriée, travail UX/UI).",
-                "Implémentation en React/Redux d'outils existants."
+                "Outil interne de recherche produits connectés avec visualisation de données optimisée (UX/UI).",
+                "Migration d'outils existants vers React/Redux."
             ]
         },
         {
             employer: 'Withings',
-            title: 'Full-stack Developer Intern',
+            title: 'Développeur Full-Stack (Stage)',
             start: 'juillet 2017',
             end: 'décembre 2017',
             duration: '6 mois',
             location: 'Paris',
+            logo: '/images/companies/withings.png',
             description: [
-                "Développement d'un script pour générer des fake data utilisateurs pour des besoins marketing ou de tests.",
-                "Création de fausses données reproduisant le format et le modèle officiels (JSON) de la société et utilisation de l'API interne pour les stocker dans la base de données (Cassandra / PostgreSQL).",
-                "Capacité à simuler les données de tous les produits (montre, balance, sleep sensor...)."
+                "Script de génération de données de test conformes au modèle officiel.",
+                "Intégration API interne et stockage Cassandra/PostgreSQL.",
+                "Simulation multi-produits (montre, balance, capteur de sommeil)."
             ]
         }
     ],
@@ -111,62 +116,69 @@ export const experienceData = {
             field: 'Informatique',
             period: '2015 - 2017',
             type: 'Formation',
-            description: "Un socle académique solide, prolongé par une veille continue et des expérimentations studio."
+            logo: '/images/companies/42.png',
+            description: "Socle technique solide, veille continue et expérimentations."
         }
     ]
 };
 
 // Projects Section Data
 export const projectsData = {
-    eyebrow: 'Signature Work',
-    title: 'Expérimentations & lab sessions',
-    description: 'Des produits hybrides, des marques culturelles et des side-projects taillés pour rayonner sur scène comme en production.',
+    eyebrow: 'Projets',
+    title: 'Expérimentations & réalisations',
+    description: 'Produits hybrides, marques culturelles et side-projects à fort impact.',
     projects: [
         {
             title: 'RapText',
-            description: 'Punchline API & mobile stage for rap heads.',
+            description: 'API de punchlines & plateforme mobile pour rappeurs.',
             tech: ['Next.js', 'GraphQL', 'Prisma', 'SQLite'],
             icon: '🎤',
+            image: '/images/projects/raptext.png',
             accent: '#F9FF00',
             tone: 'dark'
         },
         {
             title: 'Music of the Day',
-            description: 'Daily drops curated like a vinyl boutique.',
+            description: 'Sélection musicale quotidienne curée.',
             tech: ['React', 'Capacitor', 'Spotify API'],
             icon: '🎵',
+            image: '/images/projects/music-of-the-day.png',
             accent: '#87C9F9',
             tone: 'light'
         },
         {
             title: "J'ai tout perdu",
-            description: 'Data recovery service with empathy-led UX.',
-            tech: ['React', 'Stripe', 'Logistics'],
+            description: 'Service de récupération de données avec UX empathique.',
+            tech: ['React', 'Stripe', 'Logistique'],
             icon: '💾',
+            image: '/images/projects/jai-tout-perdu.png',
             accent: '#FF9B4B',
             tone: 'dark'
         },
         {
             title: 'trenteseptcinq',
-            description: 'Art direction, merch, and live shows for the collective.',
-            tech: ['Branding', 'Event Mgmt', 'Music Prod'],
+            description: 'Direction artistique, merchandising et événements live du collectif.',
+            tech: ['Branding', 'Événementiel', 'Production Musicale'],
             icon: '🎨',
+            image: '/images/projects/trenteseptcinq.png',
             accent: '#F4F0A2',
             tone: 'light'
         },
         {
             title: 'ENCORE Project',
-            description: 'Rapid prototype to validate a cultural startup vision.',
-            tech: ['React', 'Airtable', 'Prototyping'],
+            description: 'Prototype rapide pour validation de concept startup culturelle.',
+            tech: ['React', 'Airtable', 'Prototypage'],
             icon: '🚀',
+            image: '/images/projects/encore.png',
             accent: '#87C9F9',
             tone: 'dark'
         },
         {
             title: 'Événementiel',
-            description: 'Festivals, scenography, and nightlife pop-ups.',
-            tech: ['Organization', 'Communication', 'Logistics'],
+            description: 'Festivals, scénographie et événements nocturnes.',
+            tech: ['Organisation', 'Communication', 'Logistique'],
             icon: '🎪',
+            image: '/images/projects/evenementiel.png',
             accent: '#FF9B4B',
             tone: 'light'
         }
@@ -175,9 +187,9 @@ export const projectsData = {
 
 // Skills Section Data
 export const skillsData = {
-    eyebrow: 'Skills Arsenal',
-    title: 'Stack & savoir-faire',
-    description: 'Du front-end haute performance aux workflows low-code, un arsenal pensé pour livrer vite et propre.',
+    eyebrow: 'Compétences',
+    title: 'Stack & expertise',
+    description: 'Front-end haute performance, workflows optimisés, livraison rapide et code propre.',
     skillsRows: {
         row1: [
             { name: 'Socket.io', logo: 'https://socket.io/images/logo.svg' },
@@ -213,7 +225,7 @@ export const contactData = {
         line1: 'Construisons quelque chose',
         line2: 'de neuf'
     },
-    description: 'Prêt à lancer un produit qui claque ? Écrivez-moi et on cadre la mission.',
+    description: 'Prêt à lancer un projet ambitieux ? Contactez-moi pour en discuter.',
     contact: {
         email: 'colin.champdavoine@gmail.com',
         phone: '+33 6 95 41 17 96',
@@ -229,7 +241,7 @@ export const contactData = {
 // Combined resume data (for backward compatibility)
 export const resumeData = {
     name: 'Colin Champdavoine',
-    headline: 'React Front End Developer',
+    headline: 'Développeur Front-End React',
     location: contactData.contact.location,
     profile: aboutData.profile,
     experience: experienceData.experience,
