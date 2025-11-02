@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import React, { useRef } from 'react'
 
 import backImage from '../public/images/parralax/back.png'
-import frontImage from '../public/images/parralax/front.png'
+import frontImage from '../public/images/parralax/front_upscayl_4x_upscayl-standard-4x_optimized.png'
 import middleImage from '../public/images/parralax/middle.png'
 import { StaticImageData } from 'next/dist/shared/lib/image-external'
 import { heroData } from '@/data/data'
