@@ -3,8 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
+  --color-bg-dark: #0a0a0d;
+  --color-bg-darker: #030304;
+  --color-bg-light: #f4f0a2;
+  --color-surface-light: #fdfcea;
+  --color-surface-dark: #12121a;
+  --color-ink: #0a0a0d;
+  --color-ink-inverse: #f5f6fc;
+  --color-muted: #9093a5;
+  --color-neon: #ff6b00;
+  --color-pastel: #f4f0a2;
+  --color-blue: #87c9f9;
+  --color-orange: #ff9b4b;
+  --color-border-strong: #262637;
+  --color-border-light: rgba(10, 10, 13, 0.15);
+  --card-shadow-strong: none;
+  --card-shadow-soft: none;
+  --card-shadow-dark: none;
+  --section-padding: clamp(4rem, 12vw, 10rem);
+  --font-heading: 'Anton', 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Space Grotesk', 'Geist', 'Inter', sans-serif;
 }
 
 * {
@@ -19,10 +37,73 @@ html {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--color-ink-inverse);
+  background: radial-gradient(circle at top left, rgba(255, 107, 0, 0.16), transparent 45%), radial-gradient(circle at bottom right, rgba(135, 201, 249, 0.12), transparent 55%), var(--color-bg-darker);
+  font-family: var(--font-body);
   overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+  position: relative;
+}
+
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.12'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+  animation: grain-shift 12s steps(10) infinite;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: -10%;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+  animation: grain-shift 14s steps(12) infinite;
+  z-index: 1;
+}
+
+.neo-card-shadow,
+.neo-card-shadow-soft,
+.neo-card-shadow-dark,
+.neo-chip-shadow {
+  box-shadow: none;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.section-wrapper {
+  position: relative;
+  padding: var(--section-padding) 1.5rem;
+  z-index: 2;
+}
+
+.section-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 28px;
+  border: 3px solid var(--color-border-strong);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.section-wrapper.is-light::before {
+  border-color: rgba(10, 10, 13, 0.54);
+  opacity: 0.12;
 }
 
 /* Custom Animations */
@@ -68,7 +149,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(45deg, #8b5cf6, #ec4899, #06b6d4, #8b5cf6);
+  background: linear-gradient(135deg, var(--color-neon), var(--color-blue), var(--color-orange), var(--color-neon));
   background-size: 400% 400%;
   background-clip: text;
   -webkit-background-clip: text;
@@ -98,11 +179,11 @@ body {
 
   0%,
   100% {
-    box-shadow: 0 0 5px rgba(139, 92, 246, 0.5);
+    box-shadow: 0 0 12px rgba(255, 107, 0, 0.35), 0 0 24px rgba(255, 107, 0, 0.2);
   }
 
   50% {
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.8), 0 0 30px rgba(139, 92, 246, 0.4);
+    box-shadow: 0 0 28px rgba(135, 201, 249, 0.45), 0 0 48px rgba(255, 155, 75, 0.32);
   }
 }
 
@@ -128,16 +209,43 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0a;
+  background: var(--color-bg-dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #8b5cf6, #ec4899);
+  background: var(--color-blue);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #7c3aed, #db2777);
+  background: var(--color-neon);
+}
+
+@keyframes grain-shift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(2%, -2%, 0) scale(1.02);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-blue);
+}
+
+button {
+  font-family: var(--font-body);
 }
 
 @layer utilities {

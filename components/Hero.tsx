@@ -7,6 +7,7 @@ import backImage from '../public/images/back.png'
 import frontImage from '../public/images/front.png'
 import middleImage from '../public/images/middle.png'
 import { StaticImageData } from 'next/dist/shared/lib/image-external'
+import { heroData } from '@/data/data'
 
 interface LayerProps {
   speed: number
@@ -85,7 +86,7 @@ const Hero: React.FC = () => {
             className="font-bold text-white text-8xl md:text-9xl"
             style={{ y: useTransform(scrollYProgress, [0, 1], [0, 200]) }}
           >
-            COLIN
+            {heroData.firstName}
           </motion.div>
         </div>
         <div className="flex items-end md:items-center justify-center">
@@ -93,7 +94,7 @@ const Hero: React.FC = () => {
             className="font-bold text-white text-4xl"
             style={{ y: useTransform(scrollYProgress, [0, 1], [0, 200]) }}
           >
-            CHAMPDAVOINE
+            {heroData.lastName}
           </motion.div>
         </div>
         <div className="flex items-end md:items-center justify-center">
@@ -101,7 +102,7 @@ const Hero: React.FC = () => {
             style={{ y: useTransform(scrollYProgress, [0, 1], [0, 200]) }}
             className="text-white text-2xl"
           >
-            React Developer
+            {heroData.title}
           </motion.div>
         </div>
       </div>

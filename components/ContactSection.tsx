@@ -1,101 +1,61 @@
-import { Github, Instagram, Music, Mail, Phone, MapPin } from 'lucide-react';
+import { Github, Instagram, Music, Mail } from 'lucide-react';
+import { contactData } from '@/data/data';
 
-interface ContactSectionProps {
-    resumeData: {
-        contact: {
-            email: string;
-            phone: string;
-            location: string;
-            socials: {
-                github: string;
-                instagram: string;
-                soundcloud: string;
-            };
-        };
-    };
-}
+const ContactSection: React.FC = () => {
+    const socials = [
+        { href: contactData.contact.socials.github, icon: Github, label: 'GitHub' },
+        { href: contactData.contact.socials.instagram, icon: Instagram, label: 'Instagram' },
+        { href: contactData.contact.socials.soundcloud, icon: Music, label: 'SoundCloud' },
+    ];
 
-const ContactSection: React.FC<ContactSectionProps> = ({ resumeData }) => {
     return (
-        <section id="contact" className="py-32 px-6 relative">
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/10 to-black"></div>
-            <div className="container mx-auto max-w-6xl relative z-10">
-                <div className="text-center mb-20">
-                    <h2 className="text-5xl lg:text-6xl font-black mb-6">
-                        <span className="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                            Contact
-                        </span>
-                    </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-cyan-400 to-blue-400 mx-auto rounded-full"></div>
-                    <p className="text-xl text-gray-400 mt-8 max-w-2xl mx-auto">
-                        Prêt à collaborer sur votre prochain projet ? Contactons-nous !
-                    </p>
-                </div>
+        <section id="contact" className="relative px-4 py-[var(--section-padding)] sm:px-6 lg:px-8">
+            <div className="container relative mx-auto max-w-4xl">
+                <div className="relative overflow-hidden rounded-[36px] border-[3px] border-[#F4F0A2] bg-gradient-to-br from-[var(--color-blue)] via-[var(--color-purple)] to-[var(--color-orange)] p-[3px]">
+                    <div className="relative rounded-[33px] bg-[var(--color-surface-dark)] px-8 py-16 sm:px-12 sm:py-20">
+                        <div className="pointer-events-none absolute -right-10 top-0 h-64 w-64 -translate-y-1/3 rounded-full bg-[var(--color-blue)] opacity-30 blur-[120px]"></div>
+                        <div className="pointer-events-none absolute -left-10 bottom-0 h-64 w-64 translate-y-1/3 rounded-full bg-[#F4F0A2] opacity-30 blur-[120px]"></div>
 
-                <div className="relative">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 rounded-3xl blur opacity-25"></div>
-                    <div className="relative bg-gray-900/80 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-12 lg:p-16">
+                        <div className="relative flex flex-col items-center text-center">
+                            <span className="eyebrow inline-flex items-center gap-3 text-[#F4F0A2]">
+                                <span className="h-[3px] w-10 bg-[#F4F0A2]"></span>
+                                {contactData.eyebrow}
+                            </span>
+                            <h2 className="mt-8 font-heading text-4xl leading-[0.9] sm:text-5xl lg:text-6xl">
+                                {contactData.title.line1}
+                                <br />
+                                <span className="text-[#F4F0A2]">{contactData.title.line2}</span>
+                            </h2>
+                            <p className="mt-6 max-w-xl text-base leading-relaxed text-[var(--color-muted)] sm:text-lg">
+                                {contactData.description}
+                            </p>
 
-                        <div className="grid lg:grid-cols-2 gap-12">
-                            {/* Contact Info */}
-                            <div className="space-y-8">
-                                <div className="flex items-center space-x-6 p-6 bg-gray-800/50 rounded-2xl hover:bg-gray-800/70 transition-colors group">
-                                    <div className="p-4 bg-purple-500/20 rounded-2xl group-hover:bg-purple-500/30 transition-colors">
-                                        <Mail className="w-8 h-8 text-purple-400" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-bold text-white text-lg mb-1">Email</h3>
-                                        <p className="text-gray-300">{resumeData.contact.email}</p>
-                                    </div>
-                                </div>
+                            <a
+                                href={`mailto:${contactData.contact.email}`}
+                                className="mt-10 inline-flex items-center gap-3 rounded-full border-[3px] border-[#F4F0A2] bg-[#F4F0A2] px-8 py-4 font-semibold text-[var(--color-ink)] transition-all duration-200 hover:scale-105 hover:shadow-[0_0_30px_rgba(244,240,162,0.5)]"
+                            >
+                                <Mail className="h-5 w-5" />
+                                {contactData.contact.email}
+                            </a>
 
-                                <div className="flex items-center space-x-6 p-6 bg-gray-800/50 rounded-2xl hover:bg-gray-800/70 transition-colors group">
-                                    <div className="p-4 bg-pink-500/20 rounded-2xl group-hover:bg-pink-500/30 transition-colors">
-                                        <Phone className="w-8 h-8 text-pink-400" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-bold text-white text-lg mb-1">Téléphone</h3>
-                                        <p className="text-gray-300">{resumeData.contact.phone}</p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-center space-x-6 p-6 bg-gray-800/50 rounded-2xl hover:bg-gray-800/70 transition-colors group">
-                                    <div className="p-4 bg-blue-500/20 rounded-2xl group-hover:bg-blue-500/30 transition-colors">
-                                        <MapPin className="w-8 h-8 text-blue-400" />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-bold text-white text-lg mb-1">Localisation</h3>
-                                        <p className="text-gray-300">{resumeData.contact.location}</p>
-                                    </div>
-                                </div>
+                            <div className="mt-12 flex items-center gap-6">
+                                {socials.map((social) => (
+                                    <a
+                                        key={social.label}
+                                        href={social.href}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="group flex h-14 w-14 items-center justify-center rounded-full border-[3px] border-[var(--color-border-strong)] bg-[var(--color-surface)] transition-all duration-200 hover:scale-110 hover:border-[#F4F0A2] hover:bg-[#F4F0A2]"
+                                        aria-label={social.label}
+                                    >
+                                        <social.icon className="h-5 w-5 text-[var(--color-ink-inverse)] transition-colors group-hover:text-[var(--color-ink)]" />
+                                    </a>
+                                ))}
                             </div>
 
-                            {/* Social Links & CTA */}
-                            <div className="flex flex-col justify-center">
-                                <div className="text-center mb-8">
-                                    <h3 className="text-3xl font-bold text-white mb-4">Connectons-nous</h3>
-                                    <p className="text-gray-400 mb-8">Suivez-moi sur les réseaux sociaux pour rester au courant de mes projets</p>
-
-                                    {/* Enhanced Social Grid */}
-                                    <div className="grid grid-cols-2 gap-4">
-                                        {[
-                                            { href: resumeData.contact.socials.github, icon: Github, label: "GitHub", color: "hover:bg-gray-500/20 hover:border-gray-400/50" },
-                                            { href: resumeData.contact.socials.instagram, icon: Instagram, label: "Instagram", color: "hover:bg-pink-500/20 hover:border-pink-400/50" },
-                                            { href: resumeData.contact.socials.soundcloud, icon: Music, label: "SoundCloud", color: "hover:bg-orange-500/20 hover:border-orange-400/50" },
-                                            { href: `mailto:${resumeData.contact.email}`, icon: Mail, label: "Email", color: "hover:bg-purple-500/20 hover:border-purple-400/50" }
-                                        ].map((social, index) => (
-                                            <a
-                                                key={index}
-                                                href={social.href}
-                                                className={`group p-6 bg-gray-800/30 border border-gray-700/50 rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-xl ${social.color}`}
-                                            >
-                                                <social.icon className="w-8 h-8 text-gray-400 group-hover:text-white transition-colors mx-auto mb-3" />
-                                                <p className="text-gray-400 group-hover:text-white transition-colors font-medium">{social.label}</p>
-                                            </a>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
+                            <p className="mt-8 text-sm text-[var(--color-muted)]">
+                                {contactData.contact.location} • {contactData.contact.phone}
+                            </p>
                         </div>
                     </div>
                 </div>

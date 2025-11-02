@@ -1,16 +1,23 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Anton, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
 const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+
+const heading = Anton({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-heading",
+});
+
+const body = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-body",
 });
 
 export const metadata: Metadata = {
@@ -25,9 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${heading.variable} ${body.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>
     </html>

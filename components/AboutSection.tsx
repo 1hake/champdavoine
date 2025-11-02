@@ -1,46 +1,59 @@
-interface AboutSectionProps {
-    resumeData: {
-        profile: {
-            summary: string;
-        };
-    };
-}
+import { aboutData } from '@/data/data';
 
-const AboutSection: React.FC<AboutSectionProps> = ({ resumeData }) => {
+const AboutSection: React.FC = () => {
     return (
-        <section id="about" className="pb-24 px-6 relative">
-            <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900/50 to-black"></div>
-            <div className="container mx-auto max-w-6xl relative z-10">
-                <div className="text-center mt-20 mb-20">
-                    <h2 className="text-5xl lg:text-6xl font-black mb-6">
-                        <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                            À propos
-                        </span>
-                    </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-pink-400 mx-auto rounded-full"></div>
-                </div>
+        <section id="about" className="relative z-10 -mt-16 px-4 pb-[var(--section-padding)] sm:-mt-24 sm:px-6 lg:px-8">
+            <div className="container mx-auto max-w-6xl">
+                <div className="relative overflow-hidden rounded-[36px] border-[3px] border-[var(--color-ink)] bg-[var(--color-bg-light)] px-6 py-12 text-[var(--color-ink)] sm:px-10 md:px-14 md:py-16">
+                    <div className="pointer-events-none absolute -left-16 top-6 h-40 w-40 rounded-full bg-[var(--color-neon)] opacity-50 blur-[120px]"></div>
+                    <div className="pointer-events-none absolute -bottom-16 -right-10 h-48 w-48 rounded-full bg-[var(--color-blue)] opacity-40 blur-[140px]"></div>
 
-                <div className="relative">
-                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-3xl blur opacity-25"></div>
-                    <div className="relative bg-gray-900/80 backdrop-blur-xl border border-gray-700/50 rounded-3xl p-12 lg:p-16">
-                        <p className="text-xl lg:text-2xl text-gray-300 leading-relaxed text-center max-w-5xl mx-auto font-light">
-                            {resumeData.profile.summary}
+                    <div className="relative flex flex-col gap-10">
+                        <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                            <span className="eyebrow inline-flex items-center gap-3 text-[var(--color-ink)]">
+                                <span className="h-[3px] w-12 bg-[var(--color-ink)]"></span>
+                                {aboutData.eyebrow}
+                            </span>
+                            <span className="inline-flex items-center gap-3 rounded-full border-[3px] border-[var(--color-ink)] px-5 py-3 text-[0.7rem] font-semibold tracking-[0.3em] uppercase">
+                                {aboutData.badge}
+                            </span>
+                        </div>
+
+                        <h2 className="font-heading text-4xl leading-[0.9] text-[var(--color-ink)] sm:text-5xl lg:text-[4rem]">
+                            {aboutData.title.line1}<br className="hidden md:block" /> {aboutData.title.line2}
+                        </h2>
+
+                        <p className="max-w-3xl text-base leading-relaxed text-[var(--color-ink)]/80 sm:text-lg">
+                            {aboutData.profile.summary}
                         </p>
 
-                        {/* Stats */}
-                        <div className="grid md:grid-cols-3 gap-8 mt-16 pt-12 border-t border-gray-700/50">
-                            <div className="text-center">
-                                <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">5+</div>
-                                <div className="text-gray-400">Années d&apos;expérience</div>
+                        {aboutData.profile.qualities?.length ? (
+                            <div className="flex flex-wrap gap-3">
+                                {aboutData.profile.qualities.map((quality) => (
+                                    <span
+                                        key={quality}
+                                        className="neo-chip-shadow rounded-full border-[3px] border-[var(--color-ink)] bg-[var(--color-bg-light)] px-5 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--color-ink)]"
+                                    >
+                                        {quality}
+                                    </span>
+                                ))}
                             </div>
-                            <div className="text-center">
-                                <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">20+</div>
-                                <div className="text-gray-400">Projets réalisés</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">∞</div>
-                                <div className="text-gray-400">Créativité</div>
-                            </div>
+                        ) : null}
+
+                        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                            {aboutData.stats.map((stat) => (
+                                <div
+                                    key={stat.label}
+                                    className="group rounded-[28px] border-[3px] border-[var(--color-ink)] bg-[var(--color-surface-light)] px-6 py-10 text-center transition-transform duration-200 hover:-translate-y-2 hover:shadow-[0_24px_0_rgba(10,10,13,0.35)]"
+                                >
+                                    <div className="font-heading text-4xl text-[var(--color-ink)] sm:text-5xl">
+                                        {stat.value}
+                                    </div>
+                                    <p className="mt-3 text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-ink)]/70">
+                                        {stat.label}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
