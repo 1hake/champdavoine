@@ -68,19 +68,22 @@ const BackgroundLayer: React.FC<{ speed: number }> = ({ speed }) => {
 
 const Hero: React.FC = () => {
   const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll()
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  })
 
   return (
     <div ref={ref} className="w-full h-screen overflow-hidden bg-black relative">
-      <Layer speed={90} image={backImage} zIndex={2} />
+      <Layer speed={80} image={backImage} zIndex={2} />
       <Layer speed={70} image={middleImage} zIndex={5} />
       <LayerFront speed={0} image={frontImage} zIndex={9} />
 
-      <div className="absolute inset-0 z-[4] mt-56 h-screen">
+      <div className="absolute inset-0 z-[8] h-screen">
         <div className="flex items-end md:items-center justify-center">
           <motion.div
             className="font-bold text-white text-8xl md:text-9xl"
-            style={{ translateY: useTransform(scrollYProgress, [0, 1], [20, -90]) }}
+            style={{ y: useTransform(scrollYProgress, [0, 1], [0, 200]) }}
           >
             COLIN
           </motion.div>
@@ -88,28 +91,27 @@ const Hero: React.FC = () => {
         <div className="flex items-end md:items-center justify-center">
           <motion.div
             className="font-bold text-white text-4xl"
-            style={{ translateY: useTransform(scrollYProgress, [0, 1], [40, -100]) }}
+            style={{ y: useTransform(scrollYProgress, [0, 1], [0, 200]) }}
           >
             CHAMPDAVOINE
           </motion.div>
         </div>
-      </div>
-
-      {/* Enhanced content overlay */}
-      <div className="absolute inset-0 z-[6] flex flex-col justify-center items-center h-screen">
-        <div className="text-center px-6">
-          {/* Animated Title */}
-          <div className="mb-8 relative">
-
-          </div>
-
-
-
-
+        <div className="flex items-end md:items-center justify-center">
+          <motion.div
+            style={{ y: useTransform(scrollYProgress, [0, 1], [0, 200]) }}
+            className="text-white text-2xl"
+          >
+            React Developer
+          </motion.div>
         </div>
       </div>
 
+
+
       <BackgroundLayer speed={0.1} />
+
+      {/* Gradient overlay for smooth transition */}
+      <div className="w-screen absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black via-black/80 to-transparent z-10" />
     </div>
   )
 }

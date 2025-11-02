@@ -77,7 +77,7 @@ export default function Home() {
           "period": "janv. 2020 - aujourd'hui",
           "duration": "5 ans 9 mois",
           "location": "Paris, France",
-          "description": "Développement de features pour la partie admin du site. Migration de Redux vers React Context. Reprise en main de l'application mobile Réseau IZI by EDF : migration vers React Native 0.63, implémentation des normes RGPD, mise en place de tests E2E, implémentation d'un nouveau design, mise en production sur Play Store et App Store, implémentation de features. En cours : développement d'un portail partenaire B2B2C et création d'un CMS pour intégrer de nouveaux partenaires.",
+          "description": "Développement de features pour la partie admin du site. Migration de Redux vers React Context. Reprise en main de l'application mobile Réseau IZI by EDF : migration vers React Native 0.63, implémentation des normes RGPD, mise en place de tests E2E, implémentation d'un nouveau design, mise en production sur Play Store et App Store, implémentation de features. Développement d'un portail partenaire B2B2C et création d'un CMS maison pour intégrer de nouveaux partenaires.",
           "skills": ["React", "React Native", "Migration Redux → React Context", "RGPD", "Tests E2E", "Design d&apos;app mobile", "Publication Play Store / App Store", "CMS B2B2C"]
         },
         {
@@ -204,7 +204,7 @@ export default function Home() {
       <SkillsSection resumeData={resumeData} />
 
       {/* Experience Section */}
-      <ExperienceSection resumeData={resumeData} />
+      <ExperienceSection />
 
       {/* Projects Section */}
       <ProjectsSection resumeData={resumeData} />
