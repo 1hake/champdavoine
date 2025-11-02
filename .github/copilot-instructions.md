@@ -32,11 +32,12 @@ This is a personal portfolio website built with:
 ## Coding Standards
 
 ### TypeScript
-- Strict mode is disabled (`"strict": false` in tsconfig.json)
-- `noImplicitAny` is set to false
+- Strict mode is disabled (`"strict": false` in tsconfig.json) - this is the current project configuration
+- `noImplicitAny` is set to false - maintain this setting for consistency with existing code
 - Use React.FC for functional components with explicit prop types
-- Define interfaces for component props
+- Define interfaces for component props where appropriate
 - Target ES2017
+- Note: While stricter type checking could be beneficial, the current configuration prioritizes development speed and ease of use for this personal portfolio project
 
 ### React/Next.js
 - Use `'use client'` directive for components that use client-side features (hooks, animations, browser APIs)
