@@ -78,15 +78,16 @@ const ExperienceSection: React.FC = () => {
                                     <div className="flex flex-col gap-4 sm:gap-6">
                                         <div className="flex gap-4 sm:gap-6">
                                             <div className="flex-shrink-0 self-start">
-                                                <div className="flex h-20 w-20 items-center justify-center rounded-2xl border-[3px] border-gray-200 bg-gray-50 overflow-hidden transition-transform duration-300 hover:scale-110 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+                                                <div className="flex h-20 w-20 items-center justify-center rounded-2xl border-[3px] border-gray-200 bg-gray-50 overflow-hidden sm:h-28 sm:w-28 lg:h-32 lg:w-32">
                                                     {exp.type === 'Formation' ? (
                                                         <GraduationCap className="h-12 w-12 text-[var(--color-neon)] sm:h-16 sm:w-16 lg:h-18 lg:w-18" />
                                                     ) : exp.logo ? (
                                                         <Image
                                                             src={exp.logo}
                                                             alt={`${exp.employer} logo`}
-                                                            fill
-                                                            className="object-cover"
+                                                            width={80}
+                                                            height={80}
+                                                            className="object-contain w-full h-full"
                                                         />
                                                     ) : (
                                                         <div className="h-full w-full rounded-lg bg-gray-100 flex items-center justify-center text-base font-bold text-gray-500 sm:text-xl lg:text-2xl">
