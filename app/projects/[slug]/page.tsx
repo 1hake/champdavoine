@@ -23,7 +23,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             {/* Back Button */}
             <Link
                 href="/#code"
-                className="fixed left-4 top-4 z-50 inline-flex items-center gap-2 rounded-full border-2 border-[var(--color-border-light)] bg-white/80 px-4 py-2 text-sm text-[var(--color-ink)]/60 backdrop-blur-xl transition-all hover:border-[var(--color-ink)]/30 hover:text-[var(--color-ink)] sm:left-6 sm:top-6 sm:px-5 sm:py-2.5"
+                className="group fixed left-4 top-4 z-50 inline-flex items-center gap-2 rounded-full border-2 border-[var(--color-border-light)] bg-white/80 px-4 py-2 text-sm text-[var(--color-ink)]/60 backdrop-blur-xl transition-all hover:border-[var(--color-ink)]/30 hover:text-[var(--color-ink)] sm:left-6 sm:top-6 sm:px-5 sm:py-2.5"
             >
                 <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
                 <span>Retour</span>
@@ -41,9 +41,9 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                     {/* Icon + Title */}
                     <div className="mb-6 sm:mb-8">
                         {/* Mobile: Stack vertically, Desktop: Horizontal */}
-                        <div className="mb-4 flex justify-center sm:mb-0 sm:inline-flex sm:justify-start">
+                        <div className="flex justify-center sm:inline-flex sm:justify-start">
                             <div
-                                className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl text-4xl backdrop-blur-sm sm:h-24 sm:w-24 sm:rounded-3xl sm:text-5xl"
+                                className="mb-4 flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl text-4xl backdrop-blur-sm sm:mb-0 sm:h-24 sm:w-24 sm:rounded-3xl sm:text-5xl"
                                 style={{
                                     background: `linear-gradient(135deg, ${project.accent}15, ${project.accent}05)`,
                                     boxShadow: `0 0 60px ${project.accent}20`
@@ -131,7 +131,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                     </section>
 
                     {/* Challenge & Solution */}
-                    <div className="space-y-6 sm:grid sm:gap-8 sm:space-y-0 md:grid-cols-2">
+                    <div className="space-y-6 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
                         <section>
                             <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:mb-4 sm:text-sm">
                                 Défi
