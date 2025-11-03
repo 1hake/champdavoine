@@ -28,13 +28,8 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
         <div className="min-h-screen bg-[var(--color-surface-light)]">
             {/* Back Button */}
             <Link
-<<<<<<< Updated upstream
-                href="/#code"
-                className="group fixed left-4 top-4 z-50 inline-flex items-center gap-2 rounded-full border-2 border-[var(--color-border-light)] bg-white/80 px-4 py-2 text-sm text-[var(--color-ink)]/60 backdrop-blur-xl transition-all hover:border-[var(--color-ink)]/30 hover:text-[var(--color-ink)] sm:left-6 sm:top-6 sm:px-5 sm:py-2.5"
-=======
                 href={isMusicProject ? "/#music" : "/#code"}
-                className="fixed top-6 left-6 z-50 group inline-flex items-center gap-2 rounded-full border-2 border-[var(--color-border-light)] bg-white/80 px-5 py-2.5 text-sm text-[var(--color-ink)]/60 backdrop-blur-xl transition-all hover:border-[var(--color-ink)]/30 hover:text-[var(--color-ink)]"
->>>>>>> Stashed changes
+                className="group fixed left-4 top-4 z-50 inline-flex items-center gap-2 rounded-full border-2 border-[var(--color-border-light)] bg-white/80 px-4 py-2 text-sm text-[var(--color-ink)]/60 backdrop-blur-xl transition-all hover:border-[var(--color-ink)]/30 hover:text-[var(--color-ink)] sm:left-6 sm:top-6 sm:px-5 sm:py-2.5"
             >
                 <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
                 <span>Retour</span>
@@ -89,33 +84,24 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                     </div>
 
                     {/* Meta Info */}
-<<<<<<< Updated upstream
                     <div className="mb-8 space-y-2 text-center text-sm text-gray-500 sm:mb-10 sm:flex sm:flex-wrap sm:justify-start sm:gap-3 sm:space-y-0">
                         <span className="block sm:inline">{project.year}</span>
                         <span className="hidden sm:inline">•</span>
                         <span className="block sm:inline">{project.role}</span>
                         <span className="hidden sm:inline">•</span>
                         <span className="block sm:inline">{project.timeline}</span>
-=======
-                    <div className="mb-10 flex flex-wrap gap-4 text-sm text-gray-500">
-                        <span>{project.year}</span>
-                        <span>•</span>
-                        <span>{project.role}</span>
-                        <span>•</span>
-                        <span>{project.timeline}</span>
                         {isMusicProject && (project as any).duration && (
                             <>
-                                <span>•</span>
-                                <span>{(project as any).duration}</span>
+                                <span className="hidden sm:inline">•</span>
+                                <span className="block sm:inline">{(project as any).duration}</span>
                             </>
                         )}
                         {isMusicProject && (project as any).genre && (
                             <>
-                                <span>•</span>
-                                <span>{(project as any).genre}</span>
+                                <span className="hidden sm:inline">•</span>
+                                <span className="block sm:inline">{(project as any).genre}</span>
                             </>
                         )}
->>>>>>> Stashed changes
                     </div>
 
                     {/* Action Buttons */}

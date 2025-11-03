@@ -235,7 +235,7 @@ export const codeData = {
             icon: '⚙️',
             image: '/images/projects/fuzdi.png',
             accent: '#A87BFF',
-            tone: 'dark'
+            tone: 'light'
         },
         {
             slug: 'stripe-shop-boilerplate',
@@ -270,7 +270,7 @@ export const codeData = {
             icon: '🛒',
             image: '/images/projects/shop-stripe.png',
             accent: '#00D4FF',
-            tone: 'light'
+            tone: 'dark'
         },
         {
             slug: 'savoir-et-rire',
