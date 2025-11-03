@@ -15,7 +15,7 @@ export const aboutData = {
     eyebrow: 'À propos',
     badge: 'Tech Créative / Culture Audacieuse',
     title: {
-        line1: 'Dev front-end.',
+        line1: 'Dev front.',
         line2: 'Bedroom artist.'
     },
     profile: {
@@ -124,8 +124,8 @@ export const experienceData = {
 
 // Code Section Data
 export const codeData = {
-    eyebrow: 'Code',
-    title: 'Développement',
+    eyebrow: 'Développement',
+    title: 'Code',
     description: 'Projets techniques et applications.',
     projects: [
         {
@@ -313,39 +313,53 @@ export const codeData = {
 
 // Music Section Data
 export const musicData = {
-    eyebrow: 'Musique',
-    title: 'Créations sonores',
-    description: 'Bedroom pop, électronique expérimentale et production.',
-    tracks: [
+    eyebrow: 'créations musicales',
+    title: 'Musique',
+    description: 'Bedroom artist, rap',
+    projects: [
         {
-            title: 'Midnight Vibe',
-            artist: '1HAKE',
-            description: 'Ambiance nocturne avec synthés analogiques et rythmiques lo-fi.',
-            genre: 'Bedroom Pop',
-            duration: '3:42',
-            year: '2024',
-            cover: '/images/music/midnight-vibe.jpg',
-            accent: '#9B59B6',
+            slug: 'aquarium-album',
+            title: 'Aquarium',
+            description: 'Un album introspectif mêlant textures aquatiques, ambient et rap alternatif.',
+            fullDescription:
+                "Aquarium est un album concept mêlant rap alternatif, textures aquatiques, sonorités électroniques organiques et nappes ambient. Il explore les thèmes du flottement, de l'introspection et des rêves liquides. Jeux de voix, sound design inspiré du monde sous-marin, percussions douces et synthés fluides créent une atmosphère immersive. Pensé comme un voyage sensoriel, Aquarium incarne l’idée de plonger dans son propre monde intérieur.",
+            tech: ['Ableton Live', 'Synthés modulaires & virtuels', 'Field Recording (eau / nature)', 'Plugins créatifs', 'Vocal layers'],
+            features: [
+                'Concept album en 9 titres',
+                'Influences ambient, rap atmosphérique et electronica',
+                'Textures aquatiques & sound design organique',
+                'Exploration introspective & poétique',
+                'Artwork original'
+            ],
+            challenge:
+                "Trouver un équilibre entre influences rap et ambient tout en construisant une identité sonore cohérente autour du thème aquatique.",
+            solution:
+                "Recherche sonore basée sur des textures liquides, superpositions vocales, rythmiques minimalistes et exploration de synthés modulaires.",
+            results: [
+                'Album finalisé et prêt au mix / release',
+                'Univers visuel défini',
+                'Retour enthousiaste des premiers écoutes privées'
+            ],
+            role: 'Auteur-compositeur, Producteur, Sound Designer',
+            timeline: '2024 - 2025',
+            status: 'En finalisation',
+            team: 'Solo (feat. collaborations ponctuelles)',
+            gallery: [],
+            videos: [],
+            year: '2025',
+            link: null, // ajouter lien si déjà uploadé
+            github: null,
+            icon: '🌊',
+            image: '/images/music/aquarium.jpg', // remplacer si nécessaire
+            accent: '#00A8E8',
             tone: 'dark',
-            soundcloud: 'https://soundcloud.com/1hake/midnight-vibe',
-            spotify: null,
-            tags: ['Lo-Fi', 'Synthwave', 'Chill']
-        },
-        {
-            title: 'EP en preparation',
-            artist: '1HAKE',
-            description: 'Nouveaux morceaux à venir bientôt.',
-            genre: 'À définir',
-            duration: '',
-            year: '2024',
-            cover: null,
-            accent: '#34495E',
-            tone: 'light',
+            genre: 'Rap Ambient / Electronica',
+            duration: '~28 min',
+            artist: 'trenteseptcinq',
             soundcloud: null,
             spotify: null,
-            tags: []
-        }
-
+            tags: ['Ambient', 'Rap alternatif', 'Electronica', 'Concept album']
+        },
     ]
 };
 
