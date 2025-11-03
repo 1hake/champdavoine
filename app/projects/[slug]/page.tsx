@@ -23,7 +23,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             {/* Back Button */}
             <Link
                 href="/#code"
-                className="fixed top-6 left-6 z-50 group inline-flex items-center gap-2 rounded-full border-2 border-[var(--color-border-light)] bg-white/80 px-5 py-2.5 text-sm text-[var(--color-ink)]/60 backdrop-blur-xl transition-all hover:border-[var(--color-ink)]/30 hover:text-[var(--color-ink)]"
+                className="group fixed left-4 top-4 z-50 inline-flex items-center gap-2 rounded-full border-2 border-[var(--color-border-light)] bg-white/80 px-4 py-2 text-sm text-[var(--color-ink)]/60 backdrop-blur-xl transition-all hover:border-[var(--color-ink)]/30 hover:text-[var(--color-ink)] sm:left-6 sm:top-6 sm:px-5 sm:py-2.5"
             >
                 <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
                 <span>Retour</span>
@@ -37,45 +37,48 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                     style={{ background: project.accent }}
                 />
 
-                <div className="container mx-auto max-w-5xl px-6 py-24 sm:py-32">
+                <div className="container mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
                     {/* Icon + Title */}
-                    <div className="mb-8 flex items-center gap-6">
-                        <div
-                            className="flex h-24 w-24 shrink-0 items-center justify-center rounded-3xl text-5xl backdrop-blur-sm"
-                            style={{
-                                background: `linear-gradient(135deg, ${project.accent}15, ${project.accent}05)`,
-                                boxShadow: `0 0 60px ${project.accent}20`
-                            }}
-                        >
-                            {project.icon}
+                    <div className="mb-6 sm:mb-8">
+                        {/* Mobile: Stack vertically, Desktop: Horizontal */}
+                        <div className="flex justify-center sm:inline-flex sm:justify-start">
+                            <div
+                                className="mb-4 flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl text-4xl backdrop-blur-sm sm:mb-0 sm:h-24 sm:w-24 sm:rounded-3xl sm:text-5xl"
+                                style={{
+                                    background: `linear-gradient(135deg, ${project.accent}15, ${project.accent}05)`,
+                                    boxShadow: `0 0 60px ${project.accent}20`
+                                }}
+                            >
+                                {project.icon}
+                            </div>
                         </div>
-                        <div>
-                            <h1 className="font-heading text-5xl leading-tight text-[var(--color-ink)] sm:text-6xl lg:text-7xl">
+                        <div className="sm:ml-6 sm:inline-block sm:align-top">
+                            <h1 className="text-center font-heading text-4xl leading-tight text-[var(--color-ink)] sm:text-left sm:text-5xl lg:text-7xl">
                                 {project.title}
                             </h1>
-                            <p className="mt-2 text-xl text-[var(--color-ink)]/60">
+                            <p className="mt-3 text-center text-lg leading-relaxed text-[var(--color-ink)]/60 sm:mt-2 sm:text-left sm:text-xl">
                                 {project.description}
                             </p>
                         </div>
                     </div>
 
                     {/* Meta Info */}
-                    <div className="mb-10 flex flex-wrap gap-4 text-sm text-gray-500">
-                        <span>{project.year}</span>
-                        <span>•</span>
-                        <span>{project.role}</span>
-                        <span>•</span>
-                        <span>{project.timeline}</span>
+                    <div className="mb-8 space-y-2 text-center text-sm text-gray-500 sm:mb-10 sm:flex sm:flex-wrap sm:justify-start sm:gap-3 sm:space-y-0">
+                        <span className="block sm:inline">{project.year}</span>
+                        <span className="hidden sm:inline">•</span>
+                        <span className="block sm:inline">{project.role}</span>
+                        <span className="hidden sm:inline">•</span>
+                        <span className="block sm:inline">{project.timeline}</span>
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                         {project.link && (
                             <a
                                 href={project.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-white transition-all duration-200 hover:scale-105"
+                                className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-center font-semibold text-white transition-all duration-200 hover:scale-105"
                                 style={{
                                     background: project.accent,
                                     boxShadow: `0 0 40px ${project.accent}40`
@@ -90,7 +93,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                                 href={project.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 rounded-full border-2 border-gray-300 bg-white px-6 py-3 font-semibold text-[var(--color-ink)] backdrop-blur-sm transition-all hover:border-[var(--color-ink)] hover:bg-gray-50"
+                                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-300 bg-white px-6 py-3 text-center font-semibold text-[var(--color-ink)] backdrop-blur-sm transition-all hover:border-[var(--color-ink)] hover:bg-gray-50"
                             >
                                 Code source
                                 <Github className="h-4 w-4" />
@@ -101,25 +104,25 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             </div>
 
             {/* Main Content */}
-            <div className="container mx-auto max-w-5xl px-6 py-16 sm:py-24">
-                <div className="space-y-16">
+            <div className="container mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 lg:py-24">
+                <div className="space-y-12 sm:space-y-16">
                     {/* Overview */}
                     <section>
-                        <p className="text-xl leading-relaxed text-gray-600">
+                        <p className="text-base leading-relaxed text-gray-600 sm:text-xl">
                             {project.fullDescription}
                         </p>
                     </section>
 
                     {/* Technologies */}
                     <section>
-                        <h2 className="mb-6 text-sm font-semibold uppercase tracking-wider text-gray-500">
+                        <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:mb-6 sm:text-sm">
                             Technologies
                         </h2>
-                        <div className="flex flex-wrap gap-3">
+                        <div className="flex flex-wrap gap-2 sm:gap-3">
                             {project.tech.map((tech) => (
                                 <span
                                     key={tech}
-                                    className="rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-medium text-[var(--color-ink)] backdrop-blur-sm"
+                                    className="rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-[var(--color-ink)] backdrop-blur-sm sm:px-4 sm:py-2 sm:text-sm"
                                 >
                                     {tech}
                                 </span>
@@ -128,21 +131,21 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                     </section>
 
                     {/* Challenge & Solution */}
-                    <div className="grid gap-8 md:grid-cols-2">
+                    <div className="space-y-6 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
                         <section>
-                            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-500">
+                            <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:mb-4 sm:text-sm">
                                 Défi
                             </h2>
-                            <p className="leading-relaxed text-gray-600">
+                            <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
                                 {project.challenge}
                             </p>
                         </section>
 
                         <section>
-                            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gray-500">
+                            <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:mb-4 sm:text-sm">
                                 Solution
                             </h2>
-                            <p className="leading-relaxed text-gray-600">
+                            <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
                                 {project.solution}
                             </p>
                         </section>
@@ -150,21 +153,21 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
                     {/* Features */}
                     <section>
-                        <h2 className="mb-6 text-sm font-semibold uppercase tracking-wider text-gray-500">
+                        <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:mb-6 sm:text-sm">
                             Fonctionnalités
                         </h2>
-                        <div className="grid gap-4 sm:grid-cols-2">
+                        <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
                             {project.features.map((feature, index) => (
                                 <div
                                     key={index}
-                                    className="group rounded-2xl border border-gray-200 bg-white p-6 transition-all hover:border-gray-300 hover:bg-gray-50"
+                                    className="group rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-gray-300 hover:bg-gray-50 sm:rounded-2xl sm:p-6"
                                 >
-                                    <div className="flex gap-3">
+                                    <div className="flex gap-2 sm:gap-3">
                                         <div
                                             className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full"
                                             style={{ background: project.accent }}
                                         />
-                                        <p className="text-sm leading-relaxed text-gray-600 group-hover:text-[var(--color-ink)]">
+                                        <p className="text-xs leading-relaxed text-gray-600 group-hover:text-[var(--color-ink)] sm:text-sm">
                                             {feature}
                                         </p>
                                     </div>
@@ -175,12 +178,12 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
                     {/* Results */}
                     <section>
-                        <h2 className="mb-6 text-sm font-semibold uppercase tracking-wider text-gray-500">
+                        <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:mb-6 sm:text-sm">
                             Résultats
                         </h2>
-                        <div className="space-y-4">
+                        <div className="space-y-3 sm:space-y-4">
                             {project.results.map((result, index) => (
-                                <div key={index} className="flex items-start gap-3 text-gray-600">
+                                <div key={index} className="flex items-start gap-3 text-sm text-gray-600 sm:text-base">
                                     <div
                                         className="mt-1.5 h-1 w-1 shrink-0 rounded-full"
                                         style={{ background: project.accent }}
@@ -194,14 +197,14 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                     {/* Gallery */}
                     {project.gallery && project.gallery.length > 0 && (
                         <section>
-                            <h2 className="mb-6 text-sm font-semibold uppercase tracking-wider text-gray-500">
+                            <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:mb-6 sm:text-sm">
                                 Galerie
                             </h2>
-                            <div className="grid gap-4 sm:grid-cols-2">
+                            <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
                                 {project.gallery.map((img, index) => (
                                     <div
                                         key={index}
-                                        className="relative aspect-video overflow-hidden rounded-2xl border border-gray-200"
+                                        className="relative aspect-video overflow-hidden rounded-xl border border-gray-200 sm:rounded-2xl"
                                     >
                                         <Image
                                             src={img}
@@ -218,14 +221,14 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                     {/* Videos */}
                     {project.videos && project.videos.length > 0 && (
                         <section>
-                            <h2 className="mb-6 text-sm font-semibold uppercase tracking-wider text-gray-500">
+                            <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:mb-6 sm:text-sm">
                                 Vidéos
                             </h2>
-                            <div className="space-y-4">
+                            <div className="space-y-3 sm:space-y-4">
                                 {project.videos.map((video, index) => (
                                     <div
                                         key={index}
-                                        className="relative aspect-video overflow-hidden rounded-2xl border border-gray-200"
+                                        className="relative aspect-video overflow-hidden rounded-xl border border-gray-200 sm:rounded-2xl"
                                     >
                                         <iframe
                                             src={video}
