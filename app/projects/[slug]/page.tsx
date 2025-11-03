@@ -38,6 +38,21 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                 />
 
                 <div className="container mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
+                    {/* Project Image */}
+                    {project.image && (
+                        <div className="mb-8 sm:mb-12">
+                            <div className="relative aspect-video overflow-hidden rounded-2xl border-2 border-gray-200 bg-white shadow-xl sm:rounded-3xl">
+                                <Image
+                                    src={project.image}
+                                    alt={project.title}
+                                    fill
+                                    className="object-cover"
+                                    priority
+                                />
+                            </div>
+                        </div>
+                    )}
+
                     {/* Icon + Title */}
                     <div className="mb-6 sm:mb-8">
                         {/* Mobile: Stack vertically, Desktop: Horizontal */}
