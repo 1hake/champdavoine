@@ -4,8 +4,17 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 
+// Type for combined project (code + music specific fields)
+type CombinedProject = typeof codeData.projects[0] & {
+    duration?: string;
+    genre?: string;
+    artist?: string;
+    soundcloud?: string;
+    spotify?: string;
+};
+
 // Combine all projects from both code and music data
-const allProjects = [...codeData.projects, ...musicData.projects];
+const allProjects: CombinedProject[] = [...codeData.projects, ...musicData.projects];
 
 export function generateStaticParams() {
     return allProjects.map((project) => ({
@@ -15,7 +24,7 @@ export function generateStaticParams() {
 
 export default async function ProjectDetail({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
-    const project = allProjects.find(p => p.slug === slug)
+    const project: CombinedProject | undefined = allProjects.find(p => p.slug === slug)
 
     if (!project) {
         notFound()
@@ -90,16 +99,16 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                         <span className="block sm:inline">{project.role}</span>
                         <span className="hidden sm:inline">•</span>
                         <span className="block sm:inline">{project.timeline}</span>
-                        {isMusicProject && (project as any).duration && (
+                        {isMusicProject && project.duration && (
                             <>
                                 <span className="hidden sm:inline">•</span>
-                                <span className="block sm:inline">{(project as any).duration}</span>
+                                <span className="block sm:inline">{project.duration}</span>
                             </>
                         )}
-                        {isMusicProject && (project as any).genre && (
+                        {isMusicProject && project.genre && (
                             <>
                                 <span className="hidden sm:inline">•</span>
-                                <span className="block sm:inline">{(project as any).genre}</span>
+                                <span className="block sm:inline">{project.genre}</span>
                             </>
                         )}
                     </div>
@@ -121,9 +130,9 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                                 <ExternalLink className="h-4 w-4" />
                             </a>
                         )}
-                        {(project as any).soundcloud && (
+                        {project.soundcloud && (
                             <a
-                                href={(project as any).soundcloud}
+                                href={project.soundcloud}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="inline-flex items-center gap-2 rounded-full border-2 border-gray-300 bg-white px-6 py-3 font-semibold text-[var(--color-ink)] backdrop-blur-sm transition-all hover:border-[var(--color-ink)] hover:bg-gray-50"
