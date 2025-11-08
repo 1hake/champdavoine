@@ -21,7 +21,7 @@ const MusicSection: React.FC = () => {
                 </div>
 
                 <div className="mt-16 flex flex-col gap-8 sm:gap-10">
-                    {musicData.projects.map((project, index) => {
+                    {musicData.projects.filter(project => !project.disabled).map((project, index) => {
                         const isLight = project.tone === 'light';
 
                         return (
@@ -38,9 +38,9 @@ const MusicSection: React.FC = () => {
                                         style={{ background: project.accent }}
                                     ></div>
 
-                                    <div className="relative -mx-6 -mt-6 mb-6 h-48 w-48 lg:h-48 lg:w-48 lg:flex-shrink-0 lg:mx-0 lg:mt-0 lg:mb-0 lg:mr-8 overflow-hidden sm:-mx-8 sm:-mt-8 lg:sm:mx-0 lg:sm:mt-0">
+                                    <div className="relative -mx-6 -mt-6 mb-6 h-48 sm:-mx-8 sm:-mt-8 lg:h-48 lg:w-48 lg:flex-shrink-0 lg:mx-0 lg:mt-0 lg:mb-0 lg:mr-8 overflow-hidden">
                                         <div
-                                            className="h-full w-full aspect-square flex items-center justify-center relative transition-transform duration-300 group-hover:scale-105"
+                                            className="h-full w-full lg:aspect-square flex items-center justify-center relative transition-transform duration-300 group-hover:scale-105"
                                             style={{ background: `linear-gradient(135deg, ${project.accent}40, ${project.accent}20)` }}
                                         >
                                             {project.image ? (
@@ -63,8 +63,11 @@ const MusicSection: React.FC = () => {
                                                 style={{ background: project.accent }}
                                             ></div>
                                             <div className="flex items-center gap-2 text-xs text-gray-500">
-                                                {project.duration && <span>{project.duration}</span>}
-                                                {project.duration && <span>•</span>}
+                                                {project.comingSoon && (
+                                                    <span className="rounded-full border border-orange-300 bg-gradient-to-r from-orange-100 to-yellow-100 px-2 py-1 text-[0.6rem] font-semibold uppercase tracking-wider text-orange-700 mr-2">
+                                                        Bientôt
+                                                    </span>
+                                                )}
                                                 <span>{project.year}</span>
                                             </div>
                                         </div>
@@ -72,10 +75,6 @@ const MusicSection: React.FC = () => {
                                         <h3 className="relative mt-4 font-heading text-2xl leading-[0.95] sm:text-3xl lg:text-3xl">
                                             {project.title}
                                         </h3>
-
-                                        <p className="relative mt-1 text-sm font-semibold text-[var(--color-neon)] uppercase tracking-wider">
-                                            {project.artist}
-                                        </p>
 
                                         <p className={`relative mt-4 flex-grow text-sm leading-relaxed sm:text-base ${isLight ? 'text-[var(--color-ink)]/75' : 'text-gray-600'
                                             }`}>
@@ -97,7 +96,7 @@ const MusicSection: React.FC = () => {
                                         <div className="relative mt-8 flex items-center justify-between gap-4">
                                             <span className={`text-sm font-semibold uppercase tracking-wider ${isLight ? 'text-[var(--color-ink)]/60' : 'text-gray-500'
                                                 }`}>
-                                                {project.genre}
+                                                Musique
                                             </span>
 
                                             <div className={`inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider transition-all duration-300 ${isLight ? 'text-[var(--color-ink)] group-hover:gap-3' : 'text-[var(--color-neon)] group-hover:gap-3'}`}>

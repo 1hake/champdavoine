@@ -1,20 +1,18 @@
 import { codeData, musicData } from '@/data/data'
-import { ArrowLeft, ExternalLink, Github } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import Image from 'next/image'
+import { ArrowLeft, ExternalLink, Github, Music2 } from 'lucide-react'
+import type { JSX } from 'react'
 
-// Type for combined project (code + music specific fields)
 type CombinedProject = typeof codeData.projects[0] & {
-    duration?: string;
-    genre?: string;
-    artist?: string;
-    soundcloud?: string;
-    spotify?: string;
-};
+    soundcloud?: string
+    spotify?: string
+    comingSoon?: boolean
+    disabled?: boolean
+}
 
-// Combine all projects from both code and music data
-const allProjects: CombinedProject[] = [...codeData.projects, ...musicData.projects];
+const allProjects: CombinedProject[] = [...codeData.projects, ...musicData.projects]
 
 export function generateStaticParams() {
     return allProjects.map((project) => ({
@@ -22,280 +20,283 @@ export function generateStaticParams() {
     }))
 }
 
-export default async function ProjectDetail({ params }: { params: Promise<{ slug: string }> }) {
-    const { slug } = await params
-    const project: CombinedProject | undefined = allProjects.find(p => p.slug === slug)
+export default function ProjectDetail({ params }: { params: { slug: string } }) {
+    const { slug } = params
+    const project: CombinedProject | undefined = allProjects.find((p) => p.slug === slug)
 
     if (!project) {
         notFound()
     }
 
-    // Determine if this is a music project
-    const isMusicProject = musicData.projects.some(p => p.slug === slug);
+    const isMusicProject = musicData.projects.some((p) => p.slug === slug)
+    const accentGlow = `${project.accent}4d`
+    const accentHalo = `${project.accent}1f`
+
+    const actions = [
+        project.link
+            ? {
+                href: project.link,
+                label: isMusicProject ? 'Écouter' : 'Voir le projet',
+                icon: <ExternalLink className="h-4 w-4" />,
+                primary: true,
+            }
+            : null,
+        project.soundcloud
+            ? {
+                href: project.soundcloud,
+                label: 'SoundCloud',
+                icon: <ExternalLink className="h-4 w-4" />,
+                primary: false,
+            }
+            : null,
+        project.spotify
+            ? {
+                href: project.spotify,
+                label: 'Spotify',
+                icon: <Music2 className="h-4 w-4" />,
+                primary: false,
+            }
+            : null,
+        project.github
+            ? {
+                href: project.github,
+                label: 'Code source',
+                icon: <Github className="h-4 w-4" />,
+                primary: false,
+            }
+            : null,
+    ].filter(Boolean) as Array<{
+        href: string
+        label: string
+        icon: JSX.Element
+        primary: boolean
+    }>
 
     return (
-        <div className="min-h-screen bg-[var(--color-surface-light)]">
-            {/* Back Button */}
+        <div className="relative min-h-screen bg-[var(--color-surface-light)] text-[var(--color-ink)]">
             <Link
-                href={isMusicProject ? "/#music" : "/#code"}
-                className="group fixed left-4 top-4 z-50 inline-flex items-center gap-2 rounded-full border-2 border-[var(--color-border-light)] bg-white/80 px-4 py-2 text-sm text-[var(--color-ink)]/60 backdrop-blur-xl transition-all hover:border-[var(--color-ink)]/30 hover:text-[var(--color-ink)] sm:left-6 sm:top-6 sm:px-5 sm:py-2.5"
+                href={isMusicProject ? '/#music' : '/#code'}
+                className="group fixed left-4 top-4 z-50 inline-flex items-center gap-2 rounded-full border border-[var(--color-border-light)] bg-white/80 px-4 py-2 text-sm text-[var(--color-ink)]/70 shadow-sm backdrop-blur-xl transition-all hover:border-[var(--color-ink)]/30 hover:text-[var(--color-ink)] sm:left-6 sm:top-6 sm:px-5 sm:py-2.5"
             >
                 <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
                 <span>Retour</span>
             </Link>
 
-            {/* Hero Section */}
-            <div className="relative overflow-hidden border-b border-gray-200">
-                {/* Gradient Orbs */}
+            <section className="relative isolate overflow-hidden">
+                <div className="absolute inset-0 -z-20">
+                    <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        priority
+                        sizes="100vw"
+                        className="object-cover lg:blur-xl"
+                    />
+                </div>
                 <div
-                    className="absolute top-0 right-1/4 h-[500px] w-[500px] rounded-full opacity-10 blur-[120px]"
-                    style={{ background: project.accent }}
+                    className="absolute inset-0 -z-10"
+                    style={{ background: `linear-gradient(120deg, ${accentGlow}, rgba(255,255,255,0.6) 55%)` }}
                 />
+                <div className="absolute inset-0 -z-10 bg-black/15" />
 
-                <div className="container mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
-                    {/* Project Image */}
-                    {project.image && (
-                        <div className="mb-8 sm:mb-12">
-                            <div className="relative aspect-video overflow-hidden rounded-2xl border-2 border-gray-200 bg-white shadow-xl sm:rounded-3xl">
-                                <Image
-                                    src={project.image}
-                                    alt={project.title}
-                                    fill
-                                    className="object-cover"
-                                    priority
-                                />
+                <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 lg:py-28">
+                    <div className="rounded-[32px] border border-white/20 bg-white/80 p-8 shadow-2xl backdrop-blur-3xl sm:p-12">
+                        <div>
+                            <div className="flex items-start justify-between">
+                                <span className="text-xs uppercase tracking-[0.4em] text-[var(--color-ink)]/60">
+                                    {isMusicProject ? 'Projet musical' : 'Projet digital'}
+                                </span>
+                                {project.comingSoon && (
+                                    <span className="rounded-full border border-orange-300 bg-gradient-to-r from-orange-100 to-yellow-100 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-orange-700">
+                                        Bientôt disponible
+                                    </span>
+                                )}
                             </div>
-                        </div>
-                    )}
-
-                    {/* Icon + Title */}
-                    <div className="mb-6 sm:mb-8">
-                        {/* Mobile: Stack vertically, Desktop: Horizontal */}
-                        <div className="flex justify-center sm:inline-flex sm:justify-start">
-                            <div
-                                className="mb-4 flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl text-4xl backdrop-blur-sm sm:mb-0 sm:h-24 sm:w-24 sm:rounded-3xl sm:text-5xl"
-                                style={{
-                                    background: `linear-gradient(135deg, ${project.accent}15, ${project.accent}05)`,
-                                    boxShadow: `0 0 60px ${project.accent}20`
-                                }}
-                            >
-                                {project.icon}
-                            </div>
-                        </div>
-                        <div className="sm:ml-6 sm:inline-block sm:align-top">
-                            <h1 className="text-center font-heading text-4xl leading-tight text-[var(--color-ink)] sm:text-left sm:text-5xl lg:text-7xl">
+                            <h1 className="mt-3 font-heading text-4xl leading-tight text-[var(--color-ink)] sm:text-5xl lg:text-6xl">
                                 {project.title}
                             </h1>
-                            <p className="mt-3 text-center text-lg leading-relaxed text-[var(--color-ink)]/60 sm:mt-2 sm:text-left sm:text-xl">
-                                {project.description}
-                            </p>
                         </div>
+
+                        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--color-ink)]/70 sm:text-xl">
+                            {project.description}
+                        </p>
+
+                        {actions.length > 0 && (
+                            <div className="mt-10 flex flex-wrap gap-3">
+                                {actions.map((action) => (
+                                    <a
+                                        key={action.href}
+                                        href={action.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={
+                                            action.primary
+                                                ? 'inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white shadow-lg transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-xl sm:text-base'
+                                                : 'inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/70 px-6 py-3 text-sm font-semibold text-[var(--color-ink)]/80 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--color-ink)]/40 hover:text-[var(--color-ink)] sm:text-base'
+                                        }
+                                        style={
+                                            action.primary
+                                                ? {
+                                                    background: project.accent,
+                                                    boxShadow: `0 18px 45px ${accentGlow}`,
+                                                }
+                                                : undefined
+                                        }
+                                    >
+                                        {action.label}
+                                        {action.icon}
+                                    </a>
+                                ))}
+                            </div>
+                        )}
                     </div>
 
-                    {/* Meta Info */}
-                    <div className="mb-8 space-y-2 text-center text-sm text-gray-500 sm:mb-10 sm:flex sm:flex-wrap sm:justify-start sm:gap-3 sm:space-y-0">
-                        <span className="block sm:inline">{project.year}</span>
-                        <span className="hidden sm:inline">•</span>
-                        <span className="block sm:inline">{project.role}</span>
-                        <span className="hidden sm:inline">•</span>
-                        <span className="block sm:inline">{project.timeline}</span>
-                        {isMusicProject && project.duration && (
-                            <>
-                                <span className="hidden sm:inline">•</span>
-                                <span className="block sm:inline">{project.duration}</span>
-                            </>
-                        )}
-                        {isMusicProject && project.genre && (
-                            <>
-                                <span className="hidden sm:inline">•</span>
-                                <span className="block sm:inline">{project.genre}</span>
-                            </>
-                        )}
-                    </div>
+                </div>
+            </section>
 
-                    {/* Action Buttons */}
-                    <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                        {project.link && (
-                            <a
-                                href={project.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-center font-semibold text-white transition-all duration-200 hover:scale-105"
-                                style={{
-                                    background: project.accent,
-                                    boxShadow: `0 0 40px ${project.accent}40`
-                                }}
+            <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+                <div className="rounded-3xl border border-[var(--color-border-light)] bg-white p-8 shadow-xl">
+                    <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-ink)]/45">
+                        Stack
+                    </h2>
+                    <div className="mt-5 flex flex-wrap gap-2">
+                        {project.tech.map((tech) => (
+                            <span
+                                key={tech}
+                                className="rounded-full border border-[var(--color-border-light)] bg-[var(--color-surface-light)] px-4 py-2 text-sm font-medium text-[var(--color-ink)]/80"
                             >
-                                {isMusicProject ? 'Écouter' : 'Voir le projet'}
-                                <ExternalLink className="h-4 w-4" />
-                            </a>
-                        )}
-                        {project.soundcloud && (
-                            <a
-                                href={project.soundcloud}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 rounded-full border-2 border-gray-300 bg-white px-6 py-3 font-semibold text-[var(--color-ink)] backdrop-blur-sm transition-all hover:border-[var(--color-ink)] hover:bg-gray-50"
-                            >
-                                SoundCloud
-                                <ExternalLink className="h-4 w-4" />
-                            </a>
-                        )}
-                        {project.github && (
-                            <a
-                                href={project.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-gray-300 bg-white px-6 py-3 text-center font-semibold text-[var(--color-ink)] backdrop-blur-sm transition-all hover:border-[var(--color-ink)] hover:bg-gray-50"
-                            >
-                                Code source
-                                <Github className="h-4 w-4" />
-                            </a>
-                        )}
+                                {tech}
+                            </span>
+                        ))}
                     </div>
                 </div>
-            </div>
+            </section>
 
-            {/* Main Content */}
-            <div className="container mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16 lg:py-24">
-                <div className="space-y-12 sm:space-y-16">
-                    {/* Overview */}
-                    <section>
-                        <p className="text-base leading-relaxed text-gray-600 sm:text-xl">
+            <section className="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
+                <article>
+                    <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-ink)]/45">
+                        Aperçu
+                    </h2>
+                    <div className="mt-6 grid gap-8 lg:grid-cols-[300px,1fr] lg:items-start">
+                        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--color-border-light)] bg-white/40 shadow-lg">
+                            <Image
+                                src={project.image}
+                                alt={project.title}
+                                fill
+                                sizes="(min-width: 1024px) 300px, 100vw"
+                                className="object-cover"
+                            />
+                        </div>
+                        <p className="text-base leading-relaxed text-[var(--color-ink)]/70 sm:text-lg">
                             {project.fullDescription}
                         </p>
-                    </section>
+                    </div>
+                </article>
+            </section>
 
-                    {/* Technologies */}
-                    <section>
-                        <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:mb-6 sm:text-sm">
-                            Technologies
-                        </h2>
-                        <div className="flex flex-wrap gap-2 sm:gap-3">
-                            {project.tech.map((tech) => (
-                                <span
-                                    key={tech}
-                                    className="rounded-full border border-gray-200 bg-white px-3 py-1.5 text-xs font-medium text-[var(--color-ink)] backdrop-blur-sm sm:px-4 sm:py-2 sm:text-sm"
-                                >
-                                    {tech}
-                                </span>
-                            ))}
-                        </div>
-                    </section>
+            <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:pb-28">
+                <div className="grid gap-16 lg:grid-cols-[2fr,1fr] lg:items-start lg:gap-20">
+                    <div className="space-y-16">
+                        {project.gallery && project.gallery.length > 0 && (
+                            <div>
+                                <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-ink)]/45">
+                                    Galerie
+                                </h2>
+                                <div className="mt-6 grid gap-5 sm:grid-cols-2">
+                                    {project.gallery.map((img, index) => (
+                                        <div
+                                            key={`${img}-${index}`}
+                                            className="group relative overflow-hidden rounded-3xl border border-[var(--color-border-light)] bg-white/40 shadow-lg"
+                                        >
+                                            <Image
+                                                src={img}
+                                                alt={`${project.title} visuel ${index + 1}`}
+                                                fill
+                                                sizes="(min-width: 640px) 50vw, 100vw"
+                                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
 
-                    {/* Challenge & Solution */}
-                    <div className="space-y-6 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
-                        <section>
-                            <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:mb-4 sm:text-sm">
-                                Défi
-                            </h2>
-                            <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
-                                {project.challenge}
-                            </p>
-                        </section>
-
-                        <section>
-                            <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:mb-4 sm:text-sm">
-                                Solution
-                            </h2>
-                            <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
-                                {project.solution}
-                            </p>
-                        </section>
+                        {project.videos && project.videos.length > 0 && (
+                            <div>
+                                <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-ink)]/45">
+                                    Vidéos
+                                </h2>
+                                <div className="mt-6 space-y-5">
+                                    {project.videos.map((video, index) => (
+                                        <div
+                                            key={`${video}-${index}`}
+                                            className="overflow-hidden rounded-3xl border border-[var(--color-border-light)] bg-white/60 shadow-lg"
+                                        >
+                                            <iframe
+                                                src={video}
+                                                className="aspect-video w-full"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowFullScreen
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
 
-                    {/* Features */}
-                    <section>
-                        <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:mb-6 sm:text-sm">
-                            Fonctionnalités
-                        </h2>
-                        <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
-                            {project.features.map((feature, index) => (
-                                <div
-                                    key={index}
-                                    className="group rounded-xl border border-gray-200 bg-white p-4 transition-all hover:border-gray-300 hover:bg-gray-50 sm:rounded-2xl sm:p-6"
+                    <aside className="space-y-12">
+                        {isMusicProject && (project.soundcloud || project.spotify) && (
+                            <div className="rounded-3xl border border-[var(--color-border-light)] bg-white/70 p-8 shadow-xl backdrop-blur-xl">
+                                <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-ink)]/45">
+                                    Écoutes
+                                </h2>
+                                <div className="mt-5 flex flex-col gap-3">
+                                    {project.soundcloud && (
+                                        <a
+                                            href={project.soundcloud}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center justify-between rounded-2xl border border-white/50 bg-white/80 px-4 py-3 text-sm font-semibold text-[var(--color-ink)]/80 transition-all hover:border-white hover:text-[var(--color-ink)]"
+                                        >
+                                            SoundCloud
+                                            <ExternalLink className="h-4 w-4" />
+                                        </a>
+                                    )}
+                                    {project.spotify && (
+                                        <a
+                                            href={project.spotify}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="inline-flex items-center justify-between rounded-2xl border border-white/50 bg-white/80 px-4 py-3 text-sm font-semibold text-[var(--color-ink)]/80 transition-all hover:border-white hover:text-[var(--color-ink)]"
+                                        >
+                                            Spotify
+                                            <ExternalLink className="h-4 w-4" />
+                                        </a>
+                                    )}
+                                </div>
+                            </div>
+                        )}
+
+                        {project.github && (
+                            <div className="rounded-3xl border border-[var(--color-border-light)] bg-white/70 p-8 shadow-xl backdrop-blur-xl">
+                                <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-ink)]/45">
+                                    Dépôt
+                                </h2>
+                                <a
+                                    href={project.github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="mt-5 inline-flex w-full items-center justify-between rounded-2xl border border-white/50 bg-white/80 px-4 py-3 text-sm font-semibold text-[var(--color-ink)]/80 transition-all hover:border-white hover:text-[var(--color-ink)]"
                                 >
-                                    <div className="flex gap-2 sm:gap-3">
-                                        <div
-                                            className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full"
-                                            style={{ background: project.accent }}
-                                        />
-                                        <p className="text-xs leading-relaxed text-gray-600 group-hover:text-[var(--color-ink)] sm:text-sm">
-                                            {feature}
-                                        </p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-
-                    {/* Results */}
-                    <section>
-                        <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:mb-6 sm:text-sm">
-                            Résultats
-                        </h2>
-                        <div className="space-y-3 sm:space-y-4">
-                            {project.results.map((result, index) => (
-                                <div key={index} className="flex items-start gap-3 text-sm text-gray-600 sm:text-base">
-                                    <div
-                                        className="mt-1.5 h-1 w-1 shrink-0 rounded-full"
-                                        style={{ background: project.accent }}
-                                    />
-                                    <span>{result}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </section>
-
-                    {/* Gallery */}
-                    {project.gallery && project.gallery.length > 0 && (
-                        <section>
-                            <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:mb-6 sm:text-sm">
-                                Galerie
-                            </h2>
-                            <div className="grid gap-3 sm:grid-cols-2 sm:gap-4">
-                                {project.gallery.map((img, index) => (
-                                    <div
-                                        key={index}
-                                        className="relative aspect-video overflow-hidden rounded-xl border border-gray-200 sm:rounded-2xl"
-                                    >
-                                        <Image
-                                            src={img}
-                                            alt={`${project.title} screenshot ${index + 1}`}
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                ))}
+                                    Code source
+                                    <Github className="h-4 w-4" />
+                                </a>
                             </div>
-                        </section>
-                    )}
-
-                    {/* Videos */}
-                    {project.videos && project.videos.length > 0 && (
-                        <section>
-                            <h2 className="mb-4 text-xs font-semibold uppercase tracking-wider text-gray-500 sm:mb-6 sm:text-sm">
-                                Vidéos
-                            </h2>
-                            <div className="space-y-3 sm:space-y-4">
-                                {project.videos.map((video, index) => (
-                                    <div
-                                        key={index}
-                                        className="relative aspect-video overflow-hidden rounded-xl border border-gray-200 sm:rounded-2xl"
-                                    >
-                                        <iframe
-                                            src={video}
-                                            className="h-full w-full"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen
-                                        />
-                                    </div>
-                                ))}
-                            </div>
-                        </section>
-                    )}
+                        )}
+                    </aside>
                 </div>
-            </div>
+            </section>
         </div>
     )
 }

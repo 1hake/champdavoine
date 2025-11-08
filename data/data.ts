@@ -52,7 +52,8 @@ export const experienceData = {
             description: [
                 "Développement admin et migration Redux vers React Context.",
                 "Refonte application mobile Réseau IZI by EDF : migration React Native 0.63, RGPD, tests E2E, nouveau design, déploiement stores iOS/Android.",
-                "Portail B2B2C et CMS sur mesure pour intégration partenaires."
+                "Portail B2B2C et CMS sur mesure pour intégration partenaires.",
+                "Migration vers TypeScript, Tailwind CSS, Tanstack Query.",
             ]
         },
         {
@@ -143,28 +144,19 @@ export const codeData = {
                 'Historique des partages',
                 'Backend Prisma + SQLite'
             ],
-            challenge:
-                "Créer une expérience sociale musicale authentique en limitant le partage, tout en intégrant Spotify et des notifications natives.",
-            solution:
-                "Appli React + Capacitor, backend Prisma, notifications natives, UX ultra minimaliste.",
-            results: [
-                'Prototype fonctionnel mobile',
-                'Notifications opérationnelles',
-                'First users tests'
+
+            gallery: [
+                '/images/projects/diggerz.png',
             ],
-            role: 'Founder & Full-Stack Developer',
-            timeline: '2023 – Présent',
-            status: 'Beta privée',
-            team: 'Solo',
-            gallery: [],
             videos: [],
             year: '2024',
             link: null,
             github: null,
             icon: '🎵',
             image: '/images/projects/diggerz.png',
-            accent: '#87C9F9',
-            tone: 'light'
+            tone: 'light',
+            comingSoon: true,
+            disabled: true
         },
         {
             slug: 'jai-tout-perdu',
@@ -179,32 +171,24 @@ export const codeData = {
                 'Diagnostic de base gratuit',
                 'Récupération sur supports courants'
             ],
-            challenge:
-                "Créer une manière simple, humaine et locale d'aider des gens à récupérer leurs fichiers sans passer par des services opaques.",
-            solution:
-                "Site minimal + prise de contact directe + bonnes pratiques de récupération de base.",
-            results: [
-                'Plusieurs récupérations réussies',
-                'Bouche-à-oreille local positif'
+
+            gallery: [
+                '/images/projects/jai-tout-perdu.png',
             ],
-            role: 'Créateur & opérateur',
-            timeline: '2024 – Présent',
-            status: 'Actif',
-            team: 'Solo',
-            gallery: [],
             videos: [],
             year: '2024',
             link: null,
             github: null,
             icon: '💾',
             image: '/images/projects/jai-tout-perdu.png',
-            accent: '#FF9B4B',
-            tone: 'dark'
+            tone: 'dark',
+            comingSoon: false,
+            disabled: false
         },
         {
             slug: 'fuzdi',
             title: 'FUZDi',
-            description: 'Plateforme GPU + interface pour génération d’images IA.',
+            description: 'Plateforme GPU + interface pour génération d\'images IA.',
             fullDescription:
                 "Plateforme permettant de lancer et gérer des serveurs GPU à la demande pour la création d'images avec IA (ComfyUI / Stable Diffusion). Dashboard pour lancer des jobs, suivre les rendus, optimiser les coûts et contrôler le cycle de vie des GPU.",
             tech: ['Next.js', 'React', 'Tailwind CSS', 'Node.js', 'Docker', 'Traefik', 'GPU compute', 'ComfyUI API'],
@@ -215,27 +199,46 @@ export const codeData = {
                 'Auto-shutdown pour éviter les coûts',
                 'Déploiement sur serveurs GPU cloud/self-host'
             ],
-            challenge:
-                "Rendre accessible la puissance GPU à la demande pour la création d’images IA, sans complexité serveur.",
-            solution:
-                "Dashboard Next.js + API ComfyUI + orchestration Docker & shutdown auto.",
-            results: [
-                'Interface prête pour utilisateurs test',
-                'Pipeline de génération d’images opérationnel'
+
+            gallery: [
+                '/images/projects/fuzdi.png',
             ],
-            role: 'Founder & Full-Stack Developer',
-            timeline: '2024 – Présent',
-            status: 'Beta privée',
-            team: 'Solo',
-            gallery: [],
             videos: [],
             year: '2024',
             link: null,
             github: null,
             icon: '⚙️',
             image: '/images/projects/fuzdi.png',
-            accent: '#A87BFF',
-            tone: 'light'
+            tone: 'light',
+            comingSoon: true,
+            disabled: true
+        },
+        {
+            slug: 'le-mentaliste-game',
+            title: 'Le Mentaliste',
+            description: 'Jeu social de déduction et bluff assisté par IA.',
+            fullDescription:
+                "Jeu social original où chaque joueur choisit secrètement un mot lié à un thème, puis l'IA ajoute des mots supplémentaires pour semer la confusion. Les mots sont mélangés et lus à voix haute, et chacun tente de deviner qui a proposé quel mot. Un mélange de psychologie, intuition, bluff et culture générale, parfait pour soirées et apéros entre amis.",
+            tech: ['ChatGPT', 'Jeu social', 'Déduction'],
+            features: [
+                'Choix secret de mots sur un thème',
+                'Mots IA ajoutés pour brouiller les pistes',
+                'Liste mélangée et lecture à voix haute',
+                'Accusations et révélations',
+                'Système de points & variantes de jeu'
+            ],
+            gallery: [
+                '/images/projects/le-mentaliste.png',
+            ],
+            videos: [],
+            year: '2025',
+            link: null,
+            github: null,
+            icon: '🧠',
+            image: '/images/projects/le-mentaliste.png',
+            tone: 'dark',
+            comingSoon: true,
+            disabled: false
         },
         {
             slug: 'stripe-shop-boilerplate',
@@ -250,27 +253,19 @@ export const codeData = {
                 'Emails de confirmation',
                 'Déploiement rapide (Vercel ou serveur)'
             ],
-            challenge:
-                "Offrir une alternative simple et indépendante à Shopify pour des petits créateurs.",
-            solution:
-                "Template Next.js + Stripe avec structure ultra simple à cloner et personnaliser.",
-            results: [
-                '2 boutiques en production',
-                'Mise en place en quelques heures'
+
+            gallery: [
+                '/images/projects/shop-stripe.png',
             ],
-            role: 'Full-Stack Developer',
-            timeline: '2024 – Présent',
-            status: 'Utilisé en production',
-            team: 'Solo',
-            gallery: [],
             videos: [],
             year: '2024',
             link: null,
             github: null,
             icon: '🛒',
             image: '/images/projects/shop-stripe.png',
-            accent: '#00D4FF',
-            tone: 'dark'
+            tone: 'dark',
+            comingSoon: true,
+            disabled: true
         },
         {
             slug: 'savoir-et-rire',
@@ -286,27 +281,19 @@ export const codeData = {
                 'Réactions / emojis',
                 'Espace social privé'
             ],
-            challenge:
-                "Créer un endroit simple et fun pour partager des vidéos entre amis sans algorithmes.",
-            solution:
-                "Web app + extension YouTube custom + stockage Firebase.",
-            results: [
-                'Usage privé régulier',
-                'Renforce culture + humour dans le groupe'
+
+            gallery: [
+                '/images/projects/savoir-et-rire.png',
             ],
-            role: 'Creator & Developer',
-            timeline: '2024 – Présent',
-            status: 'Actif privé',
-            team: 'Solo',
-            gallery: [],
             videos: [],
             year: '2024',
             link: null,
             github: null,
             icon: '📺',
             image: '/images/projects/savoir-et-rire.png',
-            accent: '#FFDD4A',
-            tone: 'light'
+            tone: 'light',
+            comingSoon: true,
+            disabled: true
         }
     ]
 };
@@ -315,54 +302,45 @@ export const codeData = {
 export const musicData = {
     eyebrow: 'créations musicales',
     title: 'Musique',
-    description: 'Bedroom artist, rap',
+    description: 'Rap intime, désabusé et autofictionnel',
     projects: [
         {
             slug: 'aquarium-album',
             title: 'Aquarium',
-            description: 'Un album introspectif mêlant textures aquatiques, ambient et rap alternatif.',
+            description:
+                'Un premier projet de rap introspectif, entre autofiction, désillusion et observation du monde moderne.',
             fullDescription:
-                "Aquarium est un album concept mêlant rap alternatif, textures aquatiques, sonorités électroniques organiques et nappes ambient. Il explore les thèmes du flottement, de l'introspection et des rêves liquides. Jeux de voix, sound design inspiré du monde sous-marin, percussions douces et synthés fluides créent une atmosphère immersive. Pensé comme un voyage sensoriel, Aquarium incarne l’idée de plonger dans son propre monde intérieur.",
-            tech: ['Ableton Live', 'Synthés modulaires & virtuels', 'Field Recording (eau / nature)', 'Plugins créatifs', 'Vocal layers'],
+                "Sorti en octobre 2023, *Aquarium* est mon premier projet musical. Un EP de 9 morceaux, entièrement autoproduit, construit à partir de textes que j'ai écrits entre l'adolescence et aujourd'hui. J'ai toujours vu l'écriture comme un exutoire, un moyen de faire le tri dans ce que je ressens, de mettre en forme ce que je ne saurais pas dire autrement.\n\nCe projet parle de moi, forcément : mes doutes, mes obsessions, mes contradictions. Mais aussi du monde autour — l'absurdité du travail, les relations, la ville, la technologie, la solitude, les soirées qui dégénèrent, les souvenirs qui restent. J'ai voulu un projet brut, sincère, sans artifice. Un mélange de rap personnel et de fragments de vie, souvent sombres, parfois drôles, toujours lucides.\n\nJ'ai grandi à Tours, je vis à Paris, et j'ai fait ce disque avec les moyens du bord, entouré de mes potes. Pour moi, *Aquarium*, c'est comme ouvrir un journal intime que t'aurais planqué dans ton disque dur depuis 15 ans.",
+            tech: [
+                'Écriture personnelle',
+                'Enregistrements maison',
+                'Esthétique DIY',
+                'Autofiction',
+            ],
             features: [
-                'Concept album en 9 titres',
-                'Influences ambient, rap atmosphérique et electronica',
-                'Textures aquatiques & sound design organique',
-                'Exploration introspective & poétique',
-                'Artwork original'
+                'EP de 9 titres autoproduit',
+                'Rap introspectif, réaliste et personnel',
+                'Textes écrits sur plus de 15 ans',
+                'Thèmes : solitude, société, mémoire, tech, amour, burn-out',
+                'Release party en octobre 2023 à Paris (Social Square)'
             ],
-            challenge:
-                "Trouver un équilibre entre influences rap et ambient tout en construisant une identité sonore cohérente autour du thème aquatique.",
-            solution:
-                "Recherche sonore basée sur des textures liquides, superpositions vocales, rythmiques minimalistes et exploration de synthés modulaires.",
-            results: [
-                'Album finalisé et prêt au mix / release',
-                'Univers visuel défini',
-                'Retour enthousiaste des premiers écoutes privées'
-            ],
-            role: 'Auteur-compositeur, Producteur, Sound Designer',
-            timeline: '2024 - 2025',
-            status: 'En finalisation',
-            team: 'Solo (feat. collaborations ponctuelles)',
-            gallery: [],
+            gallery: ['/images/music/aquarium.jpg'],
             videos: [],
-            year: '2025',
-            link: null, // ajouter lien si déjà uploadé
+            year: '2023',
+            link: null,
             github: null,
-            icon: '🌊',
-            image: '/images/music/aquarium.jpg', // remplacer si nécessaire
-            accent: '#00A8E8',
+            icon: '🐠',
+            image: '/images/music/aquarium.jpg',
             tone: 'dark',
-            genre: 'Rap Ambient / Electronica',
-            duration: '~28 min',
-            artist: 'trenteseptcinq',
+            accent: '#0ea5e9',
+            comingSoon: false,
+            disabled: false,
             soundcloud: null,
-            spotify: null,
-            tags: ['Ambient', 'Rap alternatif', 'Electronica', 'Concept album']
-        },
+            spotify: 'https://open.spotify.com/album/3F39qaqmziPNKJGMCdz3Zl?si=eYq6tzmUR2OMZfRKmSHp4Q',
+            tags: ['Rap', 'Autofiction', 'DIY', 'Introspectif']
+        }
     ]
 };
-
 export const skillsData = {
     eyebrow: 'Compétences',
     title: 'Stack technique',
@@ -404,15 +382,14 @@ export const contactData = {
         line1: 'Travaillons ensemble',
         line2: ''
     },
-    description: 'Disponible pour des missions freelance.',
+    description: 'Disponible pour des missions freelance ou CDI',
     contact: {
-        email: 'colin.champdavoine@gmail.com',
-        phone: '+33 6 95 41 17 96',
+        email: 'champdavoine.work@gmail.com',
+        phone: '+33 6 70 96 33 26',
         location: 'Paris, Île-de-France, France',
         socials: {
             github: 'https://github.com/1hake',
-            instagram: 'https://www.instagram.com/1hake_/',
-            soundcloud: 'https://soundcloud.com/1hake'
+            instagram: 'https://www.instagram.com/onehake/',
         }
     }
 };

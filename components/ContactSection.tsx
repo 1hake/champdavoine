@@ -5,7 +5,6 @@ const ContactSection: React.FC = () => {
     const socials = [
         { href: contactData.contact.socials.github, icon: Github, label: 'GitHub' },
         { href: contactData.contact.socials.instagram, icon: Instagram, label: 'Instagram' },
-        { href: contactData.contact.socials.soundcloud, icon: Music, label: 'SoundCloud' },
     ];
 
     return (

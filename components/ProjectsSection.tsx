@@ -31,25 +31,16 @@ const CodeSection: React.FC = () => {
                                         animationDelay: `${index * 100}ms`
                                     }}
                                 >
-                                    <div
-                                        className="absolute -top-20 -right-20 h-40 w-40 rounded-full opacity-20 blur-[80px] transition-opacity duration-300 group-hover:opacity-30"
-                                        style={{ background: project.accent }}
-                                    ></div>
-
                                     <div className="relative -mx-6 -mt-6 mb-6 h-48 overflow-hidden sm:-mx-8 sm:-mt-8">
                                         <div
-                                            className="h-full w-full flex items-center justify-center text-6xl transition-transform duration-300 group-hover:scale-105"
-                                            style={{ background: `linear-gradient(135deg, ${project.accent}40, ${project.accent}20)` }}
+                                            className="h-full w-full flex items-center justify-center text-6xl transition-transform duration-300 group-hover:scale-105 bg-gray-100"
                                         >
                                             {project.icon}
                                         </div>
                                     </div>
 
                                     <div className="relative flex items-start justify-between gap-4">
-                                        <div
-                                            className="h-3 w-3 rounded-full transition-all duration-300 group-hover:scale-150 group-hover:shadow-lg"
-                                            style={{ background: project.accent }}
-                                        ></div>
+                                        <div className="h-3 w-3 rounded-full bg-gray-400 transition-all duration-300 group-hover:scale-150 group-hover:shadow-lg"></div>
                                     </div>
 
                                     <h3 className="relative mt-8 font-heading text-2xl leading-[0.95] sm:text-3xl lg:text-3xl">
@@ -76,10 +67,7 @@ const CodeSection: React.FC = () => {
                                         <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                                     </div>
 
-                                    <div
-                                        className="absolute bottom-0 left-0 h-1 w-0 transition-all duration-300 group-hover:w-full"
-                                        style={{ background: project.accent }}
-                                    ></div>
+                                    <div className="absolute bottom-0 left-0 h-1 w-0 bg-[var(--color-neon)] transition-all duration-300 group-hover:w-full"></div>
                                 </article>
                             </Link>
                         );
