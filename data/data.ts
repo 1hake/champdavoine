@@ -155,6 +155,7 @@ export const codeData = {
             icon: '🎵',
             image: '/images/projects/diggerz.png',
             tone: 'light',
+            accent: '#1db954',
             comingSoon: true,
             disabled: true
         },
@@ -182,6 +183,7 @@ export const codeData = {
             icon: '💾',
             image: '/images/projects/jai-tout-perdu.png',
             tone: 'dark',
+            accent: '#ff6b35',
             comingSoon: false,
             disabled: false
         },
@@ -210,6 +212,7 @@ export const codeData = {
             icon: '⚙️',
             image: '/images/projects/fuzdi.png',
             tone: 'light',
+            accent: '#8b5cf6',
             comingSoon: true,
             disabled: true
         },
@@ -237,6 +240,7 @@ export const codeData = {
             icon: '🧠',
             image: '/images/projects/le-mentaliste.png',
             tone: 'dark',
+            accent: '#f59e0b',
             comingSoon: true,
             disabled: false
         },
@@ -264,6 +268,7 @@ export const codeData = {
             icon: '🛒',
             image: '/images/projects/shop-stripe.png',
             tone: 'dark',
+            accent: '#6366f1',
             comingSoon: true,
             disabled: true
         },
@@ -292,6 +297,7 @@ export const codeData = {
             icon: '📺',
             image: '/images/projects/savoir-et-rire.png',
             tone: 'light',
+            accent: '#dc2626',
             comingSoon: true,
             disabled: true
         }

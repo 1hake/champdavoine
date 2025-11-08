@@ -1,4 +1,4 @@
-import { Github, Instagram, Music, Mail } from 'lucide-react';
+import { Github, Instagram, Mail } from 'lucide-react';
 import { contactData } from '@/data/data';
 
 const ContactSection: React.FC = () => {

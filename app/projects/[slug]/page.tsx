@@ -10,6 +10,7 @@ type CombinedProject = typeof codeData.projects[0] & {
     spotify?: string
     comingSoon?: boolean
     disabled?: boolean
+    accent: string
 }
 
 const allProjects: CombinedProject[] = [...codeData.projects, ...musicData.projects]
@@ -20,8 +21,8 @@ export function generateStaticParams() {
     }))
 }
 
-export default function ProjectDetail({ params }: { params: { slug: string } }) {
-    const { slug } = params
+export default async function ProjectDetail({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params
     const project: CombinedProject | undefined = allProjects.find((p) => p.slug === slug)
 
     if (!project) {
@@ -30,7 +31,6 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
 
     const isMusicProject = musicData.projects.some((p) => p.slug === slug)
     const accentGlow = `${project.accent}4d`
-    const accentHalo = `${project.accent}1f`
 
     const actions = [
         project.link
