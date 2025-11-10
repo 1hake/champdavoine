@@ -1,6 +1,7 @@
 import { MapPin, GraduationCap } from 'lucide-react';
 import { experienceData } from '@/data/data';
 import Image from 'next/image';
+import DownloadResumeButton from './DownloadResumeButton';
 
 interface ExperienceItem {
     employer: string;
@@ -50,6 +51,10 @@ const ExperienceSection: React.FC = () => {
                     <p className="mt-6 max-w-2xl text-sm leading-relaxed text-gray-600 sm:text-base">
                         {experienceData.description}
                     </p>
+
+                    <div className="mt-8">
+                        <DownloadResumeButton className="rounded-full border-[3px] border-[var(--color-blue)] bg-[var(--color-blue)] px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-semibold hover:scale-105 hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]" />
+                    </div>
                 </div>
 
                 <div className="relative mt-16">
