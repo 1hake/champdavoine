@@ -146,7 +146,7 @@ const CodeSection: React.FC = () => {
 
                             <div className="mt-8 flex flex-col gap-4 lg:ml-12 lg:mt-0">
                                 <Link
-                                    href="/contact"
+                                    href="#contact"
                                     className="group relative overflow-hidden rounded-full border-[3px] border-[var(--color-neon)] bg-[var(--color-neon)] px-8 py-4 text-center font-bold uppercase tracking-wider text-white transition-all duration-300 hover:bg-transparent hover:text-[var(--color-neon)] hover:shadow-lg"
                                 >
                                     <span className="relative z-10">Discutons de votre projet</span>
