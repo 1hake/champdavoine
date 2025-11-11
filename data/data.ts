@@ -364,7 +364,6 @@ export const skillsData = {
         row2: [
             { name: 'Node.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
             { name: 'Docker', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
-            { name: 'Docker Compose', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
             { name: 'Traefik', logo: 'https://avatars.githubusercontent.com/u/6203628?s=200&v=4' },
             { name: 'Git', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
             { name: 'Firebase', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
@@ -372,7 +371,6 @@ export const skillsData = {
 
         row3: [
             { name: 'OpenAI API', logo: 'https://avatars.githubusercontent.com/u/14957082?s=200&v=4' },
-            { name: 'Gemini API', logo: 'https://avatars.githubusercontent.com/u/1342004?s=200&v=4' },
             { name: 'n8n', logo: 'https://avatars.githubusercontent.com/u/45487711?s=200&v=4' },
             { name: 'ComfyUI', logo: 'https://avatars.githubusercontent.com/u/137696620?s=200&v=4' },
             { name: 'Capacitor', logo: 'https://raw.githubusercontent.com/ionic-team/ionicons/master/src/svg/ios-phone-portrait.svg' },
