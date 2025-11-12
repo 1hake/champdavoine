@@ -1,10 +1,11 @@
-import { Github, Instagram, Mail } from 'lucide-react';
+import { Github, Instagram, Mail, Phone } from 'lucide-react';
 import { contactData } from '@/data/data';
 
 const ContactSection: React.FC = () => {
     const socials = [
         { href: contactData.contact.socials.github, icon: Github, label: 'GitHub' },
         { href: contactData.contact.socials.instagram, icon: Instagram, label: 'Instagram' },
+        { href: `tel:${contactData.contact.phone}`, icon: Phone, label: 'Phone' },
     ];
 
     return (
@@ -42,8 +43,8 @@ const ContactSection: React.FC = () => {
                                     <a
                                         key={social.label}
                                         href={social.href}
-                                        target="_blank"
-                                        rel="noreferrer"
+                                        target={social.label === 'Phone' ? undefined : '_blank'}
+                                        rel={social.label === 'Phone' ? undefined : 'noreferrer'}
                                         className="group flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full border-[3px] border-gray-200 bg-gray-50 transition-all duration-200 hover:scale-110 hover:border-[var(--color-neon)] hover:bg-[var(--color-neon)]"
                                         aria-label={social.label}
                                     >
@@ -53,7 +54,7 @@ const ContactSection: React.FC = () => {
                             </div>
 
                             <p className="mt-6 sm:mt-8 text-xs sm:text-sm text-gray-600 leading-relaxed px-4">
-                                {contactData.contact.location} • {contactData.contact.phone}
+                                {contactData.contact.location}
                             </p>
                         </div>
                     </div>

@@ -19,7 +19,7 @@ const SkillsSection: React.FC = () => {
                 </div>
             </div>
 
-            <div className="relative z-10 mt-16 overflow-hidden">
+            <div className="relative z-10 mt-16 overflow-hidden py-2">
                 <div className="mb-6 flex animate-scroll-right">
                     {Array.from({ length: 3 }).map((_, groupIndex) => (
                         <div key={`row1-${groupIndex}`} className="mr-4 flex min-w-max gap-4">
