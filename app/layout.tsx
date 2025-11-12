@@ -21,8 +21,8 @@ const body = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Colin Champdavoine - Développeur Fullstack & Artiste",
-  description: "Portfolio de Colin Champdavoine, développeur fullstack spécialisé en React et Node.js, et artiste polyvalent. Découvrez mes projets tech et créatifs.",
+  title: "Colin Champdavoine - Développeur Frontend & Bedroom Artist",
+  description: "Portfolio de Colin Champdavoine, développeur frontend spécialisé en React, et bedroom artist a ses heures perdues. Découvrez mes projets tech et créatifs.",
 };
 
 export default function RootLayout({
