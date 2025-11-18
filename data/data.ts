@@ -16,7 +16,7 @@ export const aboutData = {
     badge: 'Tech Créative / Culture Audacieuse',
     title: {
         line1: 'Dev front.',
-        line2: 'Bedroom artist.'
+        line2: 'Bedroom music artist.'
     },
     profile: {
         summary: "Développeur front-end React & Next.js. Je fais de la musique à mes heures perdues.",
