@@ -49,6 +49,7 @@ export const experienceData = {
             duration: '5 ans 11 mois',
             location: 'Paris, France',
             logo: '/images/companies/izi-solutions.jpg',
+            tags: ['React', 'React Native', 'TypeScript', 'Redux', 'Tanstack Query'],
             description: [
                 "Développement admin et migration Redux vers React Context.",
                 "Refonte application mobile Réseau IZI by EDF : migration React Native 0.63, RGPD, tests E2E, nouveau design, déploiement stores iOS/Android.",
@@ -64,6 +65,7 @@ export const experienceData = {
             duration: '11 mois',
             location: 'Station F',
             logo: '/images/companies/connecting-food.jpg',
+            tags: ['React', 'PWA', 'Nginx', 'Ubuntu', 'SSL'],
             description: [
                 "Landing page et blog de présentation.",
                 "PWA React mobile-first pour traçabilité alimentaire via QR code.",
@@ -79,6 +81,7 @@ export const experienceData = {
             duration: '3 mois',
             location: 'Station F',
             logo: '/images/companies/connecting-food.jpg',
+            tags: ['React', 'Redux', 'PWA', 'Mobile-First'],
             description: [
                 "PWA mobiles de la conception au déploiement.",
                 "CMS React/Redux pour création no-code d'applications mobiles."
@@ -91,6 +94,7 @@ export const experienceData = {
             end: 'septembre 2018',
             duration: '9 mois',
             logo: '/images/companies/nokia.jpg',
+            tags: ['React', 'Redux', 'Data Viz', 'UX/UI'],
             description: [
                 "Outil interne de recherche produits connectés avec visualisation de données optimisée (UX/UI).",
                 "Migration d'outils existants vers React/Redux."
@@ -104,6 +108,7 @@ export const experienceData = {
             duration: '6 mois',
             location: 'Paris',
             logo: '/images/companies/withings.jpg',
+            tags: ['API', 'Cassandra', 'PostgreSQL', 'Testing'],
             description: [
                 "Script de génération de données de test conformes au modèle officiel.",
                 "Intégration API interne et stockage Cassandra/PostgreSQL.",
@@ -118,6 +123,7 @@ export const experienceData = {
             period: '2015 - 2017',
             type: 'Formation',
             logo: '/images/companies/42.png',
+            tags: ['C', 'C++', 'Algorithms', 'Unix'],
             description: "Socle technique solide, veille continue et expérimentations."
         }
     ]

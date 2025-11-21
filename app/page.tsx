@@ -6,9 +6,9 @@ import SkillsSection from '../components/SkillsSection'
 import ExperienceSection from '../components/ExperienceSection'
 import CodeSection from '../components/CodeSection'
 import MusicSection from '../components/MusicSection'
-import ContactSection from '../components/ContactSection'
 import Footer from '../components/Footer'
 import AboutSection from '@/components/AboutSection'
+import ScrollToTop from '@/components/ScrollToTop'
 
 export default function Home() {
   const [, setScrollY] = useState(0)
@@ -51,8 +51,8 @@ export default function Home() {
       <ExperienceSection />
       <CodeSection />
       <MusicSection />
-      <ContactSection />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }

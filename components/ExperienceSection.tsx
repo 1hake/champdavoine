@@ -12,12 +12,14 @@ interface ExperienceItem {
     location?: string;
     type?: string;
     logo?: string;
+    tags?: string[];
     description: string[];
 }
 
 type CombinedExperience = ExperienceItem & {
     type?: string;
     logo?: string;
+    tags?: string[];
 };
 
 const ExperienceSection: React.FC = () => {
@@ -33,6 +35,7 @@ const ExperienceSection: React.FC = () => {
             location: "",
             type: edu.type,
             logo: edu.logo,
+            tags: edu.tags,
             description: [edu.description]
         }))
     ];
@@ -58,97 +61,95 @@ const ExperienceSection: React.FC = () => {
                 </div>
 
                 <div className="relative mt-16">
-                    <div className="absolute left-1/2 top-0 bottom-0 hidden w-[3px] -translate-x-1/2 bg-gradient-to-b from-[var(--color-neon)] via-[var(--color-blue)] to-[var(--color-orange)] lg:block"></div>
+                    {/* Central Timeline Line */}
+                    <div className="absolute left-1/2 top-0 bottom-0 hidden w-px -translate-x-1/2 bg-gradient-to-b from-[var(--color-neon)] via-[var(--color-blue)] to-[var(--color-orange)] lg:block opacity-30 dashed-line"></div>
 
-                    <div className="space-y-12 lg:space-y-20">
+                    <div className="space-y-12 lg:space-y-24">
                         {allExperiences.map((exp, index) => (
                             <div
                                 key={index}
-                                className={`relative flex flex-col gap-6 lg:flex-row lg:items-center ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''
+                                className={`relative flex flex-col gap-8 lg:flex-row lg:items-center ${index % 2 === 0 ? 'lg:flex-row-reverse' : ''
                                     }`}
                             >
-                                <div className="absolute left-1/2 top-8 hidden h-6 w-6 -translate-x-1/2 rounded-full border-4 border-white bg-[var(--color-neon)] shadow-[0_0_20px_rgba(255,107,0,0.5)] lg:block"></div>
+                                {/* Timeline Dot */}
+                                <div className="absolute left-1/2 top-1/2 hidden h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--color-neon)] shadow-[0_0_15px_var(--color-neon)] lg:block ring-4 ring-white"></div>
 
                                 <article
-                                    className={`relative flex-1 rounded-[28px] border-[3px] border-gray-200 bg-white p-6 text-[var(--color-ink)] sm:p-8 lg:w-[calc(50%-3rem)] ${index % 2 === 0 ? 'lg:mr-auto lg:pr-12' : 'lg:ml-auto lg:pr-12'
+                                    className={`group relative flex-1 rounded-[32px] border border-white/50 bg-white/60 backdrop-blur-md p-6 text-[var(--color-ink)] sm:p-8 lg:w-[calc(50%-4rem)] transition-all duration-500 hover:-translate-y-1 hover:bg-white/80 hover:shadow-xl hover:shadow-[var(--color-neon)]/10 ${index % 2 === 0 ? 'lg:mr-auto' : 'lg:ml-auto'
                                         }`}
                                 >
-                                    <div
-                                        className={`absolute top-8 hidden h-0 w-0 border-y-8 border-y-transparent lg:block ${index % 2 === 0
-                                            ? 'right-0 translate-x-full border-l-8 border-l-gray-200'
-                                            : 'left-0 -translate-x-full border-r-8 border-r-gray-200'
-                                            }`}
-                                    ></div>
-
-                                    <div className="flex flex-col gap-4 sm:gap-6">
-                                        <div className="flex gap-4 sm:gap-6">
-                                            <div className="flex-shrink-0 self-start">
-                                                <div className="flex h-20 w-20 items-center justify-center rounded-2xl border-[3px] border-gray-200 bg-gray-50 overflow-hidden sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+                                    <div className="flex flex-col gap-6">
+                                        <div className="flex flex-col sm:flex-row gap-6 items-start">
+                                            <div className="flex-shrink-0">
+                                                <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-white shadow-sm border border-gray-100 overflow-hidden sm:h-28 sm:w-28 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3">
                                                     {exp.type === 'Formation' ? (
-                                                        <GraduationCap className="h-12 w-12 text-[var(--color-neon)] sm:h-16 sm:w-16 lg:h-18 lg:w-18" />
+                                                        <GraduationCap className="h-10 w-10 text-[var(--color-neon)]" />
                                                     ) : exp.logo ? (
                                                         <Image
                                                             src={exp.logo}
                                                             alt={`${exp.employer} logo`}
-                                                            width={80}
-                                                            height={80}
+                                                            width={112}
+                                                            height={112}
                                                             className="object-contain w-full h-full"
                                                         />
                                                     ) : (
-                                                        <div className="h-full w-full rounded-lg bg-gray-100 flex items-center justify-center text-base font-bold text-gray-500 sm:text-xl lg:text-2xl">
+                                                        <div className="text-2xl font-bold text-gray-400">
                                                             {exp.employer.charAt(0)}
                                                         </div>
                                                     )}
                                                 </div>
                                             </div>
 
-                                            <header className="flex flex-1 flex-col gap-3 sm:gap-4">
-                                                <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                                                    <span className="text-sm font-semibold uppercase tracking-[0.28em] text-[var(--color-blue)] sm:text-xs">
+                                            <header className="flex flex-1 flex-col gap-2">
+                                                <div className="flex flex-wrap items-center justify-between gap-2">
+                                                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--color-blue)]">
                                                         {exp.employer}
                                                     </span>
-                                                    {exp.type && (
-                                                        <span className={`self-start rounded-full border-[2px] px-2 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.28em] sm:border-[3px] sm:px-3 sm:text-[0.6rem] ${exp.type === 'Formation'
-                                                            ? 'border-[var(--color-neon)] text-[var(--color-neon)]'
-                                                            : 'border-[var(--color-blue)] text-[var(--color-blue)]'
-                                                            }`}>
-                                                            {exp.type === 'Formation' ? (
-                                                                <span className="inline-flex items-center gap-1 sm:gap-2">
-                                                                    <GraduationCap className="h-2.5 w-2.5 sm:h-3 sm:w-3" />
-                                                                    {exp.type}
-                                                                </span>
-                                                            ) : (
-                                                                exp.type
-                                                            )}
-                                                        </span>
-                                                    )}
+                                                    <span className="rounded-full border border-[var(--color-ink)]/10 bg-[var(--color-ink)]/5 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-[var(--color-ink)]/60">
+                                                        {exp.start} — {exp.end}
+                                                    </span>
                                                 </div>
-                                                <h3 className="font-heading text-lg leading-tight text-[var(--color-ink)] sm:text-2xl lg:text-3xl">
+
+                                                <h3 className="font-heading text-2xl leading-none text-[var(--color-ink)] sm:text-3xl">
                                                     {exp.title}
                                                 </h3>
-                                                <div className="flex flex-wrap items-center gap-2 sm:gap-4">
+
+                                                <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
                                                     {exp.location && (
-                                                        <p className="flex items-center gap-2 text-xs font-medium text-gray-600 sm:text-sm">
-                                                            <MapPin className="h-3 w-3 text-[var(--color-orange)] sm:h-4 sm:w-4" />
+                                                        <span className="flex items-center gap-1.5">
+                                                            <MapPin className="h-3.5 w-3.5 text-[var(--color-orange)]" />
                                                             {exp.location}
-                                                        </p>
-                                                    )}
-                                                    <div className="flex flex-wrap items-center gap-1 sm:gap-2">
-                                                        <span className="self-start rounded-full border-[2px] border-[var(--color-neon)] bg-[var(--color-neon)] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white sm:border-[3px] sm:px-4 sm:text-xs sm:tracking-[0.25em]">
-                                                            {exp.start} • {exp.end}
                                                         </span>
-                                                        {exp.duration && (
-                                                            <span className="text-xs font-medium text-gray-600">{exp.duration}</span>
-                                                        )}
-                                                    </div>
+                                                    )}
+                                                    {exp.duration && (
+                                                        <span className="flex items-center gap-1.5">
+                                                            <span className="h-1 w-1 rounded-full bg-gray-300"></span>
+                                                            {exp.duration}
+                                                        </span>
+                                                    )}
                                                 </div>
                                             </header>
                                         </div>
 
-                                        <ul className="space-y-2 text-sm leading-relaxed text-gray-600 sm:space-y-3 sm:text-sm lg:text-base">
+                                        <div className="h-px w-full bg-gradient-to-r from-transparent via-[var(--color-ink)]/10 to-transparent"></div>
+
+                                        {exp.tags && (
+                                            <div className="flex flex-wrap gap-2">
+                                                {exp.tags.map((tag) => (
+                                                    <span
+                                                        key={tag}
+                                                        className="rounded-full border border-[var(--color-ink)]/10 bg-white px-3 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-[var(--color-ink)]/70 transition-colors hover:border-[var(--color-neon)] hover:text-[var(--color-neon)]"
+                                                    >
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        )}
+
+                                        <ul className="space-y-3">
                                             {exp.description.map((desc, descIndex) => (
-                                                <li key={descIndex} className="flex gap-3">
-                                                    <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--color-orange)] sm:mt-2 sm:h-2 sm:w-2"></span>
+                                                <li key={descIndex} className="flex gap-3 text-sm leading-relaxed text-gray-600">
+                                                    <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--color-neon)]/60"></span>
                                                     <span>{desc}</span>
                                                 </li>
                                             ))}

@@ -27,7 +27,7 @@ const MusicSection: React.FC = () => {
                         return (
                             <Link key={project.title} href={`/projects/${project.slug}`}>
                                 <article
-                                    className={`group relative flex h-full flex-col lg:flex-row overflow-hidden rounded-[28px] border-[3px] ${isLight ? 'border-[var(--color-ink)] bg-[var(--color-bg-light)] text-[var(--color-ink)]' : 'border-gray-200 bg-white text-[var(--color-ink)]'
+                                    className={`group relative flex h-full flex-col lg:flex-row overflow-hidden rounded-[28px] border-[3px] ${isLight ? 'border-[var(--color-ink)] bg-[var(--color-bg-light)] text-[var(--color-ink)]' : 'border-gray-200 bg-white/80 backdrop-blur-sm text-[var(--color-ink)]'
                                         } p-6 sm:p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer`}
                                     style={{
                                         animationDelay: `${index * 100}ms`
