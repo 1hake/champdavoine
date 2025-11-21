@@ -13,7 +13,7 @@ export const heroData = {
 // About Section Data
 export const aboutData = {
     eyebrow: 'À propos',
-    badge: 'Tech Créative / Culture Audacieuse',
+    badge: 'Tech Créative',
     title: {
         line1: 'Dev front.',
         line2: 'Bedroom music artist.'
@@ -49,7 +49,7 @@ export const experienceData = {
             duration: '5 ans 11 mois',
             location: 'Paris, France',
             logo: '/images/companies/izi-solutions.jpg',
-            tags: ['React', 'React Native', 'TypeScript', 'Redux', 'Tanstack Query'],
+            tags: ['React', 'React Native', 'TypeScript', 'Tailwind CSS', 'Tanstack Query', 'Docker'],
             description: [
                 "Développement admin et migration Redux vers React Context.",
                 "Refonte application mobile Réseau IZI by EDF : migration React Native 0.63, RGPD, tests E2E, nouveau design, déploiement stores iOS/Android.",
@@ -65,7 +65,7 @@ export const experienceData = {
             duration: '11 mois',
             location: 'Station F',
             logo: '/images/companies/connecting-food.jpg',
-            tags: ['React', 'PWA', 'Nginx', 'Ubuntu', 'SSL'],
+            tags: ['React', 'PWA', 'Nginx', 'Server Ubuntu'],
             description: [
                 "Landing page et blog de présentation.",
                 "PWA React mobile-first pour traçabilité alimentaire via QR code.",
@@ -81,7 +81,7 @@ export const experienceData = {
             duration: '3 mois',
             location: 'Station F',
             logo: '/images/companies/connecting-food.jpg',
-            tags: ['React', 'Redux', 'PWA', 'Mobile-First'],
+            tags: ['React', 'PWA'],
             description: [
                 "PWA mobiles de la conception au déploiement.",
                 "CMS React/Redux pour création no-code d'applications mobiles."
@@ -108,7 +108,7 @@ export const experienceData = {
             duration: '6 mois',
             location: 'Paris',
             logo: '/images/companies/withings.jpg',
-            tags: ['API', 'Cassandra', 'PostgreSQL', 'Testing'],
+            tags: ['API', 'Python', 'PostgreSQL', 'Testing'],
             description: [
                 "Script de génération de données de test conformes au modèle officiel.",
                 "Intégration API interne et stockage Cassandra/PostgreSQL.",
@@ -123,7 +123,7 @@ export const experienceData = {
             period: '2015 - 2017',
             type: 'Formation',
             logo: '/images/companies/42.png',
-            tags: ['C', 'C++', 'Algorithms', 'Unix'],
+            tags: ['C', 'Algorithms', 'Unix/Bash'],
             description: "Socle technique solide, veille continue et expérimentations."
         }
     ]
@@ -184,12 +184,12 @@ export const codeData = {
             ],
             videos: [],
             year: '2024',
-            link: null,
+            link: 'https://jaitoutperdu.com/',
             github: null,
             icon: '💾',
             image: '/images/projects/jai-tout-perdu.png',
             tone: 'dark',
-            accent: '#ff6b35',
+
             comingSoon: false,
             disabled: false
         },
@@ -241,13 +241,13 @@ export const codeData = {
             ],
             videos: [],
             year: '2025',
-            link: null,
+            link: 'https://mentaliste.gobc.fr',
             github: null,
             icon: '🧠',
             image: '/images/projects/le-mentaliste.png',
             tone: 'dark',
-            accent: '#f59e0b',
-            comingSoon: true,
+
+            comingSoon: false,
             disabled: false
         },
         {
