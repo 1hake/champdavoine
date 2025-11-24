@@ -32,16 +32,10 @@ const CodeSection: React.FC = () => {
                                         animationDelay: `${index * 100}ms`
                                     }}
                                 >
-                                    <div
-                                        className="absolute -top-20 -right-20 h-40 w-40 rounded-full opacity-20 blur-[80px] transition-opacity duration-300 group-hover:opacity-30"
-                                        style={{ background: project.accent }}
-                                    ></div>
+                                    <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full opacity-20 blur-[80px] transition-opacity duration-300 group-hover:opacity-30 bg-gradient-to-br from-blue-400/40 to-purple-400/40"></div>
 
                                     <div className="relative -mx-6 -mt-6 mb-6 h-48 overflow-hidden sm:-mx-8 sm:-mt-8">
-                                        <div
-                                            className="relative h-full w-full transition-transform duration-300 group-hover:scale-105"
-                                            style={{ background: `linear-gradient(135deg, ${project.accent}40, ${project.accent}20)` }}
-                                        >
+                                        <div className="relative h-full w-full transition-transform duration-300 group-hover:scale-105 bg-gradient-to-br from-gray-100 to-gray-200">
                                             {project.image ? (
                                                 <Image
                                                     src={project.image}
@@ -58,10 +52,7 @@ const CodeSection: React.FC = () => {
                                     </div>
 
                                     <div className="relative flex items-start justify-between gap-4">
-                                        <div
-                                            className="h-3 w-3 rounded-full transition-all duration-300 group-hover:scale-150 group-hover:shadow-lg"
-                                            style={{ background: project.accent }}
-                                        ></div>
+                                        <div className="h-3 w-3 rounded-full transition-all duration-300 group-hover:scale-150 group-hover:shadow-lg bg-[var(--color-neon)]"></div>
                                         {project.comingSoon && (
                                             <span className="rounded-full border border-orange-300 bg-gradient-to-r from-orange-100 to-yellow-100 px-2 py-1 text-[0.6rem] font-semibold uppercase tracking-wider text-orange-700">
                                                 Bientôt
@@ -93,10 +84,7 @@ const CodeSection: React.FC = () => {
                                         <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                                     </div>
 
-                                    <div
-                                        className="absolute bottom-0 left-0 h-1 w-0 transition-all duration-300 group-hover:w-full"
-                                        style={{ background: project.accent }}
-                                    ></div>
+                                    <div className="absolute bottom-0 left-0 h-1 w-0 transition-all duration-300 group-hover:w-full bg-[var(--color-neon)]"></div>
                                 </article>
                             </Link>
                         );
