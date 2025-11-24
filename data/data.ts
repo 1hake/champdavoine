@@ -50,6 +50,10 @@ export const experienceData = {
             location: 'Paris, France',
             logo: '/images/companies/izi-solutions.jpg',
             tags: ['React', 'React Native', 'TypeScript', 'Tailwind CSS', 'Tanstack Query', 'Docker'],
+            gallery: [
+                '/images/experience/izi-mobile.jpeg',
+                '/images/experience/izi-admin.jpeg',
+            ],
             description: [
                 "Développement admin et migration Redux vers React Context.",
                 "Refonte application mobile Réseau IZI by EDF : migration React Native 0.63, RGPD, tests E2E, nouveau design, déploiement stores iOS/Android.",
@@ -60,31 +64,20 @@ export const experienceData = {
         {
             employer: 'Connecting Food',
             title: 'Développeur Front-End',
-            start: 'novembre 2018',
+            start: 'septembre 2018',
             end: 'septembre 2019',
-            duration: '11 mois',
+            duration: '1 an',
             location: 'Station F',
             logo: '/images/companies/connecting-food.jpg',
-            tags: ['React', 'PWA', 'Nginx', 'Server Ubuntu'],
+            tags: ['React', 'PWA', 'Nginx', 'Server Ubuntu', 'Redux'],
+            gallery: [
+            ],
             description: [
                 "Landing page et blog de présentation.",
                 "PWA React mobile-first pour traçabilité alimentaire via QR code.",
                 "CMS interne pour génération et gestion de webapps React en production.",
+                "CMS React/Redux pour création no-code d'applications mobiles.",
                 "Administration multi-versions sur serveur Ubuntu (Nginx), gestion domaines OVH (SSL)."
-            ]
-        },
-        {
-            employer: 'Freelance',
-            title: 'Développeur Front-End',
-            start: 'septembre 2018',
-            end: 'novembre 2018',
-            duration: '3 mois',
-            location: 'Station F',
-            logo: '/images/companies/connecting-food.jpg',
-            tags: ['React', 'PWA'],
-            description: [
-                "PWA mobiles de la conception au déploiement.",
-                "CMS React/Redux pour création no-code d'applications mobiles."
             ]
         },
         {
@@ -95,6 +88,9 @@ export const experienceData = {
             duration: '9 mois',
             logo: '/images/companies/nokia.jpg',
             tags: ['React', 'Redux', 'Data Viz', 'UX/UI'],
+            gallery: [
+
+            ],
             description: [
                 "Outil interne de recherche produits connectés avec visualisation de données optimisée (UX/UI).",
                 "Migration d'outils existants vers React/Redux."
@@ -109,6 +105,9 @@ export const experienceData = {
             location: 'Paris',
             logo: '/images/companies/withings.jpg',
             tags: ['API', 'Python', 'PostgreSQL', 'Testing'],
+            gallery: [
+
+            ],
             description: [
                 "Script de génération de données de test conformes au modèle officiel.",
                 "Intégration API interne et stockage Cassandra/PostgreSQL.",
@@ -124,6 +123,9 @@ export const experienceData = {
             type: 'Formation',
             logo: '/images/companies/42.png',
             tags: ['C', 'Algorithms', 'Unix/Bash'],
+            gallery: [
+
+            ],
             description: "Socle technique solide, veille continue et expérimentations."
         }
     ]
@@ -161,7 +163,6 @@ export const codeData = {
             icon: '🎵',
             image: '/images/projects/diggerz.png',
             tone: 'light',
-            accent: '#1db954',
             comingSoon: true,
             disabled: true
         },
@@ -189,7 +190,6 @@ export const codeData = {
             icon: '💾',
             image: '/images/projects/jai-tout-perdu.png',
             tone: 'dark',
-
             comingSoon: false,
             disabled: false
         },
@@ -218,16 +218,15 @@ export const codeData = {
             icon: '⚙️',
             image: '/images/projects/fuzdi.png',
             tone: 'light',
-            accent: '#8b5cf6',
             comingSoon: true,
             disabled: true
         },
         {
             slug: 'le-mentaliste-game',
             title: 'Le Mentaliste',
-            description: 'Jeu social de déduction et bluff assisté par IA.',
+            description: "Jeu social de déduction et bluff assisté par IA. Pensez à utiliser sur mobile ou via l'application (qui arrive bientôt).",
             fullDescription:
-                "Jeu social original où chaque joueur choisit secrètement un mot lié à un thème, puis l'IA ajoute des mots supplémentaires pour semer la confusion. Les mots sont mélangés et lus à voix haute, et chacun tente de deviner qui a proposé quel mot. Un mélange de psychologie, intuition, bluff et culture générale, parfait pour soirées et apéros entre amis.",
+                "Jeu social original où chaque joueur choisit secrètement un mot lié à un thème, puis l'IA ajoute des mots supplémentaires pour semer la confusion. Les mots sont mélangés et lus à voix haute, et chacun tente de deviner qui a proposé quel mot. Un mélange de psychologie, intuition, bluff et invention de mots, de titre de films imaginaires...",
             tech: ['ChatGPT', 'Jeu social', 'Déduction'],
             features: [
                 'Choix secret de mots sur un thème',
@@ -246,7 +245,6 @@ export const codeData = {
             icon: '🧠',
             image: '/images/projects/le-mentaliste.png',
             tone: 'dark',
-
             comingSoon: false,
             disabled: false
         },
@@ -274,7 +272,6 @@ export const codeData = {
             icon: '🛒',
             image: '/images/projects/shop-stripe.png',
             tone: 'dark',
-            accent: '#6366f1',
             comingSoon: true,
             disabled: true
         },
@@ -303,7 +300,6 @@ export const codeData = {
             icon: '📺',
             image: '/images/projects/savoir-et-rire.png',
             tone: 'light',
-            accent: '#dc2626',
             comingSoon: true,
             disabled: true
         }

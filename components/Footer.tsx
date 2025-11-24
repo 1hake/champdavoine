@@ -1,6 +1,21 @@
+import Image from 'next/image'
+
 const Footer: React.FC = () => {
     return (
-        <footer className="border-t-[3px] border-gray-200 bg-gray-50 px-6 py-14">
+        <footer className="relative mt-32 md:mt-40 border-t-[3px] border-gray-200 bg-gray-50 px-6 py-14 pt-40 md:pt-48">
+            {/* Large Isometric Image - extends above footer */}
+            <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/4 z-10">
+                <div className="relative w-56 h-56 md:w-72 md:h-72">
+                    <Image
+                        src="/images/footer.webp"
+                        alt="Isometric illustration"
+                        fill
+                        sizes="(min-width: 768px) 288px, 224px"
+                        className="object-contain drop-shadow-2xl"
+                    />
+                </div>
+            </div>
+
             <div className="container mx-auto max-w-6xl">
                 <div className="flex flex-col items-center gap-4 text-center text-gray-600">
                     <span className="inline-flex items-center gap-3 rounded-full border-[3px] border-[var(--color-neon)] bg-white px-5 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-neon)]">

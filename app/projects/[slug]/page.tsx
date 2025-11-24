@@ -10,7 +10,7 @@ type CombinedProject = typeof codeData.projects[0] & {
     spotify?: string
     comingSoon?: boolean
     disabled?: boolean
-    accent: string
+    accent?: string
 }
 
 const allProjects: CombinedProject[] = [...codeData.projects, ...musicData.projects]
@@ -30,7 +30,8 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
     }
 
     const isMusicProject = musicData.projects.some((p) => p.slug === slug)
-    const accentGlow = `${project.accent}4d`
+    const accent = project.accent || '#6366f1'
+    const accentGlow = `${accent}4d`
 
     const actions = [
         project.link
@@ -137,7 +138,8 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                                         style={
                                             action.primary
                                                 ? {
-                                                    background: project.accent,
+                                                    color: '#000',
+                                                    background: accent,
                                                     boxShadow: `0 18px 45px ${accentGlow}`,
                                                 }
                                                 : undefined
