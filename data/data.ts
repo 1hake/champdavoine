@@ -236,14 +236,14 @@ export const codeData = {
                 'Système de points & variantes de jeu'
             ],
             gallery: [
-                '/images/projects/le-mentaliste.png',
+                '/images/projects/mentalistpackshot.png',
             ],
             videos: [],
             year: '2025',
             link: 'https://mentaliste.gobc.fr',
             github: null,
             icon: '🧠',
-            image: '/images/projects/le-mentaliste.png',
+            image: '/images/projects/mentaliste.png',
             tone: 'dark',
             comingSoon: false,
             disabled: false

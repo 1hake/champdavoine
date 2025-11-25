@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowLeft, ExternalLink, Github, Music2 } from 'lucide-react'
 import type { JSX } from 'react'
+import ProjectGallery from '@/components/ProjectGallery'
 
 type CombinedProject = typeof codeData.projects[0] & {
     soundcloud?: string
@@ -175,53 +176,24 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             </section>
 
             <section className="mx-auto max-w-6xl px-4 pb-8 sm:px-6">
-                <article>
-                    <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-ink)]/45">
-                        Aperçu
-                    </h2>
-                    <div className="mt-6 grid gap-8 lg:grid-cols-[300px,1fr] lg:items-start">
-                        <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[var(--color-border-light)] bg-white/40 shadow-lg">
-                            <Image
-                                src={project.image}
-                                alt={project.title}
-                                fill
-                                sizes="(min-width: 1024px) 300px, 100vw"
-                                className="object-cover"
-                            />
-                        </div>
-                        <p className="text-base leading-relaxed text-[var(--color-ink)]/70 sm:text-lg">
+                <div className="grid gap-8 lg:grid-cols-[350px,1fr] lg:items-start">
+                    <div className="flex-shrink-0">
+                        <ProjectGallery gallery={project.gallery} projectTitle={project.title} layout="sidebar" />
+                    </div>
+                    <article>
+                        <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-ink)]/45">
+                            Description
+                        </h2>
+                        <p className="mt-6 text-base leading-relaxed text-[var(--color-ink)]/70 sm:text-lg">
                             {project.fullDescription}
                         </p>
-                    </div>
-                </article>
+                    </article>
+                </div>
             </section>
 
             <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:pb-28">
                 <div className="grid gap-16 lg:grid-cols-[2fr,1fr] lg:items-start lg:gap-20">
                     <div className="space-y-16">
-                        {project.gallery && project.gallery.length > 0 && (
-                            <div>
-                                <h2 className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-ink)]/45">
-                                    Galerie
-                                </h2>
-                                <div className="mt-6 grid gap-5 sm:grid-cols-2">
-                                    {project.gallery.map((img, index) => (
-                                        <div
-                                            key={`${img}-${index}`}
-                                            className="group relative overflow-hidden rounded-3xl border border-[var(--color-border-light)] bg-white/40 shadow-lg"
-                                        >
-                                            <Image
-                                                src={img}
-                                                alt={`${project.title} visuel ${index + 1}`}
-                                                fill
-                                                sizes="(min-width: 640px) 50vw, 100vw"
-                                                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
 
                         {project.videos && project.videos.length > 0 && (
                             <div>

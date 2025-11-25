@@ -52,7 +52,6 @@ const CodeSection: React.FC = () => {
                                     </div>
 
                                     <div className="relative flex items-start justify-between gap-4">
-                                        <div className="h-3 w-3 rounded-full transition-all duration-300 group-hover:scale-150 group-hover:shadow-lg bg-[var(--color-neon)]"></div>
                                         {project.comingSoon && (
                                             <span className="rounded-full border border-orange-300 bg-gradient-to-r from-orange-100 to-yellow-100 px-2 py-1 text-[0.6rem] font-semibold uppercase tracking-wider text-orange-700">
                                                 Bientôt

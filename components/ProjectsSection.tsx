@@ -39,9 +39,7 @@ const CodeSection: React.FC = () => {
                                         </div>
                                     </div>
 
-                                    <div className="relative flex items-start justify-between gap-4">
-                                        <div className="h-3 w-3 rounded-full bg-gray-400 transition-all duration-300 group-hover:scale-150 group-hover:shadow-lg"></div>
-                                    </div>
+
 
                                     <h3 className="relative mt-8 font-heading text-2xl leading-[0.95] sm:text-3xl lg:text-3xl">
                                         {project.title}
