@@ -325,7 +325,7 @@ export const codeData = {
             link: 'https://etch.gobc.fr',
             github: null,
             icon: '🎨',
-            image: '/images/projects/etch.png',
+            image: '/images/projects/etch.webp',
             tone: 'light',
             comingSoon: false,
             disabled: false
