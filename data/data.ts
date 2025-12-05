@@ -219,7 +219,7 @@ export const codeData = {
             image: '/images/projects/fuzdi.png',
             tone: 'light',
             comingSoon: true,
-            disabled: true
+            disabled: false
         },
         {
             slug: 'le-mentaliste-game',
@@ -302,6 +302,33 @@ export const codeData = {
             tone: 'light',
             comingSoon: true,
             disabled: true
+        },
+        {
+            slug: 'etch-studio',
+            title: 'Etch Studio',
+            description: 'Portfolio pour vendeur de créations.',
+            fullDescription:
+                "Portfolio élégant et moderne pour un vendeur de créations artistiques. Interface épurée pour présenter et vendre des œuvres d'art, avec système de galerie optimisé et expérience utilisateur fluide.",
+            tech: ['Portfolio', 'Design', 'E-commerce'],
+            features: [
+                'Galerie d\'œuvres optimisée',
+                'Présentation des créations',
+                'Interface vendeur',
+                'Design moderne et épuré'
+            ],
+
+            gallery: [
+                '/images/projects/etch.png',
+            ],
+            videos: [],
+            year: '2024',
+            link: 'https://etch.gobc.fr',
+            github: null,
+            icon: '🎨',
+            image: '/images/projects/etch.png',
+            tone: 'light',
+            comingSoon: false,
+            disabled: false
         }
     ]
 };
@@ -358,6 +385,7 @@ export const skillsData = {
             { name: 'Next.js', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
             { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
             { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+            { name: 'React Native', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
             { name: 'JavaScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
             { name: 'Tailwind CSS', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg' },
             { name: 'Vite', logo: 'https://vitejs.dev/logo.svg' },
