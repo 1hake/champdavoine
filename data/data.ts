@@ -322,7 +322,7 @@ export const codeData = {
             ],
             videos: [],
             year: '2024',
-            link: 'https://etch.gobc.fr',
+            link: 'https://etch.gobc.fr/',
             github: null,
             icon: '🎨',
             image: '/images/projects/etch.webp',
