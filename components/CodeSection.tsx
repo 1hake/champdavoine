@@ -106,13 +106,13 @@ const CodeSection: React.FC = () => {
                             <div className="flex-1">
                                 <div className="inline-flex items-center gap-2 rounded-full border-2 border-gray-800 px-4 py-2 text-xs font-bold uppercase tracking-wider text-gray-800">
                                     <span className="h-2 w-2 rounded-full bg-gray-800 animate-pulse"></span>
-                                    Service d'hébergement
+                                    Service d&apos;hébergement
                                 </div>
 
                                 <h3 className="mt-6 font-heading text-3xl leading-[0.95] text-[var(--color-ink)] sm:text-4xl lg:text-5xl">
                                     Besoin
                                     <br />
-                                    <span className="text-gray-800">d'hébergement ?</span>
+                                    <span className="text-gray-800">d&apos;hébergement ?</span>
                                 </h3>
 
                                 <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-600 lg:text-lg">
