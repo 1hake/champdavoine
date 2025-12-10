@@ -1,7 +1,9 @@
 import { aboutData, contactData } from '@/data/data';
 import { ArrowDown, Github, Instagram, Mail, Phone } from 'lucide-react';
+import { useState } from 'react';
 
 const AboutSection: React.FC = () => {
+    const [hoveredSocial, setHoveredSocial] = useState<string | null>(null);
     const navLinks = [
         { href: "#skills", label: "Compétences" },
         { href: "#experience", label: "Expérience" },
@@ -10,10 +12,10 @@ const AboutSection: React.FC = () => {
     ];
 
     const socials = [
-        { href: contactData.contact.socials.github, icon: Github, label: 'GitHub' },
-        { href: contactData.contact.socials.instagram, icon: Instagram, label: 'Instagram' },
-        { href: `tel:${contactData.contact.phone}`, icon: Phone, label: 'Phone' },
-        { href: `mailto:${contactData.contact.email}`, icon: Mail, label: 'Email' },
+        { href: contactData.contact.socials.github, icon: Github, label: 'GitHub', color: '#000000', hoverColor: '#333333' },
+        { href: contactData.contact.socials.instagram, icon: Instagram, label: 'Instagram', color: '#E4405F', hoverColor: '#C13584' },
+        { href: `tel:${contactData.contact.phone}`, icon: Phone, label: 'Phone', color: '#10b981', hoverColor: '#059669' },
+        { href: `mailto:${contactData.contact.email}`, icon: Mail, label: 'Email', color: '#3b82f6', hoverColor: '#2563eb' },
     ];
 
     const scrollToSection = (href: string) => {
@@ -59,18 +61,28 @@ const AboutSection: React.FC = () => {
                             </p>
 
                             <div className="flex flex-wrap justify-center gap-4">
-                                {socials.map((social) => (
-                                    <a
-                                        key={social.label}
-                                        href={social.href}
-                                        target={social.label === 'Phone' || social.label === 'Email' ? undefined : '_blank'}
-                                        rel={social.label === 'Phone' || social.label === 'Email' ? undefined : 'noreferrer'}
-                                        className="group flex items-center gap-2 rounded-full border-[2px] border-gray-200 bg-gray-50 px-4 py-2 text-sm font-semibold text-[var(--color-ink)] transition-all duration-200 hover:border-[var(--color-neon)] hover:bg-[var(--color-neon)] hover:text-white"
-                                    >
-                                        <social.icon className="h-4 w-4" />
-                                        <span>{social.label}</span>
-                                    </a>
-                                ))}
+                                {socials.map((social) => {
+                                    const isHovered = hoveredSocial === social.label;
+                                    return (
+                                        <a
+                                            key={social.label}
+                                            href={social.href}
+                                            target={social.label === 'Phone' || social.label === 'Email' ? undefined : '_blank'}
+                                            rel={social.label === 'Phone' || social.label === 'Email' ? undefined : 'noreferrer'}
+                                            className="group flex items-center gap-2 rounded-full border-[2px] px-4 py-2 text-sm font-semibold transition-all duration-200"
+                                            style={{
+                                                borderColor: isHovered ? social.hoverColor : social.color,
+                                                color: isHovered ? '#ffffff' : social.color,
+                                                backgroundColor: isHovered ? social.color : '#ffffff'
+                                            }}
+                                            onMouseEnter={() => setHoveredSocial(social.label)}
+                                            onMouseLeave={() => setHoveredSocial(null)}
+                                        >
+                                            <social.icon className="h-4 w-4" />
+                                            <span>{social.label}</span>
+                                        </a>
+                                    );
+                                })}
                             </div>
 
                             <p className="text-xs text-gray-400">
