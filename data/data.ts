@@ -329,6 +329,64 @@ export const codeData = {
             tone: 'light',
             comingSoon: false,
             disabled: false
+        },
+        {
+            slug: 'ghost',
+            title: 'Ghost',
+            description: 'Service d\'hébergement web professionnel avec audit et infrastructure swarm.',
+            fullDescription:
+                "Service d'hébergement web professionnel qui combine audit de sécurité, intégration à notre stack technique et hébergement sur infrastructure swarm. Nous auditone votre site web pour optimiser les performances et la sécurité, puis l'intégrons à notre infrastructure pour un hébergement fiable avec système d'abonnement Stripe.",
+            tech: ['Docker Swarm', 'Traefik', 'Security Audit', 'Stripe', 'Infrastructure', 'Web Hosting'],
+            features: [
+                'Audit complet de sécurité et performance',
+                'Hébergement sur infrastructure swarm',
+                'Intégration stack technique optimisée',
+                'Système d\'abonnement Stripe',
+                'Monitoring et haute disponibilité',
+                'Support technique dédié'
+            ],
+
+            gallery: [
+                '/images/projects/ghost.png',
+            ],
+            videos: [],
+            year: '2025',
+            link: 'https://ghost.gobc.fr',
+            github: null,
+            icon: '👻',
+            image: '/images/projects/ghost.png',
+            tone: 'dark',
+            comingSoon: false,
+            disabled: false
+        },
+        {
+            slug: 'au-plus-proche',
+            title: 'Au plus proche',
+            description: 'Système de quiz multijoueur avec réponses numériques.',
+            fullDescription:
+                "Plateforme de quiz innovante où les joueurs doivent trouver la réponse numérique la plus proche de la bonne réponse. Génération automatique de QR codes pour permettre aux participants de rejoindre facilement la partie depuis leurs smartphones. Parfait pour animer des soirées, événements ou cours.",
+            tech: ['Next.js', 'React', 'QR Code', 'Multiplayer', 'Real-time', 'Mobile-first'],
+            features: [
+                'Quiz avec réponses numériques',
+                'Génération automatique de QR codes',
+                'Jeu multijoueur en temps réel',
+                'Interface mobile optimisée',
+                'Système de scoring au plus proche',
+                'Création de salles personnalisées'
+            ],
+
+            gallery: [
+                '/images/projects/au-plus-proche.png',
+            ],
+            videos: [],
+            year: '2025',
+            link: 'https://quizz.gobc.fr',
+            github: null,
+            icon: '🎯',
+            image: '/images/projects/au-plus-proche.png',
+            tone: 'light',
+            comingSoon: false,
+            disabled: false
         }
     ]
 };

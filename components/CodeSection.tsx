@@ -21,7 +21,7 @@ const CodeSection: React.FC = () => {
                 </div>
 
                 <div className="mt-16 grid gap-8 sm:gap-10 md:grid-cols-2 xl:grid-cols-3">
-                    {codeData.projects.filter(project => !project.disabled).map((project, index) => {
+                    {codeData.projects.filter(project => !project.disabled && project.slug !== 'ghost').map((project, index) => {
                         const isLight = project.tone === 'light';
 
                         return (
@@ -88,6 +88,86 @@ const CodeSection: React.FC = () => {
                             </Link>
                         );
                     })}
+                </div>
+
+                {/* Ghost Hosting Service Panel */}
+                <div className="mt-20">
+                    <div className="relative overflow-hidden rounded-[32px] border-[3px] border-gray-800 bg-gradient-to-br from-gray-900/20 via-white to-gray-800/5 p-8 sm:p-12">
+                        {/* Background decoration */}
+                        <div className="absolute -top-10 -right-10 h-32 w-32 rounded-full bg-gray-800/20 blur-[60px]"></div>
+                        <div className="absolute -bottom-8 -left-8 h-24 w-24 rounded-full bg-gray-800/15 blur-[40px]"></div>
+
+                        {/* Animated floating elements */}
+                        <div className="absolute top-6 right-20 h-2 w-2 rounded-full bg-gray-800/40 animate-pulse"></div>
+                        <div className="absolute bottom-8 right-12 h-1.5 w-1.5 rounded-full bg-gray-800/60 animate-pulse" style={{ animationDelay: '1s' }}></div>
+                        <div className="absolute top-12 left-16 h-1 w-1 rounded-full bg-gray-800/50 animate-pulse" style={{ animationDelay: '2s' }}></div>
+
+                        <div className="relative flex flex-col items-center text-center lg:flex-row lg:text-left">
+                            <div className="flex-1">
+                                <div className="inline-flex items-center gap-2 rounded-full border-2 border-gray-800 px-4 py-2 text-xs font-bold uppercase tracking-wider text-gray-800">
+                                    <span className="h-2 w-2 rounded-full bg-gray-800 animate-pulse"></span>
+                                    Service d'hébergement
+                                </div>
+
+                                <h3 className="mt-6 font-heading text-3xl leading-[0.95] text-[var(--color-ink)] sm:text-4xl lg:text-5xl">
+                                    Besoin
+                                    <br />
+                                    <span className="text-gray-800">d'hébergement ?</span>
+                                </h3>
+
+                                <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-600 lg:text-lg">
+                                    Hébergement professionnel avec audit sécurité et infrastructure swarm optimisée.
+                                </p>
+
+                                <div className="mt-8 flex flex-wrap gap-3">
+                                    <div className="flex items-center gap-2 rounded-full bg-white/60 px-4 py-2 text-sm font-semibold text-[var(--color-ink)]">
+                                        <span className="text-gray-800">🔒</span>
+                                        HTTPS & Sécurité
+                                    </div>
+                                    <div className="flex items-center gap-2 rounded-full bg-white/60 px-4 py-2 text-sm font-semibold text-[var(--color-ink)]">
+                                        <span className="text-gray-800">⚡</span>
+                                        Infrastructure swarm
+                                    </div>
+                                    <div className="flex items-center gap-2 rounded-full bg-white/60 px-4 py-2 text-sm font-semibold text-[var(--color-ink)]">
+                                        <span className="text-gray-800">💳</span>
+                                        Abonnement Stripe
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="mt-8 flex flex-col items-center gap-6 lg:ml-12 lg:mt-0">
+                                {/* Ghost service image */}
+                                <div className="relative h-48 w-48 overflow-hidden rounded-2xl border-2 border-gray-200 lg:h-56 lg:w-56">
+                                    <Image
+                                        src="/images/projects/ghost.png"
+                                        alt="Ghost hébergement service"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                                </div>
+
+                                <div className="flex flex-col gap-4">
+                                    <Link
+                                        href="https://ghost.gobc.fr"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="group relative overflow-hidden rounded-full border-[3px] border-gray-800 bg-gray-800 px-8 py-4 text-center font-bold uppercase tracking-wider text-white transition-all duration-300 hover:bg-transparent hover:text-gray-800 hover:shadow-lg"
+                                    >
+                                        <span className="relative z-10">Découvrir Ghost</span>
+                                        <div className="absolute inset-0 -z-10 bg-gradient-to-r from-gray-800/80 to-gray-800 transition-transform duration-300 group-hover:scale-105"></div>
+                                    </Link>
+
+                                    <div className="text-center text-sm text-gray-500">
+                                        Monitoring • Support dédié
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Bottom accent line */}
+                        <div className="absolute bottom-0 left-1/2 h-1 w-32 -translate-x-1/2 bg-gradient-to-r from-transparent via-gray-800 to-transparent"></div>
+                    </div>
                 </div>
 
                 {/* Parallax Website Proposal Panel */}
