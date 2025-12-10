@@ -1,7 +1,9 @@
 import { aboutData, contactData } from '@/data/data';
 import { ArrowDown, Github, Instagram, Mail, Phone } from 'lucide-react';
+import { useState } from 'react';
 
 const AboutSection: React.FC = () => {
+    const [hoveredSocial, setHoveredSocial] = useState<string | null>(null);
     const navLinks = [
         { href: "#skills", label: "Compétences" },
         { href: "#experience", label: "Expérience" },
@@ -59,33 +61,28 @@ const AboutSection: React.FC = () => {
                             </p>
 
                             <div className="flex flex-wrap justify-center gap-4">
-                                {socials.map((social) => (
-                                    <a
-                                        key={social.label}
-                                        href={social.href}
-                                        target={social.label === 'Phone' || social.label === 'Email' ? undefined : '_blank'}
-                                        rel={social.label === 'Phone' || social.label === 'Email' ? undefined : 'noreferrer'}
-                                        className="group flex items-center gap-2 rounded-full border-[2px] px-4 py-2 text-sm font-semibold transition-all duration-200"
-                                        style={{
-                                            borderColor: social.color,
-                                            color: social.color,
-                                            backgroundColor: 'white'
-                                        }}
-                                        onMouseEnter={(e) => {
-                                            e.currentTarget.style.backgroundColor = social.color;
-                                            e.currentTarget.style.borderColor = social.hoverColor;
-                                            e.currentTarget.style.color = 'white';
-                                        }}
-                                        onMouseLeave={(e) => {
-                                            e.currentTarget.style.backgroundColor = 'white';
-                                            e.currentTarget.style.borderColor = social.color;
-                                            e.currentTarget.style.color = social.color;
-                                        }}
-                                    >
-                                        <social.icon className="h-4 w-4" />
-                                        <span>{social.label}</span>
-                                    </a>
-                                ))}
+                                {socials.map((social) => {
+                                    const isHovered = hoveredSocial === social.label;
+                                    return (
+                                        <a
+                                            key={social.label}
+                                            href={social.href}
+                                            target={social.label === 'Phone' || social.label === 'Email' ? undefined : '_blank'}
+                                            rel={social.label === 'Phone' || social.label === 'Email' ? undefined : 'noreferrer'}
+                                            className="group flex items-center gap-2 rounded-full border-[2px] px-4 py-2 text-sm font-semibold transition-all duration-200"
+                                            style={{
+                                                borderColor: isHovered ? social.hoverColor : social.color,
+                                                color: isHovered ? '#ffffff' : social.color,
+                                                backgroundColor: isHovered ? social.color : '#ffffff'
+                                            }}
+                                            onMouseEnter={() => setHoveredSocial(social.label)}
+                                            onMouseLeave={() => setHoveredSocial(null)}
+                                        >
+                                            <social.icon className="h-4 w-4" />
+                                            <span>{social.label}</span>
+                                        </a>
+                                    );
+                                })}
                             </div>
 
                             <p className="text-xs text-gray-400">
