@@ -8,14 +8,13 @@ const MusicSection: React.FC = () => {
         <section id="music" className="relative px-4 py-[var(--section-padding)] sm:px-6 lg:px-8">
             <div className="container mx-auto max-w-6xl">
                 <div className="flex flex-col items-center text-center">
-                    <span className="eyebrow inline-flex items-center gap-3 text-[var(--color-neon)]">
-                        <span className="h-[3px] w-10 bg-[var(--color-neon)]"></span>
+                    <span className="retro-badge mb-4 inline-block">
                         {musicData.eyebrow}
                     </span>
-                    <h2 className="mt-8 font-heading text-4xl leading-[0.9] text-[var(--color-ink)] sm:text-5xl lg:text-[3.75rem]">
+                    <h2 className="retro-heading text-h1 text-primary-red mb-6">
                         {musicData.title}
                     </h2>
-                    <p className="mt-6 max-w-2xl text-sm leading-relaxed text-gray-600 sm:text-base">
+                    <p className="max-w-2xl text-base leading-relaxed text-gray-700">
                         {musicData.description}
                     </p>
                 </div>
@@ -27,16 +26,13 @@ const MusicSection: React.FC = () => {
                         return (
                             <Link key={project.title} href={`/projects/${project.slug}`}>
                                 <article
-                                    className={`group relative flex h-full flex-col lg:flex-row overflow-hidden rounded-[28px] border-[3px] ${isLight ? 'border-[var(--color-ink)] bg-[var(--color-bg-light)] text-[var(--color-ink)]' : 'border-gray-200 bg-white/80 backdrop-blur-sm text-[var(--color-ink)]'
-                                        } p-6 sm:p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer`}
+                                    className={`group relative flex h-full flex-col lg:flex-row overflow-hidden retro-card hover:bg-background-sand transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer p-6 sm:p-8`}
                                     style={{
                                         animationDelay: `${index * 100}ms`
                                     }}
                                 >
-                                    <div
-                                        className="absolute -top-20 -right-20 h-40 w-40 rounded-full opacity-20 blur-[80px] transition-opacity duration-300 group-hover:opacity-30"
-                                        style={{ background: project.accent }}
-                                    ></div>
+                                    {/* Geometric accent */}
+                                    <div className="absolute top-4 right-4 w-4 h-4 bg-primary-orange transform rotate-45"></div>
 
                                     <div className="relative -mx-6 -mt-6 mb-6 h-48 sm:-mx-8 sm:-mt-8 lg:h-48 lg:w-48 lg:flex-shrink-0 lg:mx-0 lg:mt-0 lg:mb-0 lg:mr-8 overflow-hidden">
                                         <div

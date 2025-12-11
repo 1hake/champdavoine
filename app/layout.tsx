@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Anton, Space_Grotesk } from "next/font/google";
+import { Inter, League_Spartan, Space_Mono } from "next/font/google";
 import "./globals.css";
 
 const geistMono = localFont({
@@ -9,15 +9,21 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-const heading = Anton({
+const heading = League_Spartan({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-heading",
 });
 
-const body = Space_Grotesk({
+const body = Inter({
   subsets: ["latin"],
   variable: "--font-body",
+});
+
+const numeric = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-numeric",
 });
 
 export const metadata: Metadata = {
@@ -32,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${heading.variable} ${body.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${heading.variable} ${body.variable} ${numeric.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>
     </html>

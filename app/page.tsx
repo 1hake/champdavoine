@@ -9,6 +9,7 @@ import MusicSection from '../components/MusicSection'
 import Footer from '../components/Footer'
 import AboutSection from '@/components/AboutSection'
 import ScrollToTop from '@/components/ScrollToTop'
+import Ticker from '@/components/Ticker'
 
 export default function Home() {
   const [, setScrollY] = useState(0)
@@ -43,9 +44,18 @@ export default function Home() {
     }
   }, [])
 
+  const tickerMessages = [
+    "DÉVELOPPEUR FRONTEND PASSIONNÉ",
+    "SPÉCIALISTE REACT & TYPESCRIPT",
+    "BEDROOM MUSIC ARTIST",
+    "PROJETS CRÉATIFS & TECHNIQUES",
+    "PORTFOLIO 2024"
+  ];
+
   return (
-    <div className="relative min-h-screen min-w-screen text-[var(--color-ink)]">
+    <div className="relative min-h-screen min-w-screen text-[var(--text-primary)]">
       <Hero />
+      <Ticker messages={tickerMessages} />
       <AboutSection />
       <SkillsSection />
       <ExperienceSection />
@@ -54,5 +64,5 @@ export default function Home() {
       <Footer />
       <ScrollToTop />
     </div>
-  );
+  )
 }
